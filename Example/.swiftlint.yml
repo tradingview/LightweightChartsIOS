@@ -1,0 +1,28 @@
+excluded:
+  - Pods
+
+included:
+  - ../LightweightCharts/Classes
+
+disabled_rules:
+  - trailing_whitespace
+  - vertical_whitespace
+  - identifier_name
+
+force_cast: warning
+force_try: warning
+line_length:
+  warning: 125
+  error: 180
+  ignores_function_declarations: true
+nesting:
+  type_level: 3
+
+warning_threshold: 1
+
+custom_rules:
+  function_declarations_length:
+    name: "Function Declaration Length"
+    regex: '^(?=[^\n\r]{190,})[^\n\r]*?func [^\n\r]*$'
+    message: "Function declaration should be 190 characters or less"
+    severity: warning

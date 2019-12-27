@@ -1,0 +1,16 @@
+PODS:
+  - LightweightCharts (0.1.0)
+
+DEPENDENCIES:
+  - LightweightCharts (from `../`)
+
+EXTERNAL SOURCES:
+  LightweightCharts:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LightweightCharts: 9fed5cb7b040022a9fffc4b890b60ce1469a9c9a
+
+PODFILE CHECKSUM: 10aa45b030d82b96cfc0e4e3b143c5488576107b
+
+COCOAPODS: 1.8.4

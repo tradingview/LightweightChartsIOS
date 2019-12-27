@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LightweightCharts_Example' do
+  pod 'LightweightCharts', :path => '../'
+
+  target 'LightweightCharts_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
