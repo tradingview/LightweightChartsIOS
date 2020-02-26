@@ -90,7 +90,7 @@ extension Chart: ChartApi {
     }
     
     func resize(width: Double, height: Double, forceRepaint: Bool?) {
-        var parameters = "\(height), \(width)"
+        var parameters = "\(width), \(height)"
         if let forceRepaint = forceRepaint {
             parameters += ", \(forceRepaint)"
         }
