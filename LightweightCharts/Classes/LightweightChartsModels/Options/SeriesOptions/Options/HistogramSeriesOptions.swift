@@ -35,7 +35,6 @@ public struct HistogramSeriesOptions: SeriesOptionsCommon {
                 baseLineStyle: LineStyle? = nil,
                 color: ChartColor? = nil,
                 base: Double? = nil,
-                lineWidth: Double? = nil,
                 overlay: Bool? = nil,
                 scaleMargins: PriceScaleMargins? = nil) {
         self.lastValueVisible = lastValueVisible
