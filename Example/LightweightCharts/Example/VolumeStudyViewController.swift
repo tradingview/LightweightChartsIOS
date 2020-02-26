@@ -221,7 +221,6 @@ class VolumeStudyViewController: UIViewController {
             priceLineVisible: false,
             priceFormat: .builtIn(BuiltInPriceFormat(type: .volume, precision: nil, minMove: nil)),
             color: "#26a69a",
-            lineWidth: 2,
             overlay: true,
             scaleMargins: PriceScaleMargins(top: 0.8, bottom: 0)
         )

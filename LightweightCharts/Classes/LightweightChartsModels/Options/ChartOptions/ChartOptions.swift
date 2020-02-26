@@ -51,12 +51,12 @@ public struct ChartOptions {
     public var localization: LocalizationOptions?
     
     /**
-     Structure that describes scrolling behavior
+     Structure that describes scrolling behavior or boolean flag that disables/enables all kinds of scrolls
      */
     public var handleScroll: HandleScrollOptions?
     
     /**
-     Structure that describes scaling behavior
+     Structure that describes scaling behavior or boolean flag that disables/enables all kinds of scales
      */
     public var handleScale: HandleScaleOptions?
         
