@@ -1,9 +1,11 @@
 import Foundation
 
 public struct AreaSeriesOptions: SeriesOptionsCommon {
+    
     public var lastValueVisible: Bool?
     public var title: String?
     public var priceLineVisible: Bool?
+    public var priceLineSource: PriceLineSource?
     public var priceLineWidth: LineWidth?
     public var priceLineColor: ChartColor?
     public var priceLineStyle: LineStyle?
@@ -27,6 +29,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
     public init(lastValueVisible: Bool? = nil,
                 title: String? = nil,
                 priceLineVisible: Bool? = nil,
+                priceLineSource: PriceLineSource? = nil,
                 priceLineWidth: LineWidth? = nil,
                 priceLineColor: ChartColor? = nil,
                 priceLineStyle: LineStyle? = nil,
@@ -47,6 +50,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
         self.lastValueVisible = lastValueVisible
         self.title = title
         self.priceLineVisible = priceLineVisible
+        self.priceLineSource = priceLineSource
         self.priceLineWidth = priceLineWidth
         self.priceLineColor = priceLineColor
         self.priceLineStyle = priceLineStyle

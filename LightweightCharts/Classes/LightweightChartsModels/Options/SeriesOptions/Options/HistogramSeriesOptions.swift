@@ -5,6 +5,7 @@ public struct HistogramSeriesOptions: SeriesOptionsCommon {
     public var lastValueVisible: Bool?
     public var title: String?
     public var priceLineVisible: Bool?
+    public var priceLineSource: PriceLineSource?
     public var priceLineWidth: LineWidth?
     public var priceLineColor: ChartColor?
     public var priceLineStyle: LineStyle?
@@ -16,7 +17,6 @@ public struct HistogramSeriesOptions: SeriesOptionsCommon {
     
     public var color: ChartColor?
     public var base: Double?
-    public var lineWidth: Double?
     
     public var overlay: Bool?
     public var scaleMargins: PriceScaleMargins?
@@ -24,6 +24,7 @@ public struct HistogramSeriesOptions: SeriesOptionsCommon {
     public init(lastValueVisible: Bool? = nil,
                 title: String? = nil,
                 priceLineVisible: Bool? = nil,
+                priceLineSource: PriceLineSource? = nil,
                 priceLineWidth: LineWidth? = nil,
                 priceLineColor: ChartColor? = nil,
                 priceLineStyle: LineStyle? = nil,
@@ -40,6 +41,7 @@ public struct HistogramSeriesOptions: SeriesOptionsCommon {
         self.lastValueVisible = lastValueVisible
         self.title = title
         self.priceLineVisible = priceLineVisible
+        self.priceLineSource = priceLineSource
         self.priceLineWidth = priceLineWidth
         self.priceLineColor = priceLineColor
         self.priceLineStyle = priceLineStyle
@@ -50,7 +52,6 @@ public struct HistogramSeriesOptions: SeriesOptionsCommon {
         self.baseLineStyle = baseLineStyle
         self.color = color
         self.base = base
-        self.lineWidth = lineWidth
         self.overlay = overlay
         self.scaleMargins = scaleMargins
     }
