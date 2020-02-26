@@ -16,15 +16,14 @@ public protocol SeriesOptionsCommon: Codable {
     var title: String? { get }
 
     /**
-     * @internal
-     */
-//    var seriesLastValueMode: PriceAxisLastValueMode? { get }
-
-    /**
      Visibility of the price line. Price line is a horizontal line indicating the last price of the series
      */
     var priceLineVisible: Bool? { get }
     
+    /**
+     Enum of possible modes of priceLine source
+     */
+    var priceLineSource: PriceLineSource? { get }
     /**
      Width of the price line. Ignored if priceLineVisible is false
      */
