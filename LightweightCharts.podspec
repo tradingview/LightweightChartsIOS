@@ -19,9 +19,9 @@ Pod::Spec.new do |s|
       :script => 'LIBRARY=${TEMP_DIR}/lightweight-charts.js
       
 if [ "${CONFIGURATION}" = "Release" ]; then
-    curl -o $LIBRARY https://unpkg.com/lightweight-charts@2.0/dist/lightweight-charts.standalone.production.js
+    curl -o $LIBRARY https://unpkg.com/lightweight-charts@$2.0.0/dist/lightweight-charts.standalone.production.js
 else
-    curl -o $LIBRARY https://unpkg.com/lightweight-charts@2.0/dist/lightweight-charts.standalone.development.js
+    curl -o $LIBRARY https://unpkg.com/lightweight-charts@$2.0.0/dist/lightweight-charts.standalone.development.js
 fi
 
 cp -f $LIBRARY ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lightweight-charts.js'
