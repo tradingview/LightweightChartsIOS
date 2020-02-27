@@ -20,7 +20,7 @@ LightweightCharts is available through [CocoaPods](https://cocoapods.org). To in
 it, just simply add the following line to your Podfile:
 
 ```ruby
-pod 'LightweightCharts', :git => 'https://github.com/tradingview/LightweightChartsIOS.git'
+pod 'LightweightCharts', '~> 2.0.0'
 ```
 ## Usage
 
