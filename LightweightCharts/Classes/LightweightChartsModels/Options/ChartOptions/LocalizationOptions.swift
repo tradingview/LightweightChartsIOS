@@ -2,8 +2,6 @@ import Foundation
 
 public struct LocalizationOptions {
     
-    let jsonFlagForReplacing = UUID().uuidString
-    
     // swiftlint:disable line_length
     /**
      * Current locale, which will be used for formatting dates.
@@ -70,38 +68,7 @@ extension LocalizationOptions: Codable {
     
     enum CodingKeys: String, CodingKey {
         case locale
-        case priceFormatter
-        case timeFormatter
         case dateFormat
-    }
-    
-    // MARK: Decodable
-    
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        locale = try container.decodeIfPresent(String.self, forKey: .locale)
-        dateFormat = try container.decodeIfPresent(String.self, forKey: .dateFormat)
-        
-        priceFormatterJSFunction = nil
-        timeFormatterJSFunction = nil
-    }
-    
-    // MARK: Encodable
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(locale, forKey: .locale)
-        try container.encodeIfPresent(dateFormat, forKey: .dateFormat)
-        
-        if let priceFormatterJSFunction = priceFormatterJSFunction {
-            let script = priceFormatterJSFunction.argumentString(withFlag: jsonFlagForReplacing)
-            try container.encode(script, forKey: .priceFormatter)
-        }
-        
-        if let timeFormatterJSFunction = timeFormatterJSFunction {
-            let script = timeFormatterJSFunction.argumentString(withFlag: jsonFlagForReplacing)
-            try container.encode(script, forKey: .timeFormatter)
-        }
     }
     
 }

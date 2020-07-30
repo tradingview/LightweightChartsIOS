@@ -47,16 +47,10 @@ public class LightweightCharts: UIView {
     private func createChart(options: ChartOptions?) -> ChartApi {
         let chart = Chart(context: webView, closureStore: promptHandler)
         let options = options ?? ChartOptions()
-        let formattedJSON = options.formattedJSONtoJavaScript()
-        if let priceFormatter = formattedJSON.priceFormatter {
-            promptHandler.addMethod(priceFormatter.function, forName: priceFormatter.name)
-        }
-        if let timeFormatter = formattedJSON.timeFormatter {
-            promptHandler.addMethod(timeFormatter.function, forName: timeFormatter.name)
-        }
+        let optionsScript = options.optionsScript(for: promptHandler)
         let script = """
-        \(formattedJSON.functionsDeclarations)
-        var \(chart.jsName) = LightweightCharts.createChart(document.body, \(formattedJSON.optionsScript));
+        \(optionsScript.options)
+        var \(chart.jsName) = LightweightCharts.createChart(document.body, \(optionsScript.variableName));
         var seriesArray = [];
         """
         webView.evaluateScript(script) { [weak self] (_, error) in

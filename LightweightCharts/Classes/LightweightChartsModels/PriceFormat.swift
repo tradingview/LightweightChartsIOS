@@ -91,7 +91,6 @@ public struct BuiltInPriceFormat: Codable {
 // MARK: -
 public struct CustomPriceFormat {
     
-    let jsonFlagForReplacing = UUID().uuidString
     private let type = "custom"
     
     /**
@@ -107,7 +106,7 @@ public struct CustomPriceFormat {
         formatterJSFunction?.function
     }
     
-    let formatterJSFunction: JSFunction<BarPrice>?
+    var formatterJSFunction: JSFunction<BarPrice>?
     
     public init(minMove: Double?, formatter: JavaScriptMethod<BarPrice>) {
         self.minMove = minMove
@@ -130,26 +129,6 @@ extension CustomPriceFormat: Codable {
     enum CodingKeys: String, CodingKey {
         case type
         case minMove
-        case formatter
-    }
-
-    // MARK: Decodable
-    
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        minMove = try container.decodeIfPresent(BarPrice.self, forKey: .minMove)
-        
-        formatterJSFunction = nil
-    }
-    
-    // MARK: Encodable
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(type, forKey: .type)
-        try container.encodeIfPresent(minMove, forKey: .minMove)
-        let argumentString = formatterJSFunction?.argumentString(withFlag: jsonFlagForReplacing)
-        try container.encodeIfPresent(argumentString, forKey: .formatter)
     }
     
 }

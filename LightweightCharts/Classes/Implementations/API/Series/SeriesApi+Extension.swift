@@ -30,14 +30,11 @@ public extension SeriesApi where Self: SeriesObject {
     }
     
     func applyOptions(options: Options) {
-        let formattedJSON = options.formattedJSONtoJavaScript()
+        let optionsScript = options.optionsScript(for: closureStore)
         let script = """
-        \(formattedJSON.functionsDeclarations)
-        \(jsName).applyOptions(\(formattedJSON.optionsScript));
+        \(optionsScript.options)
+        \(jsName).applyOptions(\(optionsScript.variableName));
         """
-        if let customFormatter = formattedJSON.customFormatter {
-            closureStore?.addMethod(customFormatter.function, forName: customFormatter.name)
-        }
         context.evaluateScript(script, completion: nil)
     }
     

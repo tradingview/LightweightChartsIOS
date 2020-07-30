@@ -3,7 +3,7 @@ import Foundation
 /**
  * Structure describing options of the chart. Series options are to be set separately
  */
-public struct ChartOptions {
+public struct ChartOptions: Codable {
     
     /**
      Width of the chart
@@ -100,61 +100,21 @@ public struct ChartOptions {
     
 }
 
-// MARK: - Codable
-extension ChartOptions: Codable {
-    
-    private enum CodingKeys: String, CodingKey {
-        case width
-        case height
-        case watermark
-        case layout
-        case leftPriceScale
-        case rightPriceScale
-        case overlayPriceScales
-        case timeScale
-        case crosshair
-        case grid
-        case localization
-        case handleScroll
-        case handleScale
-    }
-    
-}
-
 // MARK: -
 extension ChartOptions {
     
-    func formattedJSONtoJavaScript() -> ChartFormattedJSONtoJavaScript {
-        var jsonOptions = jsonString
-        var priceFormatterScript = ""
-        var timeFormatterScript = ""
-        var priceFormatterFunction: FunctionWithName<BarPrice>?
-        var timeFormatterFunction: FunctionWithName<EventTime>?
-        
-        if let localization = self.localization {
-            if localization.priceFormatter != nil || localization.timeFormatter != nil {
-                let flag = localization.jsonFlagForReplacing
-                jsonOptions = jsonOptions
-                    .replacingOccurrences(of: "\"\(flag)", with: "")
-                    .replacingOccurrences(of: "\(flag)\"", with: "")
-            }
-            if let priceFormatterJSFunction = localization.priceFormatterJSFunction {
-                let name = priceFormatterJSFunction.name
-                priceFormatterFunction = FunctionWithName(name: name, function: priceFormatterJSFunction.function)
-                priceFormatterScript = priceFormatterJSFunction.declarationScript()
-            }
-            if let timeFormatterJSFunction = localization.timeFormatterJSFunction {
-                let name = timeFormatterJSFunction.name
-                timeFormatterFunction = FunctionWithName(name: name, function: timeFormatterJSFunction.function)
-                timeFormatterScript = timeFormatterJSFunction.declarationScript()
-            }
+    func optionsScript(for closuresStore: ClosuresStore?) -> (options: String, variableName: String) {
+        let variableName = "options"
+        var optionsScript = "var \(variableName) = \(jsonString);"
+        if let formatter = localization?.priceFormatterJSFunction {
+            closuresStore?.addMethod(formatter.function, forName: formatter.name)
+            optionsScript.append("\(variableName).localization.priceFormatter = \(formatter.script());")
         }
-        return ChartFormattedJSONtoJavaScript(
-            functionsDeclarations: "\(priceFormatterScript)\(timeFormatterScript)",
-            optionsScript: jsonOptions,
-            priceFormatter: priceFormatterFunction,
-            timeFormatter: timeFormatterFunction
-        )
+        if let formatter = localization?.timeFormatterJSFunction {
+            closuresStore?.addMethod(formatter.function, forName: formatter.name)
+            optionsScript.append("\(variableName).localization.timeFormatter = \(formatter.script());")
+        }
+        return (optionsScript, variableName)
     }
     
 }

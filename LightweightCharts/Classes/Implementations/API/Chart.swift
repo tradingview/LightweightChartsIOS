@@ -28,16 +28,10 @@ class Chart: JavaScriptObject {
     
     private func addSeries<T: SeriesApi & SeriesObject>(options: T.Options) -> T {
         let series = T(context: context, closureStore: closureStore)
-        
-        let formattedJSON = options.formattedJSONtoJavaScript()
-        let functionDeclarations = formattedJSON.functionsDeclarations
-        if let customFormatter = formattedJSON.customFormatter {
-            closureStore?.addMethod(customFormatter.function, forName: customFormatter.name)
-        }
-        
+        let optionsScript = options.optionsScript(for: closureStore)
         let script = """
-        \(functionDeclarations)
-        var \(series.jsName) = \(jsName).add\(T.name)(\(formattedJSON.optionsScript));
+        \(optionsScript.options)
+        var \(series.jsName) = \(jsName).add\(T.name)(\(optionsScript.variableName));
         seriesArray.push({name: "\(series.jsName)", series: \(series.jsName)});
         """
         context.evaluateScript(script, completion: nil)
@@ -161,14 +155,11 @@ extension Chart: ChartApi {
     }
     
     func applyOptions(options: ChartOptions) {
-        let formattedJSON = options.formattedJSONtoJavaScript()
-        if let priceFormatter = formattedJSON.priceFormatter {
-            closureStore?.addMethod(priceFormatter.function, forName: priceFormatter.name)
-        }
-        if let timeFormatter = formattedJSON.timeFormatter {
-            closureStore?.addMethod(timeFormatter.function, forName: timeFormatter.name)
-        }
-        let script = "\(formattedJSON.functionsDeclarations)\(jsName).applyOptions(\(formattedJSON.optionsScript));"
+        let optionsScript = options.optionsScript(for: closureStore)
+        let script = """
+        \(optionsScript.options)
+        \(jsName).applyOptions(\(optionsScript.variableName));
+        """
         context.evaluateScript(script, completion: nil)
     }
     

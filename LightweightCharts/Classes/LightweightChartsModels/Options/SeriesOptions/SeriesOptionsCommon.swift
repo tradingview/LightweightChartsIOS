@@ -78,36 +78,16 @@ public protocol SeriesOptionsCommon: Codable {
     
 }
 
-
 extension SeriesOptionsCommon {
-
-    func formattedJSONtoJavaScript() -> SeriesFormattedJSONtoJavaScript {
-        var jsonOptions = jsonString
-        var functionScript = ""
-        var customFormatterFunction: FunctionWithName<BarPrice>?
-        
-        if let formatter = priceFormat {
-            switch formatter {
-            case let .custom(customFormatter):
-                if let formatterJSFunction = customFormatter.formatterJSFunction {
-                    let name = formatterJSFunction.name
-                    customFormatterFunction = FunctionWithName(name: name, function: formatterJSFunction.function)
-                    let flag = customFormatter.jsonFlagForReplacing
-                    functionScript = formatterJSFunction.declarationScript()
-                    jsonOptions = jsonOptions
-                        .replacingOccurrences(of: "\"\(flag)", with: "")
-                        .replacingOccurrences(of: "\(flag)\"", with: "")
-                }
-            case .builtIn:
-                break
-            }
+    
+    func optionsScript(for closuresStore: ClosuresStore?) -> (options: String, variableName: String) {
+        let variableName = "options"
+        var optionsScript = "var \(variableName) = \(jsonString);"
+        if case let .custom(customFormatter) = priceFormat, let formatter = customFormatter.formatterJSFunction {
+            closuresStore?.addMethod(formatter.function, forName: formatter.name)
+            optionsScript.append("\(variableName).priceFormat.formatter = \(formatter.script());")
         }
-        
-        return SeriesFormattedJSONtoJavaScript(
-            functionsDeclarations: functionScript,
-            optionsScript: jsonOptions,
-            customFormatter: customFormatterFunction
-        )
+        return (optionsScript, variableName)
     }
     
 }

@@ -41,29 +41,13 @@ struct JSFunction<T: Decodable> {
         self.init(function: .javaScript(javaScript))
     }
     
-    func declarationScript() -> String {
+    func script() -> String {
         switch function {
+        case let .javaScript(javaScript):
+            return javaScript
         case .closure:
-            return functionScript()
-        case .javaScript:
-            return ""
+            return "promptFunction('\(name)');"
         }
-    }
-    
-    func argumentString(withFlag flag: String) -> String {
-        let name: String = {
-            switch function {
-            case let .javaScript(javaScript):
-                return javaScript
-            case .closure:
-                return self.name
-            }
-        }()
-        return flag + name + flag
-    }
-    
-    private func functionScript() -> String {
-        return "var \(name) = promptFunction('\(name)');"
     }
     
 }
