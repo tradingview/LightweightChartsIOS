@@ -38,15 +38,18 @@ public struct LocalizationOptions {
     }
     
     /**
-     * One of predefined options to format time. Ignored if timeFormatter has been specified.
+     * Date formatting string.
+     * Might contains `yyyy`, `yy`, `MMMM`, `MMM`, `MM` and `dd` literals
+     * which will be replaced with corresponding date's value.
+     * Ignored if timeFormatter has been specified.
      */
-    public var dateFormat: DateFormat?
+    public var dateFormat: String?
     
     var priceFormatterJSFunction: JSFunction<BarPrice>?
     var timeFormatterJSFunction: JSFunction<EventTime>?
     
     public init(locale: String? = nil,
-                dateFormat: DateFormat? = nil,
+                dateFormat: String? = nil,
                 priceFormatter: JavaScriptMethod<BarPrice>? = nil,
                 timeFormatter: JavaScriptMethod<EventTime>? = nil) {
         self.locale = locale
@@ -77,7 +80,7 @@ extension LocalizationOptions: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         locale = try container.decodeIfPresent(String.self, forKey: .locale)
-        dateFormat = try container.decodeIfPresent(DateFormat.self, forKey: .dateFormat)
+        dateFormat = try container.decodeIfPresent(String.self, forKey: .dateFormat)
         
         priceFormatterJSFunction = nil
         timeFormatterJSFunction = nil

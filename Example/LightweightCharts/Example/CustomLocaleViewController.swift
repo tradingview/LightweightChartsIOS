@@ -222,7 +222,7 @@ class CustomLocaleViewController: UIViewController {
 
     @objc private func valueChanged(_ sender: UISegmentedControl) {
         let locale = locales[sender.selectedSegmentIndex]
-        let dateFormat: DateFormat = locale == "ja-JP" ? .yearFirstMediumWithHyphen : .full
+        let dateFormat = locale == "ja-JP" ? "yyyy-MM-dd" : "dd MMM \'yy"
         let localizationOptions = LocalizationOptions(locale: locale, dateFormat: dateFormat)
         chart.applyOptions(options: ChartOptions(localization: localizationOptions))
     }

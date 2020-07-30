@@ -40,6 +40,15 @@ public struct WatermarkOptions {
     public var fontSize: Int?
     
     /**
+     Font family
+     */
+    public var fontFamily: String?
+    /**
+     Font style
+     */
+    public var fontStyle: String?
+    
+    /**
      Horizontal alignment of the watermark inside the chart area
      */
     public var horizontalAlignment: HorizontalAlignment?
@@ -53,12 +62,16 @@ public struct WatermarkOptions {
                 visible: Bool? = nil,
                 text: String? = nil,
                 fontSize: Int? = nil,
+                fontFamily: String? = nil,
+                fontStyle: String? = nil,
                 horizontalAlignment: HorizontalAlignment? = nil,
                 verticalAlignment: VerticalAlignment? = nil) {
         self.color = color
         self.visible = visible
         self.text = text
         self.fontSize = fontSize
+        self.fontFamily = fontFamily
+        self.fontStyle = fontStyle
         self.horizontalAlignment = horizontalAlignment
         self.verticalAlignment = verticalAlignment
     }

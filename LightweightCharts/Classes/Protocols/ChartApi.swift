@@ -92,25 +92,14 @@ public protocol ChartApi: class {
      * - Parameter handler: previously subscribed handler
      */
     func unsubscribeCrosshairMove()
-    
-    /**
-     * Adds a subscription to visible range changes to receive notification about visible range of data changes
-     * - Parameter handler: handler (function) to be called on changing visible data range
-     */
-    func subscribeVisibleTimeRangeChange()
-
-    /**
-     * Removes a subscription to visible range changes
-     * - Parameter handler: previously subscribed handler
-     */
-    func unsubscribeVisibleTimeRangeChange()
 
     // MARK: - Other APIs and options methods
     /**
      * Returns API to manipulate the price scale
+     * - Parameter priceScaleID: id of scale to access to
      * - Returns: target API
      */
-    func priceScale() -> PriceScaleApi
+    func priceScale(priceScaleId: String?) -> PriceScaleApi
 
     /**
      * Returns API to manipulate the time scale

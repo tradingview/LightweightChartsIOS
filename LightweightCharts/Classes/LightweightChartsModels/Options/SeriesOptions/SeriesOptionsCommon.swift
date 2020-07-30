@@ -14,7 +14,12 @@ public protocol SeriesOptionsCommon: Codable {
      Title of the series. This label is placed with price axis label
      */
     var title: String? { get }
-
+    
+    /**
+     Target price scale to bind new series to
+     */
+    var priceScaleId: String? { get }
+    
     /**
      Visibility of the price line. Price line is a horizontal line indicating the last price of the series
      */
@@ -24,6 +29,7 @@ public protocol SeriesOptionsCommon: Codable {
      Enum of possible modes of priceLine source
      */
     var priceLineSource: PriceLineSource? { get }
+    
     /**
      Width of the price line. Ignored if priceLineVisible is false
      */
@@ -64,9 +70,11 @@ public protocol SeriesOptionsCommon: Codable {
      */
     var baseLineStyle: LineStyle? { get }
     
-    var overlay: Bool? { get }
-    
-    var scaleMargins: PriceScaleMargins? { get }
+    /**
+     Function that overrides calculating of visible prices range
+     */
+    // TODO: Implement
+//    var autoscaleInfoProvider: AutoscaleInfoProvider? { get }
     
 }
 

@@ -2,13 +2,13 @@ import Foundation
 
 public struct PriceLineOptions: Codable {
     
-    public var price: BarPrice?
+    public var price: Double?
     public var color: ChartColor?
     public var lineWidth: LineWidth?
     public var lineStyle: LineStyle?
     public var axisLabelVisible: Bool?
     
-    public init(price: BarPrice? = nil,
+    public init(price: Double? = nil,
                 color: ChartColor? = nil,
                 lineWidth: LineWidth? = nil,
                 lineStyle: LineStyle? = nil,

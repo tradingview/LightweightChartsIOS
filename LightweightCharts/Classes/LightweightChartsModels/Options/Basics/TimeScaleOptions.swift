@@ -12,6 +12,8 @@ public struct TimeScaleOptions: Codable {
     public var visible: Bool?
     public var timeVisible: Bool?
     public var secondsVisible: Bool?
+    // TODO: Implement
+//    public var tickMarkFormatter: TickMarkFormatter?
     
     public init(rightOffset: Double? = nil,
                 barSpacing: Double? = nil,
@@ -22,7 +24,8 @@ public struct TimeScaleOptions: Codable {
                 borderColor: ChartColor? = nil,
                 visible: Bool? = nil,
                 timeVisible: Bool? = nil,
-                secondsVisible: Bool? = nil) {
+                secondsVisible: Bool? = nil,
+                tickMarkFormatter: TickMarkFormatter? = nil) {
         self.rightOffset = rightOffset
         self.barSpacing = barSpacing
         self.fixLeftEdge = fixLeftEdge
@@ -33,6 +36,7 @@ public struct TimeScaleOptions: Codable {
         self.visible = visible
         self.timeVisible = timeVisible
         self.secondsVisible = secondsVisible
+//        self.tickMarkFormatter = tickMarkFormatter
     }
 
 }

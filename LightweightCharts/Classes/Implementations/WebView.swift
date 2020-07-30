@@ -66,3 +66,12 @@ extension WebView: JavaScriptEvaluator {
     }
     
 }
+
+// MARK: - JavaScriptMessageProducer
+extension WebView: JavaScriptMessageProducer {
+    
+    func addMessageHandler(_ messageHandler: WKScriptMessageHandler, name: String) {
+        configuration.userContentController.add(messageHandler, name: name)
+    }
+    
+}

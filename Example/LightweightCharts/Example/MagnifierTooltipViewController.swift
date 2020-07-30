@@ -25,8 +25,7 @@ class MagnifierTooltipViewController: UIViewController {
     
     private func setupUI() {
         let options = ChartOptions(
-            priceScale: PriceScaleOptions(
-                position: .left,
+            leftPriceScale: VisiblePriceScaleOptions(
                 scaleMargins: PriceScaleMargins(top: 0.2, bottom: 0.2),
                 borderVisible: false
             ),
@@ -426,15 +425,17 @@ extension MagnifierTooltipViewController: ChartDelegate {
             tooltipView.isHidden = false
             
             let x = CGFloat(point.x)
+            let targetConstant = x - tooltipView.frame.width * 0.5
+            let maximumOffset = self.chart.frame.width - tooltipView.frame.width - 50
             
-            if x > self.chart.frame.width - tooltipView.frame.width {
-                leadingConstraint.constant = self.chart.frame.width - tooltipView.frame.width
-            } else if x < tooltipView.frame.width / 2 {
-                leadingConstraint.constant = 50
-            } else {
-                leadingConstraint.constant = x
+            switch targetConstant {
+            case ...0:
+                leadingConstraint.constant = 0
+            case maximumOffset...:
+                leadingConstraint.constant = maximumOffset
+            default:
+                leadingConstraint.constant = targetConstant
             }
-            
         } else {
             self.tooltipView.isHidden = true
         }

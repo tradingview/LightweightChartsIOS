@@ -108,7 +108,7 @@ class CustomPriceFormatterViewController: UIViewController {
         
         let options = ChartOptions(
             layout: LayoutOptions(backgroundColor: "#000", textColor: "rgba(255, 255, 255, 0.8)"),
-            priceScale: PriceScaleOptions(borderColor: "rgba(255, 255, 255, 0.8)"),
+            rightPriceScale: VisiblePriceScaleOptions(borderColor: "rgba(255, 255, 255, 0.8)"),
             timeScale: TimeScaleOptions(borderColor: "rgba(255, 255, 255, 0.8)"),
             crosshair: CrosshairOptions(mode: .normal),
             grid: GridOptions(

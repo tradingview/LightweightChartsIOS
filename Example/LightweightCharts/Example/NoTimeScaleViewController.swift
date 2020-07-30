@@ -31,10 +31,8 @@ class NoTimeScaleViewController: UIViewController {
     private func setupUI() {
         let options = ChartOptions(
             layout: LayoutOptions(backgroundColor: "#fafafa"),
-            priceScale: PriceScaleOptions(
-                position: PriceAxisPosition.none,
-                scaleMargins: PriceScaleMargins(top: 0.2, bottom: 0.2)
-            ),
+            leftPriceScale: VisiblePriceScaleOptions(visible: false),
+            rightPriceScale: VisiblePriceScaleOptions(visible: false),
             timeScale: TimeScaleOptions(visible: false),
             crosshair: CrosshairOptions(
                 vertLine: CrosshairLineOptions(visible: false),
@@ -248,13 +246,20 @@ class NoTimeScaleViewController: UIViewController {
         self.areaSeries = areaSeries
         
         let volumeSeriesOptions = HistogramSeriesOptions(
+            priceScaleId: "123",
             priceLineVisible: false,
             priceFormat: .builtIn(BuiltInPriceFormat(type: .volume, precision: nil, minMove: nil)),
-            color: "rgba(76, 175, 80, 0.5)",
-            overlay: true,
-            scaleMargins: PriceScaleMargins(top: 0.85, bottom: 0)
+            color: "rgba(76, 175, 80, 0.5)"
         )
         let volumeSeries = chart.addHistogramSeries(options: volumeSeriesOptions)
+        volumeSeries.priceScale().applyOptions(
+            options: PriceScaleOptions(
+                scaleMargins: PriceScaleMargins(
+                    top: 0.85,
+                    bottom: 0
+                )
+            )
+        )
         let volumeData = [
             HistogramData(color: nil, time: .string("2018-10-19"), value: 33078726.00),
             HistogramData(color: nil, time: .string("2018-10-22"), value: 28792082.00),

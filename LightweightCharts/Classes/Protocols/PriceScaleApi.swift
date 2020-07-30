@@ -15,4 +15,10 @@ public protocol PriceScaleApi: class {
      */
     func options(completion: @escaping (PriceScaleOptions?) -> Void)
     
+    /**
+     * Returns a width of the price scale if it's visible or 0 if invisible.
+     * - Parameter completion: a width of the price scale if it's visible or 0 if invisible
+     */
+    func width(completion: @escaping (Double?) -> Void)
+    
 }

@@ -18,7 +18,7 @@ line_length:
 nesting:
   type_level: 3
 
-warning_threshold: 1
+warning_threshold: 100
 
 custom_rules:
   function_declarations_length:

@@ -12,6 +12,7 @@ protocol HistogramSeriesData: LineSeriesData {
     
 }
 
+// MARK: -
 public struct HistogramData: HistogramSeriesData {
     
     public var color: ChartColor?

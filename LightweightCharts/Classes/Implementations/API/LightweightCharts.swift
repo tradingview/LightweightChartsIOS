@@ -45,7 +45,7 @@ public class LightweightCharts: UIView {
     /// - Parameter options: This function is the main entry point of the Lightweight Charting Library
     /// - Returns: an interface to the created chart
     private func createChart(options: ChartOptions?) -> ChartApi {
-        let chart = Chart(webView: webView, closureStore: promptHandler)
+        let chart = Chart(context: webView, closureStore: promptHandler)
         let options = options ?? ChartOptions()
         let formattedJSON = options.formattedJSONtoJavaScript()
         if let priceFormatter = formattedJSON.priceFormatter {
@@ -192,16 +192,8 @@ extension LightweightCharts: ChartApi {
         chart.unsubscribeCrosshairMove()
     }
     
-    public func subscribeVisibleTimeRangeChange() {
-        chart.subscribeVisibleTimeRangeChange()
-    }
-    
-    public func unsubscribeVisibleTimeRangeChange() {
-        chart.unsubscribeVisibleTimeRangeChange()
-    }
-    
-    public func priceScale() -> PriceScaleApi {
-        chart.priceScale()
+    public func priceScale(priceScaleId: String?) -> PriceScaleApi {
+        chart.priceScale(priceScaleId: priceScaleId)
     }
     
     public func timeScale() -> TimeScaleApi {

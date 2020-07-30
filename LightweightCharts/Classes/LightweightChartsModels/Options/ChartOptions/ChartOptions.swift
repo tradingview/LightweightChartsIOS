@@ -26,9 +26,19 @@ public struct ChartOptions {
     public var layout: LayoutOptions?
     
     /**
-     Structure with price scale options
+     Structure with price scale option for left price scale
      */
-    public var priceScale: PriceScaleOptions?
+    public var leftPriceScale: VisiblePriceScaleOptions?
+    
+    /**
+     Structure with price scale option for right price scale
+     */
+    public var rightPriceScale: VisiblePriceScaleOptions?
+    
+    /**
+     Structure describing default price scale options for overlays
+     */
+    public var overlayPriceScales: OverlayPriceScaleOptions?
     
     /**
      Structure with time scale options
@@ -58,24 +68,28 @@ public struct ChartOptions {
     /**
      Structure that describes scaling behavior or boolean flag that disables/enables all kinds of scales
      */
-    public var handleScale: HandleScaleOptions?
+    public var handleScale: TogglableOptions<HandleScaleOptions>?
         
     public init(width: Double? = nil,
                 height: Double? = nil,
                 watermark: WatermarkOptions? = nil,
                 layout: LayoutOptions? = nil,
-                priceScale: PriceScaleOptions? = nil,
+                leftPriceScale: VisiblePriceScaleOptions? = nil,
+                rightPriceScale: VisiblePriceScaleOptions? = nil,
+                overlayPriceScales: OverlayPriceScaleOptions? = nil,
                 timeScale: TimeScaleOptions? = nil,
                 crosshair: CrosshairOptions? = nil,
                 grid: GridOptions? = nil,
                 localization: LocalizationOptions? = nil,
                 handleScroll: HandleScrollOptions? = nil,
-                handleScale: HandleScaleOptions? = nil) {
+                handleScale: TogglableOptions<HandleScaleOptions>? = nil) {
         self.width = width
         self.height = height
         self.watermark = watermark
         self.layout = layout
-        self.priceScale = priceScale
+        self.leftPriceScale = leftPriceScale
+        self.rightPriceScale = rightPriceScale
+        self.overlayPriceScales = overlayPriceScales
         self.timeScale = timeScale
         self.crosshair = crosshair
         self.grid = grid
@@ -94,7 +108,9 @@ extension ChartOptions: Codable {
         case height
         case watermark
         case layout
-        case priceScale
+        case leftPriceScale
+        case rightPriceScale
+        case overlayPriceScales
         case timeScale
         case crosshair
         case grid

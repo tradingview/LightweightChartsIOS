@@ -7,6 +7,7 @@ public struct CandlestickSeriesOptions: SeriesOptionsCommon {
     
     public var lastValueVisible: Bool?
     public var title: String?
+    public var priceScaleId: String?
     public var priceLineVisible: Bool?
     public var priceLineSource: PriceLineSource?
     public var priceLineWidth: LineWidth?
@@ -70,11 +71,9 @@ public struct CandlestickSeriesOptions: SeriesOptionsCommon {
      */
     public var wickDownColor: ChartColor?
     
-    public var overlay: Bool?
-    public var scaleMargins: PriceScaleMargins?
-    
     public init(lastValueVisible: Bool? = nil,
                 title: String? = nil,
+                priceScaleId: String? = nil,
                 priceLineVisible: Bool? = nil,
                 priceLineSource: PriceLineSource? = nil,
                 priceLineWidth: LineWidth? = nil,
@@ -94,11 +93,10 @@ public struct CandlestickSeriesOptions: SeriesOptionsCommon {
                 borderDownColor: ChartColor? = nil,
                 wickColor: ChartColor? = nil,
                 wickUpColor: ChartColor? = nil,
-                wickDownColor: ChartColor? = nil,
-                overlay: Bool? = nil,
-                scaleMargins: PriceScaleMargins? = nil) {
+                wickDownColor: ChartColor? = nil) {
         self.lastValueVisible = lastValueVisible
         self.title = title
+        self.priceScaleId = priceScaleId
         self.priceLineVisible = priceLineVisible
         self.priceLineSource = priceLineSource
         self.priceLineWidth = priceLineWidth
@@ -119,8 +117,6 @@ public struct CandlestickSeriesOptions: SeriesOptionsCommon {
         self.wickColor = wickColor
         self.wickUpColor = wickUpColor
         self.wickDownColor = wickDownColor
-        self.overlay = overlay
-        self.scaleMargins = scaleMargins
     }
     
 }

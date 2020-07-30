@@ -15,13 +15,6 @@ public enum PriceScaleMode: Int, Codable {
 }
 
 // MARK: -
-public enum PriceAxisPosition: String, Codable {
-    case left
-    case right
-    case none
-}
-
-// MARK: -
 /** Defines margins of the price scale */
 public struct PriceScaleMargins: Codable {
     
@@ -39,74 +32,142 @@ public struct PriceScaleMargins: Codable {
 }
 
 // MARK: -
-/**
- Structure that describes price scale options
- */
-public struct PriceScaleOptions: Codable {
-    
-    /**
-     True makes chart calculate the price range automatically based on the visible data range
-     */
-    public var autoScale: Bool?
+protocol OverlayPriceScaleOptionsProtocol {
     
     /**
      Mode of the price scale
      */
-    public var mode: PriceScaleMode?
+    var mode: PriceScaleMode? { get }
     
     /**
      True inverts the scale. Makes larger values drawn lower. Affects both the price scale and the data on the chart
      */
-    public var invertScale: Bool?
+    var invertScale: Bool? { get }
     
     /**
      True value prevents labels on the price scale from overlapping one another by aligning them one below others
      */
-    public var alignLabels: Bool?
-    
-    /**
-     Defines position of the price scale on the chart
-     */
-    public var position: PriceAxisPosition?
+    var alignLabels: Bool? { get }
     
     /**
      Defines price margins for the price scale
      */
-    public var scaleMargins: PriceScaleMargins?
+    var scaleMargins: PriceScaleMargins? { get }
     
     /**
      Set true to draw a border between the price scale and the chart area
      */
-    public var borderVisible: Bool?
+    var borderVisible: Bool? { get }
     
     /**
      Defines a color of the border between the price scale and the chart area. It is ignored if borderVisible is false
      */
-    public var borderColor: ChartColor?
+    var borderColor: ChartColor? { get }
     
     /**
      Indicates whether the price scale displays only full lines of text or partial lines.
      */
+    var entireTextOnly: Bool? { get }
+    
+    /**
+     True value add a small horizontal ticks on price axis labels
+     */
+    var drawTicks: Bool? { get }
+    
+}
+
+// MARK: -
+protocol VisiblePriceScaleOptionsProtocol: OverlayPriceScaleOptionsProtocol {
+    
+    /**
+     True makes chart calculate the price range automatically based on the visible data range
+     */
+    var autoScale: Bool? { get }
+    
+    /**
+     Indicates if this price scale visible. Could not be applied to overlay price scale
+     */
+    var visible: Bool? { get }
+    
+}
+
+// MARK: -
+/**
+Structure that describes price scale options
+*/
+public struct PriceScaleOptions: Codable, VisiblePriceScaleOptionsProtocol {
+    
+    public var autoScale: Bool?
+    public var mode: PriceScaleMode?
+    public var invertScale: Bool?
+    public var alignLabels: Bool?
+    public var scaleMargins: PriceScaleMargins?
+    public var borderVisible: Bool?
+    public var borderColor: ChartColor?
     public var entireTextOnly: Bool?
+    public var visible: Bool?
+    public var drawTicks: Bool?
     
     public init(autoScale: Bool? = nil,
                 mode: PriceScaleMode? = nil,
                 invertScale: Bool? = nil,
                 alignLabels: Bool? = nil,
-                position: PriceAxisPosition? = nil,
                 scaleMargins: PriceScaleMargins? = nil,
                 borderVisible: Bool? = nil,
                 borderColor: ChartColor? = nil,
-                entireTextOnly: Bool? = nil) {
+                entireTextOnly: Bool? = nil,
+                visible: Bool? = nil,
+                drawTicks: Bool? = nil) {
         self.autoScale = autoScale
         self.mode = mode
         self.invertScale = invertScale
         self.alignLabels = alignLabels
-        self.position = position
         self.scaleMargins = scaleMargins
         self.borderVisible = borderVisible
         self.borderColor = borderColor
         self.entireTextOnly = entireTextOnly
+        self.visible = visible
+        self.drawTicks = drawTicks
+    }
+    
+}
+
+// MARK: -
+public typealias VisiblePriceScaleOptions = PriceScaleOptions
+
+// MARK: -
+/**
+ Structure that describes price scale options
+ */
+public struct OverlayPriceScaleOptions: Codable, OverlayPriceScaleOptionsProtocol {
+    
+    public var mode: PriceScaleMode?
+    public var invertScale: Bool?
+    public var alignLabels: Bool?
+    public var scaleMargins: PriceScaleMargins?
+    public var borderVisible: Bool?
+    public var borderColor: ChartColor?
+    public var entireTextOnly: Bool?
+    public var drawTicks: Bool?
+    
+    public init(autoScale: Bool? = nil,
+                mode: PriceScaleMode? = nil,
+                invertScale: Bool? = nil,
+                alignLabels: Bool? = nil,
+                scaleMargins: PriceScaleMargins? = nil,
+                borderVisible: Bool? = nil,
+                borderColor: ChartColor? = nil,
+                entireTextOnly: Bool? = nil,
+                visible: Bool? = nil,
+                drawTicks: Bool? = nil) {
+        self.mode = mode
+        self.invertScale = invertScale
+        self.alignLabels = alignLabels
+        self.scaleMargins = scaleMargins
+        self.borderVisible = borderVisible
+        self.borderColor = borderColor
+        self.entireTextOnly = entireTextOnly
+        self.drawTicks = drawTicks
     }
     
 }

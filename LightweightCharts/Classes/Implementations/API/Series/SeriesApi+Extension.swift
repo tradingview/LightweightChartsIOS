@@ -10,18 +10,23 @@ public extension SeriesApi where Self: SeriesObject {
         return priceFormatter
     }
     
-    func coordinateToPrice(coordinate: Coordinate, completion: @escaping (BarPrice?) -> Void) {
+    func coordinateToPrice(coordinate: Double, completion: @escaping (BarPrice?) -> Void) {
         let script = "\(jsName).coordinateToPrice(\(coordinate));"
         context.evaluateScript(script) { (result, _) in
             completion(result as? BarPrice)
         }
     }
     
-    func priceToCoordinate(price: BarPrice, completion: @escaping (Coordinate?) -> Void) {
+    func priceToCoordinate(price: Double, completion: @escaping (Coordinate?) -> Void) {
         let script = "\(jsName).priceToCoordinate(\(price));"
         context.evaluateScript(script) { (result, _) in
             completion(result as? Coordinate)
         }
+    }
+    
+    func barsInLogicalRange(range: FromToRange<Double>, completion: @escaping (BarsInfo?) -> Void) {
+        let script = "\(jsName).setData(\(range.jsonString));"
+        context.decodedResult(forScript: script, completion: completion)
     }
     
     func applyOptions(options: Options) {
@@ -41,14 +46,36 @@ public extension SeriesApi where Self: SeriesObject {
         context.decodedResult(forScript: script, completion: completion)
     }
     
+    func priceScale() -> PriceScaleApi {
+        let priceScale = PriceScale(context: context)
+        let script = "var \(priceScale.jsName) = \(jsName).priceScale();"
+        context.evaluateScript(script) { _, _ in
+        }
+        return priceScale
+    }
+    
     func setData(data: [TickValue]) {
-        let script = "\(jsName).setData(\(data.jsonString));"
-        context.evaluateScript(script, completion: nil)
+        setSeriesData(data)
     }
     
     func update(bar: TickValue) {
-        let script = "\(jsName).update(\(bar.jsonString));"
-        context.evaluateScript(script, completion: nil)
+        updateSeriesBar(bar)
+    }
+    
+    func setData(data: [WhitespaceData]) {
+        setSeriesData(data)
+    }
+    
+    func update(bar: WhitespaceData) {
+        updateSeriesBar(bar)
+    }
+    
+    func setData(data: [SeriesDataType<TickValue>]) {
+        setSeriesData(data)
+    }
+    
+    func update(bar: SeriesDataType<TickValue>) {
+        updateSeriesBar(bar)
     }
     
     func setMarkers(data: [SeriesMarker]) {
@@ -66,6 +93,16 @@ public extension SeriesApi where Self: SeriesObject {
     
     func removePriceLine(line: PriceLine) {
         let script = "\(jsName).removePriceLine(\(line.jsName));"
+        context.evaluateScript(script, completion: nil)
+    }
+    
+    private func setSeriesData<T: SeriesData>(_ data: [T]) {
+        let script = "\(jsName).setData(\(data.jsonString));"
+        context.evaluateScript(script, completion: nil)
+    }
+    
+    private func updateSeriesBar<T: SeriesData>(_ bar: T) {
+        let script = "\(jsName).update(\(bar.jsonString));"
         context.evaluateScript(script, completion: nil)
     }
     

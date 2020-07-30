@@ -19,7 +19,10 @@ class PriceScaleAtLeftViewController: UIViewController {
     }
     
     private func setupUI() {
-        let options = ChartOptions(priceScale: PriceScaleOptions(position: .left))
+        let options = ChartOptions(
+            leftPriceScale: VisiblePriceScaleOptions(visible: true),
+            rightPriceScale: VisiblePriceScaleOptions(visible: false)
+        )
         let chart = LightweightCharts(options: options)
         view.addSubview(chart)
         chart.translatesAutoresizingMaskIntoConstraints = false

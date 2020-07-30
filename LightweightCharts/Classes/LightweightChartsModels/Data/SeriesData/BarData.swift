@@ -11,6 +11,7 @@ protocol BarSeriesData: SeriesData {
     
 }
 
+// MARK: -
 public struct BarData: BarSeriesData {
     
     public var time: Time

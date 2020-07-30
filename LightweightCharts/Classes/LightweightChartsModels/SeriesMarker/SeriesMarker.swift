@@ -22,17 +22,23 @@ public struct SeriesMarker: Codable {
     public var shape: SeriesMarkerShape
     public var color: ChartColor
     public var id: String?
+    public var text: String?
+    public var size: Double?
     
     public init(time: Time,
                 position: SeriesMarkerPosition,
                 shape: SeriesMarkerShape,
                 color: ChartColor,
-                id: String?) {
+                id: String? = nil,
+                text: String? = nil,
+                size: Double? = nil) {
         self.time = time
         self.position = position
         self.shape = shape
         self.color = color
         self.id = id
+        self.text = text
+        self.size = size
     }
     
 }

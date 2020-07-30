@@ -29,7 +29,7 @@ class CustomWatermarkViewController: UIViewController {
                 verticalAlignment: .center
             ),
             layout: LayoutOptions(backgroundColor: "#ffffff", textColor: "#333"),
-            priceScale: PriceScaleOptions(scaleMargins: PriceScaleMargins(top: 0.1, bottom: 0.2)),
+            rightPriceScale: VisiblePriceScaleOptions(scaleMargins: PriceScaleMargins(top: 0.1, bottom: 0.2)),
             grid: GridOptions(
                 verticalLines: GridLineOptions(color: "#eee"),
                 horizontalLines: GridLineOptions(color: "#ffffff")
