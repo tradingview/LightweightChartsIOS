@@ -147,7 +147,7 @@ extension Chart: ChartApi {
     }
     
     func timeScale() -> TimeScaleApi {
-        let timeScale = TimeScale(context: context)
+        let timeScale = TimeScale(context: context, closureStore: closureStore)
         let script = "var \(timeScale.jsName) = \(jsName).timeScale();"
         context.evaluateScript(script) { _, _ in
         }

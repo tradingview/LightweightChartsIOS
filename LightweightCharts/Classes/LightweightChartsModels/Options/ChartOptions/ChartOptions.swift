@@ -114,6 +114,10 @@ extension ChartOptions {
             closuresStore?.addMethod(formatter.function, forName: formatter.name)
             optionsScript.append("\(variableName).localization.timeFormatter = \(formatter.script());")
         }
+        if let formatter = timeScale?.tickMarkFormatterJSFunction {
+            closuresStore?.addMethod(formatter.function, forName: formatter.name)
+            optionsScript.append("\(variableName).timeScale.tickMarkFormatter = \(formatter.script());")
+        }
         return (optionsScript, variableName)
     }
     

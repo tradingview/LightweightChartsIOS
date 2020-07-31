@@ -10,6 +10,30 @@ function promptFunction(objectName) {
     }
 }
 
+function promptTickMarkFormatterFunction(objectName) {
+    return function(time, tickMarkType, locale) {
+        try {
+            var payload = {object: objectName, params: {time: time, tickMarkType: tickMarkType, locale: locale}};
+            var result = prompt(JSON.stringify(payload));
+            return result;
+        } catch(err) {
+            console.log('Error with function ' + object + '.')
+        }
+    }
+}
+
+function promptAutoscaleInfoProviderFunction(objectName) {
+    return function(baseImplementation) {
+        try {
+            var payload = {object: objectName, params: baseImplementation()};
+            var result = prompt(JSON.stringify(payload));
+            return JSON.parse(result);
+        } catch(err) {
+            console.log('Error with function ' + object + '.')
+        }
+    }
+}
+
 function postMessageFunction(name) {
     return function(param) {
         window.webkit.messageHandlers[name].postMessage(JSON.stringify(param));

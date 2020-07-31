@@ -303,7 +303,7 @@ class CustomPriceFormatterViewController: UIViewController {
     }
 
     private func updateFormatter() {
-        let method: JavaScriptMethod<BarPrice>
+        let method: JavaScriptMethod<BarPrice, String>
         switch selectedSource {
         case .js:
             method = .javaScript(selectedFormat.formatterString)

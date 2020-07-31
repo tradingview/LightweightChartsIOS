@@ -102,13 +102,13 @@ public struct CustomPriceFormat {
      * User-defined function for price formatting that could be used for some specific cases,
      * that could not be covered with PriceFormatBuiltIn
      */
-    public var formatter: JavaScriptMethod<BarPrice>? {
+    public var formatter: JavaScriptMethod<BarPrice, String>? {
         formatterJSFunction?.function
     }
     
-    var formatterJSFunction: JSFunction<BarPrice>?
+    var formatterJSFunction: JSFunction<BarPrice, String>?
     
-    public init(minMove: Double?, formatter: JavaScriptMethod<BarPrice>) {
+    public init(minMove: Double?, formatter: JavaScriptMethod<BarPrice, String>) {
         self.minMove = minMove
         self.formatterJSFunction = JSFunction(function: formatter)
     }

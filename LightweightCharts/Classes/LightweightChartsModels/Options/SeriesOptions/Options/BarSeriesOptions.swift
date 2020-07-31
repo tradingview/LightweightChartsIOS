@@ -15,6 +15,7 @@ public struct BarSeriesOptions: SeriesOptionsCommon {
     public var baseLineColor: ChartColor?
     public var baseLineWidth: LineWidth?
     public var baseLineStyle: LineStyle?
+    public var autoscaleInfoProvider: AutoscaleInfoProvider?
     
     public var upColor: ChartColor?
     public var downColor: ChartColor?
@@ -34,6 +35,7 @@ public struct BarSeriesOptions: SeriesOptionsCommon {
                 baseLineColor: ChartColor? = nil,
                 baseLineWidth: LineWidth? = nil,
                 baseLineStyle: LineStyle? = nil,
+                autoscaleInfoProvider: AutoscaleInfoProvider? = nil,
                 upColor: ChartColor? = nil,
                 downColor: ChartColor? = nil,
                 openVisible: Bool? = nil,
@@ -51,6 +53,7 @@ public struct BarSeriesOptions: SeriesOptionsCommon {
         self.baseLineColor = baseLineColor
         self.baseLineWidth = baseLineWidth
         self.baseLineStyle = baseLineStyle
+        self.autoscaleInfoProvider = autoscaleInfoProvider
         self.upColor = upColor
         self.downColor = downColor
         self.openVisible = openVisible

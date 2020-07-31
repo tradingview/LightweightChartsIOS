@@ -14,7 +14,7 @@ public struct LocalizationOptions {
      * User-defined function for price formatting.
      * Could be used for some specific cases, that could not be covered with PriceFormat
      */
-    public var priceFormatter: JavaScriptMethod<BarPrice>? {
+    public var priceFormatter: JavaScriptMethod<BarPrice, String>? {
         get {
             priceFormatterJSFunction?.function
         }
@@ -26,7 +26,7 @@ public struct LocalizationOptions {
     /**
      * User-defined function for time formatting.
      */
-    public var timeFormatter: JavaScriptMethod<EventTime>? {
+    public var timeFormatter: JavaScriptMethod<EventTime, String>? {
         get {
             timeFormatterJSFunction?.function
         }
@@ -43,13 +43,13 @@ public struct LocalizationOptions {
      */
     public var dateFormat: String?
     
-    var priceFormatterJSFunction: JSFunction<BarPrice>?
-    var timeFormatterJSFunction: JSFunction<EventTime>?
+    var priceFormatterJSFunction: JSFunction<BarPrice, String>?
+    var timeFormatterJSFunction: JSFunction<EventTime, String>?
     
     public init(locale: String? = nil,
                 dateFormat: String? = nil,
-                priceFormatter: JavaScriptMethod<BarPrice>? = nil,
-                timeFormatter: JavaScriptMethod<EventTime>? = nil) {
+                priceFormatter: JavaScriptMethod<BarPrice, String>? = nil,
+                timeFormatter: JavaScriptMethod<EventTime, String>? = nil) {
         self.locale = locale
         self.dateFormat = dateFormat
         self.priceFormatter = priceFormatter

@@ -3,7 +3,7 @@ import WebKit
 
 protocol ClosuresStore: class {
         
-    func addMethod<T>(_ method: JavaScriptMethod<T>, forName name: String)
+    func addMethod<Input, Output>(_ method: JavaScriptMethod<Input, Output>, forName name: String)
     
 }
 
@@ -14,7 +14,7 @@ class PromptHandler: NSObject, ClosuresStore {
 
     private var closures: [String: JavaScriptSyncMethod] = [:]
     
-    func addMethod<T>(_ method: JavaScriptMethod<T>, forName name: String) where T: Decodable {
+    func addMethod<Input, Output>(_ method: JavaScriptMethod<Input, Output>, forName name: String) where Input: Decodable {
         switch method {
         case .closure:
             closures[name] = method

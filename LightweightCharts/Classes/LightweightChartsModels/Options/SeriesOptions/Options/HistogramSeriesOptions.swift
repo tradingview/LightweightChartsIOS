@@ -15,6 +15,7 @@ public struct HistogramSeriesOptions: SeriesOptionsCommon {
     public var baseLineColor: ChartColor?
     public var baseLineWidth: LineWidth?
     public var baseLineStyle: LineStyle?
+    public var autoscaleInfoProvider: AutoscaleInfoProvider?
     
     public var color: ChartColor?
     public var base: Double?
@@ -32,6 +33,7 @@ public struct HistogramSeriesOptions: SeriesOptionsCommon {
                 baseLineColor: ChartColor? = nil,
                 baseLineWidth: LineWidth? = nil,
                 baseLineStyle: LineStyle? = nil,
+                autoscaleInfoProvider: AutoscaleInfoProvider? = nil,
                 color: ChartColor? = nil,
                 base: Double? = nil) {
         self.lastValueVisible = lastValueVisible
@@ -47,6 +49,7 @@ public struct HistogramSeriesOptions: SeriesOptionsCommon {
         self.baseLineColor = baseLineColor
         self.baseLineWidth = baseLineWidth
         self.baseLineStyle = baseLineStyle
+        self.autoscaleInfoProvider = autoscaleInfoProvider
         self.color = color
         self.base = base
     }

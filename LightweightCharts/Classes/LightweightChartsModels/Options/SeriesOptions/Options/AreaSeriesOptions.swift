@@ -15,6 +15,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
     public var baseLineColor: ChartColor?
     public var baseLineWidth: LineWidth?
     public var baseLineStyle: LineStyle?
+    public var autoscaleInfoProvider: AutoscaleInfoProvider?
     
     public var topColor: ChartColor?
     public var bottomColor: ChartColor?
@@ -37,6 +38,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
                 baseLineColor: ChartColor? = nil,
                 baseLineWidth: LineWidth? = nil,
                 baseLineStyle: LineStyle? = nil,
+                autoscaleInfoProvider: AutoscaleInfoProvider? = nil,
                 topColor: ChartColor? = nil,
                 bottomColor: ChartColor? = nil,
                 lineColor: ChartColor? = nil,
@@ -57,6 +59,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
         self.baseLineColor = baseLineColor
         self.baseLineWidth = baseLineWidth
         self.baseLineStyle = baseLineStyle
+        self.autoscaleInfoProvider = autoscaleInfoProvider
         self.topColor = topColor
         self.bottomColor = bottomColor
         self.lineColor = lineColor

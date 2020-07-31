@@ -15,6 +15,7 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
     public var baseLineColor: ChartColor?
     public var baseLineWidth: LineWidth?
     public var baseLineStyle: LineStyle?
+    public var autoscaleInfoProvider: AutoscaleInfoProvider?
     
     public var color: ChartColor?
     public var lineStyle: LineStyle?
@@ -36,6 +37,7 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
                 baseLineColor: ChartColor? = nil,
                 baseLineWidth: LineWidth? = nil,
                 baseLineStyle: LineStyle? = nil,
+                autoscaleInfoProvider: AutoscaleInfoProvider? = nil,
                 color: ChartColor? = nil,
                 lineStyle: LineStyle? = nil,
                 lineWidth: LineWidth? = nil,
@@ -55,6 +57,7 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
         self.baseLineColor = baseLineColor
         self.baseLineWidth = baseLineWidth
         self.baseLineStyle = baseLineStyle
+        self.autoscaleInfoProvider = autoscaleInfoProvider
         self.color = color
         self.lineStyle = lineStyle
         self.lineWidth = lineWidth

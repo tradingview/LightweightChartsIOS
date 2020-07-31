@@ -73,11 +73,11 @@ public protocol SeriesOptionsCommon: Codable {
     /**
      Function that overrides calculating of visible prices range
      */
-    // TODO: Implement
-//    var autoscaleInfoProvider: AutoscaleInfoProvider? { get }
+    var autoscaleInfoProvider: AutoscaleInfoProvider? { get }
     
 }
 
+// MARK: -
 extension SeriesOptionsCommon {
     
     func optionsScript(for closuresStore: ClosuresStore?) -> (options: String, variableName: String) {
@@ -86,6 +86,10 @@ extension SeriesOptionsCommon {
         if case let .custom(customFormatter) = priceFormat, let formatter = customFormatter.formatterJSFunction {
             closuresStore?.addMethod(formatter.function, forName: formatter.name)
             optionsScript.append("\(variableName).priceFormat.formatter = \(formatter.script());")
+        }
+        if let provider = autoscaleInfoProvider?.jsFunction {
+            closuresStore?.addMethod(provider.function, forName: provider.name)
+            optionsScript.append("\(variableName).autoscaleInfoProvider = \(provider.script());")
         }
         return (optionsScript, variableName)
     }

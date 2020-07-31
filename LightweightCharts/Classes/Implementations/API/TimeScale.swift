@@ -15,10 +15,12 @@ class TimeScale: JavaScriptObject {
     weak var delegate: TimeScaleDelegate?
     
     private weak var context: (JavaScriptEvaluator & JavaScriptMessageProducer)?
+    weak var closureStore: ClosuresStore?
     private let messageHandler: MessageHandler
         
-    init(context: JavaScriptEvaluator & JavaScriptMessageProducer) {
+    init(context: JavaScriptEvaluator & JavaScriptMessageProducer, closureStore: ClosuresStore?) {
         self.context = context
+        self.closureStore = closureStore
         messageHandler = MessageHandler()
         messageHandler.delegate = self
     }
@@ -131,7 +133,11 @@ extension TimeScale: TimeScaleApi {
     }
     
     func applyOptions(options: TimeScaleOptions) {
-        let script = "\(jsName).applyOptions(\(options.jsonString));"
+        let optionsScript = options.optionsScript(for: closureStore)
+        let script = """
+        \(optionsScript.options)
+        \(jsName).applyOptions(\(optionsScript.variableName));
+        """
         context?.evaluateScript(script, completion: nil)
     }
     

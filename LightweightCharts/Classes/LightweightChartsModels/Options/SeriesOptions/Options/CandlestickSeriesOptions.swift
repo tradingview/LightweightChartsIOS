@@ -18,6 +18,7 @@ public struct CandlestickSeriesOptions: SeriesOptionsCommon {
     public var baseLineColor: ChartColor?
     public var baseLineWidth: LineWidth?
     public var baseLineStyle: LineStyle?
+    public var autoscaleInfoProvider: AutoscaleInfoProvider?
     
     /**
      Color of rising candlesticks
@@ -84,6 +85,7 @@ public struct CandlestickSeriesOptions: SeriesOptionsCommon {
                 baseLineColor: ChartColor? = nil,
                 baseLineWidth: LineWidth? = nil,
                 baseLineStyle: LineStyle? = nil,
+                autoscaleInfoProvider: AutoscaleInfoProvider? = nil,
                 upColor: ChartColor? = nil,
                 downColor: ChartColor? = nil,
                 wickVisible: Bool? = nil,
@@ -107,6 +109,7 @@ public struct CandlestickSeriesOptions: SeriesOptionsCommon {
         self.baseLineColor = baseLineColor
         self.baseLineWidth = baseLineWidth
         self.baseLineStyle = baseLineStyle
+        self.autoscaleInfoProvider = autoscaleInfoProvider
         self.upColor = upColor
         self.downColor = downColor
         self.wickVisible = wickVisible
