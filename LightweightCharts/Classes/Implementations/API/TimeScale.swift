@@ -10,15 +10,17 @@ public protocol TimeScaleDelegate: AnyObject {
 // MARK: -
 class TimeScale: JavaScriptObject {
     
+    typealias Context = JavaScriptEvaluator & JavaScriptMessageProducer
+    
     let jsName = "timeScale" + .uniqueString
     
     weak var delegate: TimeScaleDelegate?
     
-    private weak var context: (JavaScriptEvaluator & JavaScriptMessageProducer)?
+    private weak var context: Context?
     weak var closureStore: ClosuresStore?
     private let messageHandler: MessageHandler
         
-    init(context: JavaScriptEvaluator & JavaScriptMessageProducer, closureStore: ClosuresStore?) {
+    init(context: Context, closureStore: ClosuresStore?) {
         self.context = context
         self.closureStore = closureStore
         messageHandler = MessageHandler()

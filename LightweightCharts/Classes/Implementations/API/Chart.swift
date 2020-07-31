@@ -11,15 +11,17 @@ public protocol ChartDelegate: class {
 // MARK: -
 class Chart: JavaScriptObject {
     
+    typealias Context = JavaScriptEvaluator & JavaScriptMessageProducer
+    
     let jsName = "chart" + .uniqueString
     
     weak var delegate: ChartDelegate?
     
-    private unowned var context: JavaScriptEvaluator & JavaScriptMessageProducer
+    private unowned var context: Context
     private let messageHandler: MessageHandler
     private weak var closureStore: ClosuresStore?
     
-    init(context: JavaScriptEvaluator & JavaScriptMessageProducer, closureStore: ClosuresStore?) {
+    init(context: Context, closureStore: ClosuresStore?) {
         self.context = context
         self.closureStore = closureStore
         messageHandler = MessageHandler()
