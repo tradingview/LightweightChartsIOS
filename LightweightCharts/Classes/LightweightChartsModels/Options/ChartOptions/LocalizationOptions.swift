@@ -52,13 +52,8 @@ public struct LocalizationOptions {
                 timeFormatter: JavaScriptMethod<EventTime>? = nil) {
         self.locale = locale
         self.dateFormat = dateFormat
-        
-        if let priceFormatter = priceFormatter {
-            self.priceFormatterJSFunction = JSFunction(function: priceFormatter)
-        }
-        if let timeFormatter = timeFormatter {
-            self.timeFormatterJSFunction = JSFunction(function: timeFormatter)
-        }
+        self.priceFormatter = priceFormatter
+        self.timeFormatter = timeFormatter
     }
     
 }
