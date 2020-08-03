@@ -64,6 +64,7 @@ public protocol TimeScaleApi: class {
      * @param time - time needs to be converted
      * @returns x coordinate of that time or `null` if no time found on time scale
      */
+    
     func timeToCoordinate(time: Time, completion: @escaping (Coordinate?) -> Void)
     /**
      * Converts a coordinate to time.
@@ -71,12 +72,14 @@ public protocol TimeScaleApi: class {
      * @param x - coordinate needs to be converted
      * @returns time of a bar that is located on that coordinate or `null` if there are no bars found on that coordinate
      */
+    
     func coordinateToTime(x: Double, completion: @escaping (Time?) -> Void)
     /**
      * Adds a subscription to visible range changes to receive notification about visible range of data changes
      *
      * @param handler - handler (function) to be called on changing visible data range
      */
+    
     func subscribeVisibleTimeRangeChange()
     /**
      * Removes a subscription to visible range changes

@@ -242,7 +242,7 @@ class GoToRealtimeButtonViewController: UIViewController {
     
 }
 
-// MARK: - ChartDelegate
+// MARK: - TimeScaleDelegate
 extension GoToRealtimeButtonViewController: TimeScaleDelegate {
     func didVisibleTimeRangeChange(onTimeScale timeScale: TimeScaleApi, parameters: TimeRange?) {
         timeScale.scrollPosition { [weak self] position in
