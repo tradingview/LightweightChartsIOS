@@ -347,7 +347,10 @@ class ThreeLineLegendViewController: UIViewController {
         }
         
         let options = ChartOptions(
-            priceScale: PriceScaleOptions(scaleMargins: PriceScaleMargins(top: 0.35, bottom: 0.2), borderVisible: false),
+            rightPriceScale: VisiblePriceScaleOptions(
+                scaleMargins: PriceScaleMargins(top: 0.35, bottom: 0.2),
+                borderVisible: false
+            ),
             timeScale: TimeScaleOptions(borderVisible: false),
             crosshair: CrosshairOptions(
                 vertLine: CrosshairLineOptions(

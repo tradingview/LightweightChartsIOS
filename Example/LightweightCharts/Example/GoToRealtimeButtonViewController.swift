@@ -24,8 +24,10 @@ class GoToRealtimeButtonViewController: UIViewController {
     }
     
     private func setupUI() {
-        let options = ChartOptions(priceScale: PriceScaleOptions(scaleMargins: PriceScaleMargins(top: 0.2, bottom: 0.1)),
-                                   timeScale: TimeScaleOptions(rightOffset: 2))
+        let options = ChartOptions(
+            rightPriceScale: VisiblePriceScaleOptions(scaleMargins: PriceScaleMargins(top: 0.2, bottom: 0.1)),
+            timeScale: TimeScaleOptions(rightOffset: 2)
+        )
         let chart = LightweightCharts(options: options)
         view.addSubview(chart)
         chart.translatesAutoresizingMaskIntoConstraints = false
@@ -234,24 +236,15 @@ class GoToRealtimeButtonViewController: UIViewController {
     }
     
     private func setupSubscription() {
-        chart.delegate = self
-        chart.subscribeVisibleTimeRangeChange()
+        timeScale.delegate = self
+        timeScale.subscribeVisibleTimeRangeChange()
     }
     
 }
 
-// MARK: - ChartDelegate
-extension GoToRealtimeButtonViewController: ChartDelegate {
-    
-    func didClick(onChart chart: ChartApi, parameters: MouseEventParams) {
-        
-    }
-    
-    func didCrosshairMove(onChart chart: ChartApi, parameters: MouseEventParams) {
-        
-    }
-    
-    func didVisibleTimeRangeChange(onChart chart: ChartApi, parameters: TimeRange?) {
+// MARK: - TimeScaleDelegate
+extension GoToRealtimeButtonViewController: TimeScaleDelegate {
+    func didVisibleTimeRangeChange(onTimeScale timeScale: TimeScaleApi, parameters: TimeRange?) {
         timeScale.scrollPosition { [weak self] position in
             let isHidden = (position ?? 0) >= 0
             if !isHidden {
@@ -263,6 +256,10 @@ extension GoToRealtimeButtonViewController: ChartDelegate {
                 self?.button.isHidden = isHidden
             })
         }
+    }
+    
+    func didVisibleLogicalRangeChange(onTimeScale timeScale: TimeScaleApi, parameters: LogicalRange?) {
+        
     }
     
 }

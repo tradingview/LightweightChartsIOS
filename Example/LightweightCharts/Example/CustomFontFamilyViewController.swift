@@ -38,7 +38,7 @@ class CustomFontFamilyViewController: UIViewController {
         
         let options = ChartOptions(
             layout: LayoutOptions(fontFamily: fonts[0]),
-            priceScale: PriceScaleOptions(borderColor: "rgba(197, 203, 206, 1)"),
+            rightPriceScale: VisiblePriceScaleOptions(borderColor: "rgba(197, 203, 206, 1)"),
             timeScale: TimeScaleOptions(borderColor: "rgba(197, 203, 206, 1)")
         )
         let chart = LightweightCharts(options: options)

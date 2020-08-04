@@ -14,7 +14,12 @@ public protocol SeriesOptionsCommon: Codable {
      Title of the series. This label is placed with price axis label
      */
     var title: String? { get }
-
+    
+    /**
+     Target price scale to bind new series to
+     */
+    var priceScaleId: String? { get }
+    
     /**
      Visibility of the price line. Price line is a horizontal line indicating the last price of the series
      */
@@ -24,6 +29,7 @@ public protocol SeriesOptionsCommon: Codable {
      Enum of possible modes of priceLine source
      */
     var priceLineSource: PriceLineSource? { get }
+    
     /**
      Width of the price line. Ignored if priceLineVisible is false
      */
@@ -64,42 +70,28 @@ public protocol SeriesOptionsCommon: Codable {
      */
     var baseLineStyle: LineStyle? { get }
     
-    var overlay: Bool? { get }
-    
-    var scaleMargins: PriceScaleMargins? { get }
+    /**
+     Function that overrides calculating of visible prices range
+     */
+    var autoscaleInfoProvider: AutoscaleInfoProvider? { get }
     
 }
 
-
+// MARK: -
 extension SeriesOptionsCommon {
-
-    func formattedJSONtoJavaScript() -> SeriesFormattedJSONtoJavaScript {
-        var jsonOptions = jsonString
-        var functionScript = ""
-        var customFormatterFunction: FunctionWithName<BarPrice>?
-        
-        if let formatter = priceFormat {
-            switch formatter {
-            case let .custom(customFormatter):
-                if let formatterJSFunction = customFormatter.formatterJSFunction {
-                    let name = formatterJSFunction.name
-                    customFormatterFunction = FunctionWithName(name: name, function: formatterJSFunction.function)
-                    let flag = customFormatter.jsonFlagForReplacing
-                    functionScript = formatterJSFunction.declarationScript()
-                    jsonOptions = jsonOptions
-                        .replacingOccurrences(of: "\"\(flag)", with: "")
-                        .replacingOccurrences(of: "\(flag)\"", with: "")
-                }
-            case .builtIn:
-                break
-            }
+    
+    func optionsScript(for closuresStore: ClosuresStore?) -> (options: String, variableName: String) {
+        let variableName = "options"
+        var optionsScript = "var \(variableName) = \(jsonString);"
+        if case let .custom(customFormatter) = priceFormat, let formatter = customFormatter.formatterJSFunction {
+            closuresStore?.addMethod(formatter.function, forName: formatter.name)
+            optionsScript.append("\(variableName).priceFormat.formatter = \(formatter.script());")
         }
-        
-        return SeriesFormattedJSONtoJavaScript(
-            functionsDeclarations: functionScript,
-            optionsScript: jsonOptions,
-            customFormatter: customFormatterFunction
-        )
+        if let provider = autoscaleInfoProvider?.jsFunction {
+            closuresStore?.addMethod(provider.function, forName: provider.name)
+            optionsScript.append("\(variableName).autoscaleInfoProvider = \(provider.script());")
+        }
+        return (optionsScript, variableName)
     }
     
 }

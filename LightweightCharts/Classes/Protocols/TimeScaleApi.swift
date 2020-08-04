@@ -3,6 +3,8 @@ import CoreGraphics
 /** Interface to chart time scale */
 public protocol TimeScaleApi: class {
     
+    var delegate: TimeScaleDelegate? { get set }
+    
     /**
      * Returns current scroll position of the chart
      * - Parameter completion: a distance from the right edge to the latest bar, measured in bars
@@ -34,6 +36,18 @@ public protocol TimeScaleApi: class {
     func setVisibleRange(range: TimeRange)
 
     /**
+     * Returns the currently visible logical range of data.
+     * - Parameter completion: visible range or null if the chart has no data at all
+     */
+    func getVisibleLogicalRange(completion: @escaping (LogicalRange?) -> Void)
+    
+    /**
+     * Sets visible logical range of data.
+     * - Parameter range: target visible logical range of data.
+     */
+    func setVisibleLogicalRange(range: FromToRange<Double>)
+    
+    /**
      * Restores default zooming and scroll position of the time scale
      */
     func resetTimeScale()
@@ -44,6 +58,50 @@ public protocol TimeScaleApi: class {
      */
     func fitContent()
 
+    /**
+     * Converts a time to local x coordinate.
+     *
+     * @param time - time needs to be converted
+     * @returns x coordinate of that time or `null` if no time found on time scale
+     */
+    
+    func timeToCoordinate(time: Time, completion: @escaping (Coordinate?) -> Void)
+    /**
+     * Converts a coordinate to time.
+     *
+     * @param x - coordinate needs to be converted
+     * @returns time of a bar that is located on that coordinate or `null` if there are no bars found on that coordinate
+     */
+    
+    func coordinateToTime(x: Double, completion: @escaping (Time?) -> Void)
+    /**
+     * Adds a subscription to visible range changes to receive notification about visible range of data changes
+     *
+     * @param handler - handler (function) to be called on changing visible data range
+     */
+    
+    func subscribeVisibleTimeRangeChange()
+    /**
+     * Removes a subscription to visible range changes
+     *
+     * @param handler - previously subscribed handler
+     */
+    func unsubscribeVisibleTimeRangeChange()
+    
+    /**
+     * Adds a subscription to visible index range changes to receive notifications about visible indexes of the data
+     *
+     * @param handler - handler (function) to be called when the visible indexes change
+     */
+    func subscribeVisibleLogicalRangeChange()
+    
+    /**
+     * Removes a subscription to visible index range changes
+     *
+     * @param handler - previously subscribed handler
+     */
+    func unsubscribeVisibleLogicalRangeChange()
+    
     /**
      * Applies new options to the time scale.
      * - Parameter options: any subset of options

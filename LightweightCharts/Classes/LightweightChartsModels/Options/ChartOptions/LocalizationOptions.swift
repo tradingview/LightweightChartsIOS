@@ -2,8 +2,6 @@ import Foundation
 
 public struct LocalizationOptions {
     
-    let jsonFlagForReplacing = UUID().uuidString
-    
     // swiftlint:disable line_length
     /**
      * Current locale, which will be used for formatting dates.
@@ -16,7 +14,7 @@ public struct LocalizationOptions {
      * User-defined function for price formatting.
      * Could be used for some specific cases, that could not be covered with PriceFormat
      */
-    public var priceFormatter: JavaScriptMethod<BarPrice>? {
+    public var priceFormatter: JavaScriptMethod<BarPrice, String>? {
         get {
             priceFormatterJSFunction?.function
         }
@@ -28,7 +26,7 @@ public struct LocalizationOptions {
     /**
      * User-defined function for time formatting.
      */
-    public var timeFormatter: JavaScriptMethod<EventTime>? {
+    public var timeFormatter: JavaScriptMethod<EventTime, String>? {
         get {
             timeFormatterJSFunction?.function
         }
@@ -38,26 +36,24 @@ public struct LocalizationOptions {
     }
     
     /**
-     * One of predefined options to format time. Ignored if timeFormatter has been specified.
+     * Date formatting string.
+     * Might contains `yyyy`, `yy`, `MMMM`, `MMM`, `MM` and `dd` literals
+     * which will be replaced with corresponding date's value.
+     * Ignored if timeFormatter has been specified.
      */
-    public var dateFormat: DateFormat?
+    public var dateFormat: String?
     
-    var priceFormatterJSFunction: JSFunction<BarPrice>?
-    var timeFormatterJSFunction: JSFunction<EventTime>?
+    var priceFormatterJSFunction: JSFunction<BarPrice, String>?
+    var timeFormatterJSFunction: JSFunction<EventTime, String>?
     
     public init(locale: String? = nil,
-                dateFormat: DateFormat? = nil,
-                priceFormatter: JavaScriptMethod<BarPrice>? = nil,
-                timeFormatter: JavaScriptMethod<EventTime>? = nil) {
+                dateFormat: String? = nil,
+                priceFormatter: JavaScriptMethod<BarPrice, String>? = nil,
+                timeFormatter: JavaScriptMethod<EventTime, String>? = nil) {
         self.locale = locale
         self.dateFormat = dateFormat
-        
-        if let priceFormatter = priceFormatter {
-            self.priceFormatterJSFunction = JSFunction(function: priceFormatter)
-        }
-        if let timeFormatter = timeFormatter {
-            self.timeFormatterJSFunction = JSFunction(function: timeFormatter)
-        }
+        self.priceFormatter = priceFormatter
+        self.timeFormatter = timeFormatter
     }
     
 }
@@ -67,38 +63,7 @@ extension LocalizationOptions: Codable {
     
     enum CodingKeys: String, CodingKey {
         case locale
-        case priceFormatter
-        case timeFormatter
         case dateFormat
-    }
-    
-    // MARK: Decodable
-    
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        locale = try container.decodeIfPresent(String.self, forKey: .locale)
-        dateFormat = try container.decodeIfPresent(DateFormat.self, forKey: .dateFormat)
-        
-        priceFormatterJSFunction = nil
-        timeFormatterJSFunction = nil
-    }
-    
-    // MARK: Encodable
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(locale, forKey: .locale)
-        try container.encodeIfPresent(dateFormat, forKey: .dateFormat)
-        
-        if let priceFormatterJSFunction = priceFormatterJSFunction {
-            let script = priceFormatterJSFunction.argumentString(withFlag: jsonFlagForReplacing)
-            try container.encode(script, forKey: .priceFormatter)
-        }
-        
-        if let timeFormatterJSFunction = timeFormatterJSFunction {
-            let script = timeFormatterJSFunction.argumentString(withFlag: jsonFlagForReplacing)
-            try container.encode(script, forKey: .timeFormatter)
-        }
     }
     
 }

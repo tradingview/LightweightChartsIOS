@@ -24,7 +24,7 @@ class VolumeStudyViewController: UIViewController {
     private func setupUI() {
         let options = ChartOptions(
             layout: LayoutOptions(backgroundColor: "#131722", textColor: "#d1d4dc"),
-            priceScale: PriceScaleOptions(
+            rightPriceScale: VisiblePriceScaleOptions(
                 scaleMargins: PriceScaleMargins(top: 0.3, bottom: 0.25),
                 borderVisible: false
             ),
@@ -220,9 +220,7 @@ class VolumeStudyViewController: UIViewController {
         let volumeSeriesOptions = HistogramSeriesOptions(
             priceLineVisible: false,
             priceFormat: .builtIn(BuiltInPriceFormat(type: .volume, precision: nil, minMove: nil)),
-            color: "#26a69a",
-            overlay: true,
-            scaleMargins: PriceScaleMargins(top: 0.8, bottom: 0)
+            color: "#26a69a"
         )
         let volumeSeries = chart.addHistogramSeries(options: volumeSeriesOptions)
         let volumeData = [

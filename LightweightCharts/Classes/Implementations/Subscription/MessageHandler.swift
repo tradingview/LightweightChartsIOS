@@ -9,6 +9,8 @@ protocol MessageHandlerDelegate: class {
                         didReceiveCrosshairMoveWithParameters parameters: MouseEventParams)
     func messageHandler(_ messageHandler: MessageHandler,
                         didReceiveVisibleTimeRangeChangeWithParameters parameters: TimeRange?)
+    func messageHandler(_ messageHandler: MessageHandler,
+                        didReceiveVisibleLogicalRangeChangeWithParameters parameters: LogicalRange?)
 }
 
 // MARK: -
@@ -48,6 +50,9 @@ extension MessageHandler: WKScriptMessageHandler {
             case .visibleTimeRangeChange:
                 let parameters: TimeRange? = try? decode(messageBodyJSONString)
                 delegate?.messageHandler(self, didReceiveVisibleTimeRangeChangeWithParameters: parameters)
+            case .visibleLogicalRangeChange:
+                let parameters: LogicalRange? = try? decode(messageBodyJSONString)
+                delegate?.messageHandler(self, didReceiveVisibleLogicalRangeChangeWithParameters: parameters)
             }
         }
     }

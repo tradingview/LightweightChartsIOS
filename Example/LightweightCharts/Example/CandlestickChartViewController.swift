@@ -21,7 +21,7 @@ class CandlestickChartViewController: UIViewController {
     private func setupChart() {
         let options = ChartOptions(
             layout: LayoutOptions(backgroundColor: "#000000", textColor: "rgba(255, 255, 255, 0.9)"),
-            priceScale: PriceScaleOptions(borderColor: "rgba(197, 203, 206, 0.8)"),
+            rightPriceScale: VisiblePriceScaleOptions(borderColor: "rgba(197, 203, 206, 0.8)"),
             timeScale: TimeScaleOptions(borderColor: "rgba(197, 203, 206, 0.8)"),
             crosshair: CrosshairOptions(mode: .normal),
             grid: GridOptions(

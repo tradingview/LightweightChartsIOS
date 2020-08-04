@@ -5,43 +5,38 @@ public protocol ChartDelegate: class {
     
     func didClick(onChart chart: ChartApi, parameters: MouseEventParams)
     func didCrosshairMove(onChart chart: ChartApi, parameters: MouseEventParams)
-    func didVisibleTimeRangeChange(onChart chart: ChartApi, parameters: TimeRange?)
     
 }
 
 // MARK: -
 class Chart: JavaScriptObject {
     
+    typealias Context = JavaScriptEvaluator & JavaScriptMessageProducer
+    
     let jsName = "chart" + .uniqueString
     
     weak var delegate: ChartDelegate?
     
-    private unowned var webView: WebView
+    private unowned var context: Context
     private let messageHandler: MessageHandler
     private weak var closureStore: ClosuresStore?
     
-    init(webView: WebView, closureStore: ClosuresStore?) {
-        self.webView = webView
+    init(context: Context, closureStore: ClosuresStore?) {
+        self.context = context
         self.closureStore = closureStore
         messageHandler = MessageHandler()
         messageHandler.delegate = self
     }
     
     private func addSeries<T: SeriesApi & SeriesObject>(options: T.Options) -> T {
-        let series = T(context: webView, closureStore: closureStore)
-        
-        let formattedJSON = options.formattedJSONtoJavaScript()
-        let functionDeclarations = formattedJSON.functionsDeclarations
-        if let customFormatter = formattedJSON.customFormatter {
-            closureStore?.addMethod(customFormatter.function, forName: customFormatter.name)
-        }
-        
+        let series = T(context: context, closureStore: closureStore)
+        let optionsScript = options.optionsScript(for: closureStore)
         let script = """
-        \(functionDeclarations)
-        var \(series.jsName) = \(jsName).add\(T.name)(\(formattedJSON.optionsScript));
+        \(optionsScript.options)
+        var \(series.jsName) = \(jsName).add\(T.name)(\(optionsScript.variableName));
         seriesArray.push({name: "\(series.jsName)", series: \(series.jsName)});
         """
-        webView.evaluateScript(script, completion: nil)
+        context.evaluateScript(script, completion: nil)
         return series
     }
     
@@ -62,20 +57,19 @@ class Chart: JavaScriptObject {
         let name = subscriberName(for: subscription)
         let subscriberScript = subsriberScript(forName: name, subscription: subscription)
         let script = subscriberScript + "\n\(jsName).subscribe\(subscription.jsRepresentation)(\(name));"
-        webView.configuration.userContentController.add(messageHandler, name: name)
-        webView.evaluateScript(script, completion: nil)
+        context.addMessageHandler(messageHandler, name: name)
+        context.evaluateScript(script, completion: nil)
     }
     
     private func unsubscribe(subsription: Subscription) {
         let name = subscriberName(for: subsription)
         let script = "\(jsName).unsubscribe\(subsription.jsRepresentation)(\(name));"
-        webView.evaluateScript(script, completion: nil)
+        context.evaluateScript(script, completion: nil)
     }
     
     private func unsubscribeAll() {
         unsubscribeClick()
         unsubscribeCrosshairMove()
-        unsubscribeVisibleTimeRangeChange()
     }
     
 }
@@ -86,7 +80,7 @@ extension Chart: ChartApi {
     func remove() {
         unsubscribeAll()
         let script = "\(jsName).remove();"
-        webView.evaluateScript(script, completion: nil)
+        context.evaluateScript(script, completion: nil)
     }
     
     func resize(width: Double, height: Double, forceRepaint: Bool?) {
@@ -95,7 +89,7 @@ extension Chart: ChartApi {
             parameters += ", \(forceRepaint)"
         }
         let script = "\(jsName).resize(\(parameters));"
-        webView.evaluateScript(script, completion: nil)
+        context.evaluateScript(script, completion: nil)
     }
 
     // MARK: Series methods
@@ -122,7 +116,7 @@ extension Chart: ChartApi {
     
     func removeSeries<T: SeriesApi & SeriesObject>(seriesApi: T) {
         let script = "\(jsName).removeSeries(\(seriesApi.jsName));"
-        webView.evaluateScript(script, completion: nil)
+        context.evaluateScript(script, completion: nil)
     }
     
     // MARK: Subscriptions
@@ -143,53 +137,43 @@ extension Chart: ChartApi {
         unsubscribe(subsription: .crosshairMove)
     }
     
-    func subscribeVisibleTimeRangeChange() {
-        subscribe(subscription: .visibleTimeRangeChange)
-    }
-    
-    func unsubscribeVisibleTimeRangeChange() {
-        unsubscribe(subsription: .visibleTimeRangeChange)
-    }
-    
     // MARK: Other APIs and options methods
     
-    func priceScale() -> PriceScaleApi {
-        let priceScale = PriceScale(context: webView)
-        let script = "var \(priceScale.jsName) = \(jsName).priceScale();"
-        webView.evaluateScript(script) { _, _ in
+    func priceScale(priceScaleId: String?) -> PriceScaleApi {
+        let priceScale = PriceScale(context: context)
+        let priceScaleId = priceScaleId ?? ""
+        let script = "var \(priceScale.jsName) = \(jsName).priceScale(\(priceScaleId));"
+        context.evaluateScript(script) { _, _ in
         }
         return priceScale
     }
     
     func timeScale() -> TimeScaleApi {
-        let timeScale = TimeScale(context: webView)
+        let timeScale = TimeScale(context: context, closureStore: closureStore)
         let script = "var \(timeScale.jsName) = \(jsName).timeScale();"
-        webView.evaluateScript(script) { _, _ in
+        context.evaluateScript(script) { _, _ in
         }
         return timeScale
     }
     
     func applyOptions(options: ChartOptions) {
-        let formattedJSON = options.formattedJSONtoJavaScript()
-        if let priceFormatter = formattedJSON.priceFormatter {
-            closureStore?.addMethod(priceFormatter.function, forName: priceFormatter.name)
-        }
-        if let timeFormatter = formattedJSON.timeFormatter {
-            closureStore?.addMethod(timeFormatter.function, forName: timeFormatter.name)
-        }
-        let script = "\(formattedJSON.functionsDeclarations)\(jsName).applyOptions(\(formattedJSON.optionsScript));"
-        webView.evaluateScript(script, completion: nil)
+        let optionsScript = options.optionsScript(for: closureStore)
+        let script = """
+        \(optionsScript.options)
+        \(jsName).applyOptions(\(optionsScript.variableName));
+        """
+        context.evaluateScript(script, completion: nil)
     }
     
     func options(completion: @escaping (ChartOptions?) -> Void) {
         let script = "\(jsName).options();"
-        webView.decodedResult(forScript: script, completion: completion)
+        context.decodedResult(forScript: script, completion: completion)
     }
     
     func takeScreenshot(completion: @escaping (UIImage?) -> Void) {
         let imageFormat = "image/jpeg"
         let script = "\(jsName).takeScreenshot().toDataURL('\(imageFormat)', 1.0);"
-        webView.evaluateScript(script) { (result, error) in
+        context.evaluateScript(script) { (result, error) in
             DispatchQueue.global().async {
                 var image: UIImage?
                 if error == nil,
@@ -230,7 +214,10 @@ extension Chart: MessageHandlerDelegate {
     
     func messageHandler(_ messageHandler: MessageHandler,
                         didReceiveVisibleTimeRangeChangeWithParameters parameters: TimeRange?) {
-        delegate?.didVisibleTimeRangeChange(onChart: self, parameters: parameters)
+    }
+    
+    func messageHandler(_ messageHandler: MessageHandler,
+                        didReceiveVisibleLogicalRangeChangeWithParameters parameters: LogicalRange?) {
     }
     
 }

@@ -45,18 +45,12 @@ public class LightweightCharts: UIView {
     /// - Parameter options: This function is the main entry point of the Lightweight Charting Library
     /// - Returns: an interface to the created chart
     private func createChart(options: ChartOptions?) -> ChartApi {
-        let chart = Chart(webView: webView, closureStore: promptHandler)
+        let chart = Chart(context: webView, closureStore: promptHandler)
         let options = options ?? ChartOptions()
-        let formattedJSON = options.formattedJSONtoJavaScript()
-        if let priceFormatter = formattedJSON.priceFormatter {
-            promptHandler.addMethod(priceFormatter.function, forName: priceFormatter.name)
-        }
-        if let timeFormatter = formattedJSON.timeFormatter {
-            promptHandler.addMethod(timeFormatter.function, forName: timeFormatter.name)
-        }
+        let optionsScript = options.optionsScript(for: promptHandler)
         let script = """
-        \(formattedJSON.functionsDeclarations)
-        var \(chart.jsName) = LightweightCharts.createChart(document.body, \(formattedJSON.optionsScript));
+        \(optionsScript.options)
+        var \(chart.jsName) = LightweightCharts.createChart(document.body, \(optionsScript.variableName));
         var seriesArray = [];
         """
         webView.evaluateScript(script) { [weak self] (_, error) in
@@ -192,16 +186,8 @@ extension LightweightCharts: ChartApi {
         chart.unsubscribeCrosshairMove()
     }
     
-    public func subscribeVisibleTimeRangeChange() {
-        chart.subscribeVisibleTimeRangeChange()
-    }
-    
-    public func unsubscribeVisibleTimeRangeChange() {
-        chart.unsubscribeVisibleTimeRangeChange()
-    }
-    
-    public func priceScale() -> PriceScaleApi {
-        chart.priceScale()
+    public func priceScale(priceScaleId: String?) -> PriceScaleApi {
+        chart.priceScale(priceScaleId: priceScaleId)
     }
     
     public func timeScale() -> TimeScaleApi {

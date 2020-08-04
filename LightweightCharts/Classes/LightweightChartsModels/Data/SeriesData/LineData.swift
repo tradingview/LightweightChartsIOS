@@ -9,6 +9,7 @@ protocol LineSeriesData: SeriesData {
     
 }
 
+// MARK: -
 /**
 * Structure describing single data item for series of type Line or Area
 */

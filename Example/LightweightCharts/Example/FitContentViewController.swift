@@ -20,7 +20,11 @@ class FitContentViewController: UIViewController {
     }
     
     private func setupUI() {
-        let options = ChartOptions(priceScale: PriceScaleOptions(scaleMargins: PriceScaleMargins(top: 0.1, bottom: 0.1)))
+        let options = ChartOptions(
+            rightPriceScale: VisiblePriceScaleOptions(
+                scaleMargins: PriceScaleMargins(top: 0.1, bottom: 0.1)
+            )
+        )
         let chart = LightweightCharts(options: options)
         view.addSubview(chart)
         chart.translatesAutoresizingMaskIntoConstraints = false

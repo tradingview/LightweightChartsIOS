@@ -20,7 +20,7 @@ class LogarithmicPriceScaleViewController: UIViewController {
     
     private func setupUI() {
         let options = ChartOptions(
-            priceScale: PriceScaleOptions(
+            rightPriceScale: VisiblePriceScaleOptions(
                 mode: .logarithmic,
                 scaleMargins: PriceScaleMargins(
                     top: 0.1,

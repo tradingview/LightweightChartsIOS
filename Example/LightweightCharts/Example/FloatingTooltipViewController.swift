@@ -27,7 +27,13 @@ class FloatingTooltipViewController: UIViewController {
     private func setupUI() {
         let options = ChartOptions(
             layout: LayoutOptions(backgroundColor: "#ffffff", textColor: "#333"),
-            priceScale: PriceScaleOptions(scaleMargins: PriceScaleMargins(top: 0.2, bottom: 0.2), borderVisible: false),
+            rightPriceScale: VisiblePriceScaleOptions(
+                scaleMargins: PriceScaleMargins(
+                    top: 0.2,
+                    bottom: 0.2
+                ),
+                borderVisible: false
+            ),
             timeScale: TimeScaleOptions(borderVisible: false),
             crosshair: CrosshairOptions(vertLine: CrosshairLineOptions(labelVisible: false)),
             grid: GridOptions(

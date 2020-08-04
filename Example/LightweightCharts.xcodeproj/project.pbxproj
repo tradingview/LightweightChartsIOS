@@ -13,34 +13,34 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		74BE5DF4B5014DE3A3202F1B /* Pods_LightweightCharts_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044E7F3DC28BDE6625CA93A6 /* Pods_LightweightCharts_Example.framework */; };
-		CE48520723A39FE50033EE94 /* MarkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48520623A39FE50033EE94 /* MarkersViewController.swift */; };
-		CE48520923A3B00E0033EE94 /* PriceLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48520823A3B00E0033EE94 /* PriceLineViewController.swift */; };
-		CE48520B23A3B3FB0033EE94 /* AddAndRemovePriceLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48520A23A3B3FB0033EE94 /* AddAndRemovePriceLineViewController.swift */; };
-		CE5053E82397AF6D00143B03 /* ThreeLineLegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053CE2397AF6D00143B03 /* ThreeLineLegendViewController.swift */; };
-		CE5053E92397AF6D00143B03 /* CustomFontFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053CF2397AF6D00143B03 /* CustomFontFamilyViewController.swift */; };
-		CE5053EA2397AF6D00143B03 /* VolumeStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D02397AF6D00143B03 /* VolumeStudyViewController.swift */; };
-		CE5053EB2397AF6D00143B03 /* RealtimeEmulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D12397AF6D00143B03 /* RealtimeEmulationViewController.swift */; };
-		CE5053EC2397AF6D00143B03 /* CustomLocaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D22397AF6D00143B03 /* CustomLocaleViewController.swift */; };
-		CE5053ED2397AF6D00143B03 /* LogarithmicPriceScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D32397AF6D00143B03 /* LogarithmicPriceScaleViewController.swift */; };
-		CE5053EE2397AF6D00143B03 /* MagnifierTooltipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D42397AF6D00143B03 /* MagnifierTooltipViewController.swift */; };
-		CE5053EF2397AF6D00143B03 /* LegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D52397AF6D00143B03 /* LegendViewController.swift */; };
-		CE5053F02397AF6D00143B03 /* CustomPriceFormatterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D62397AF6D00143B03 /* CustomPriceFormatterViewController.swift */; };
-		CE5053F12397AF6D00143B03 /* NoTimeScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D72397AF6D00143B03 /* NoTimeScaleViewController.swift */; };
-		CE5053F22397AF6D00143B03 /* TrackingTooltipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D82397AF6D00143B03 /* TrackingTooltipViewController.swift */; };
-		CE5053F42397AF6D00143B03 /* RangeSwitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DA2397AF6D00143B03 /* RangeSwitcherViewController.swift */; };
-		CE5053F52397AF6D00143B03 /* CustomThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DB2397AF6D00143B03 /* CustomThemesViewController.swift */; };
-		CE5053F62397AF6D00143B03 /* CustomWatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DC2397AF6D00143B03 /* CustomWatermarkViewController.swift */; };
-		CE5053F72397AF6D00143B03 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DD2397AF6D00143B03 /* TableViewController.swift */; };
-		CE5053F82397AF6D00143B03 /* IntradayDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DE2397AF6D00143B03 /* IntradayDataViewController.swift */; };
-		CE5053F92397AF6D00143B03 /* FitContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DF2397AF6D00143B03 /* FitContentViewController.swift */; };
-		CE5053FA2397AF6D00143B03 /* PercentagePriceScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E02397AF6D00143B03 /* PercentagePriceScaleViewController.swift */; };
-		CE5053FB2397AF6D00143B03 /* InvertedPriceScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E12397AF6D00143B03 /* InvertedPriceScaleViewController.swift */; };
-		CE5053FC2397AF6D00143B03 /* PriceScaleAtLeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E22397AF6D00143B03 /* PriceScaleAtLeftViewController.swift */; };
-		CE5053FD2397AF6D00143B03 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E32397AF6D00143B03 /* BarChartViewController.swift */; };
-		CE5053FE2397AF6D00143B03 /* CandlestickChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E42397AF6D00143B03 /* CandlestickChartViewController.swift */; };
-		CE5053FF2397AF6D00143B03 /* GoToRealtimeButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E52397AF6D00143B03 /* GoToRealtimeButtonViewController.swift */; };
-		CE5054002397AF6D00143B03 /* NoPriceScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E62397AF6D00143B03 /* NoPriceScaleViewController.swift */; };
-		CE5054012397AF6D00143B03 /* FloatingTooltipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E72397AF6D00143B03 /* FloatingTooltipViewController.swift */; };
+		8C8C291824D161F900EC537E /* AddAndRemovePriceLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48520A23A3B3FB0033EE94 /* AddAndRemovePriceLineViewController.swift */; };
+		8C8C291924D1620800EC537E /* PriceLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48520823A3B00E0033EE94 /* PriceLineViewController.swift */; };
+		8C8C291A24D1621500EC537E /* MarkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48520623A39FE50033EE94 /* MarkersViewController.swift */; };
+		8C8C291B24D1625B00EC537E /* FloatingTooltipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E72397AF6D00143B03 /* FloatingTooltipViewController.swift */; };
+		8C8C291C24D162BE00EC537E /* NoPriceScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E62397AF6D00143B03 /* NoPriceScaleViewController.swift */; };
+		8C8C291D24D162EB00EC537E /* GoToRealtimeButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E52397AF6D00143B03 /* GoToRealtimeButtonViewController.swift */; };
+		8C8C291E24D1638A00EC537E /* CandlestickChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E42397AF6D00143B03 /* CandlestickChartViewController.swift */; };
+		8C8C291F24D163AB00EC537E /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E32397AF6D00143B03 /* BarChartViewController.swift */; };
+		8C8C292024D163C500EC537E /* PriceScaleAtLeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E22397AF6D00143B03 /* PriceScaleAtLeftViewController.swift */; };
+		8C8C292124D163F700EC537E /* InvertedPriceScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E12397AF6D00143B03 /* InvertedPriceScaleViewController.swift */; };
+		8C8C292224D163FF00EC537E /* PercentagePriceScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053E02397AF6D00143B03 /* PercentagePriceScaleViewController.swift */; };
+		8C8C292324D1641000EC537E /* FitContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DF2397AF6D00143B03 /* FitContentViewController.swift */; };
+		8C8C292424D1642B00EC537E /* IntradayDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DE2397AF6D00143B03 /* IntradayDataViewController.swift */; };
+		8C8C292524D1643400EC537E /* CustomWatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DC2397AF6D00143B03 /* CustomWatermarkViewController.swift */; };
+		8C8C292624D1646100EC537E /* CustomThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DB2397AF6D00143B03 /* CustomThemesViewController.swift */; };
+		8C8C292724D1648900EC537E /* RangeSwitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DA2397AF6D00143B03 /* RangeSwitcherViewController.swift */; };
+		8C8C292824D164AD00EC537E /* TrackingTooltipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D82397AF6D00143B03 /* TrackingTooltipViewController.swift */; };
+		8C8C292924D164FA00EC537E /* NoTimeScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D72397AF6D00143B03 /* NoTimeScaleViewController.swift */; };
+		8C8C292A24D1653300EC537E /* CustomPriceFormatterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D62397AF6D00143B03 /* CustomPriceFormatterViewController.swift */; };
+		8C8C292B24D1655C00EC537E /* LegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D52397AF6D00143B03 /* LegendViewController.swift */; };
+		8C8C292C24D1656D00EC537E /* MagnifierTooltipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D42397AF6D00143B03 /* MagnifierTooltipViewController.swift */; };
+		8C8C292D24D1659200EC537E /* LogarithmicPriceScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D32397AF6D00143B03 /* LogarithmicPriceScaleViewController.swift */; };
+		8C8C292E24D165A200EC537E /* CustomLocaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D22397AF6D00143B03 /* CustomLocaleViewController.swift */; };
+		8C8C292F24D1660400EC537E /* RealtimeEmulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D12397AF6D00143B03 /* RealtimeEmulationViewController.swift */; };
+		8C8C293024D1661D00EC537E /* VolumeStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053D02397AF6D00143B03 /* VolumeStudyViewController.swift */; };
+		8C8C293124D1663500EC537E /* CustomFontFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053CF2397AF6D00143B03 /* CustomFontFamilyViewController.swift */; };
+		8C8C293224D1666600EC537E /* ThreeLineLegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053CE2397AF6D00143B03 /* ThreeLineLegendViewController.swift */; };
+		8C8C293324D1666F00EC537E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DD2397AF6D00143B03 /* TableViewController.swift */; };
 		CE5054042397AF9400143B03 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5054032397AF9400143B03 /* TooltipView.swift */; };
 /* End PBXBuildFile section */
 
@@ -321,10 +321,9 @@
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "LightweightCharts" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -445,36 +444,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE5053F82397AF6D00143B03 /* IntradayDataViewController.swift in Sources */,
-				CE5053F92397AF6D00143B03 /* FitContentViewController.swift in Sources */,
-				CE5053EE2397AF6D00143B03 /* MagnifierTooltipViewController.swift in Sources */,
-				CE5053EC2397AF6D00143B03 /* CustomLocaleViewController.swift in Sources */,
-				CE5053FD2397AF6D00143B03 /* BarChartViewController.swift in Sources */,
-				CE5053F72397AF6D00143B03 /* TableViewController.swift in Sources */,
-				CE5053ED2397AF6D00143B03 /* LogarithmicPriceScaleViewController.swift in Sources */,
-				CE5053EA2397AF6D00143B03 /* VolumeStudyViewController.swift in Sources */,
-				CE5053E82397AF6D00143B03 /* ThreeLineLegendViewController.swift in Sources */,
-				CE5053F62397AF6D00143B03 /* CustomWatermarkViewController.swift in Sources */,
-				CE5053E92397AF6D00143B03 /* CustomFontFamilyViewController.swift in Sources */,
-				CE5053FC2397AF6D00143B03 /* PriceScaleAtLeftViewController.swift in Sources */,
-				CE5053FB2397AF6D00143B03 /* InvertedPriceScaleViewController.swift in Sources */,
-				CE5053FA2397AF6D00143B03 /* PercentagePriceScaleViewController.swift in Sources */,
-				CE48520723A39FE50033EE94 /* MarkersViewController.swift in Sources */,
-				CE5054012397AF6D00143B03 /* FloatingTooltipViewController.swift in Sources */,
-				CE5053EF2397AF6D00143B03 /* LegendViewController.swift in Sources */,
-				CE5053EB2397AF6D00143B03 /* RealtimeEmulationViewController.swift in Sources */,
-				CE5053F42397AF6D00143B03 /* RangeSwitcherViewController.swift in Sources */,
-				CE5053F12397AF6D00143B03 /* NoTimeScaleViewController.swift in Sources */,
+				8C8C292024D163C500EC537E /* PriceScaleAtLeftViewController.swift in Sources */,
+				8C8C292D24D1659200EC537E /* LogarithmicPriceScaleViewController.swift in Sources */,
+				8C8C292C24D1656D00EC537E /* MagnifierTooltipViewController.swift in Sources */,
+				8C8C291E24D1638A00EC537E /* CandlestickChartViewController.swift in Sources */,
+				8C8C292824D164AD00EC537E /* TrackingTooltipViewController.swift in Sources */,
+				8C8C292B24D1655C00EC537E /* LegendViewController.swift in Sources */,
+				8C8C291D24D162EB00EC537E /* GoToRealtimeButtonViewController.swift in Sources */,
+				8C8C291B24D1625B00EC537E /* FloatingTooltipViewController.swift in Sources */,
+				8C8C291824D161F900EC537E /* AddAndRemovePriceLineViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				CE48520923A3B00E0033EE94 /* PriceLineViewController.swift in Sources */,
-				CE5053F52397AF6D00143B03 /* CustomThemesViewController.swift in Sources */,
-				CE5053FE2397AF6D00143B03 /* CandlestickChartViewController.swift in Sources */,
-				CE48520B23A3B3FB0033EE94 /* AddAndRemovePriceLineViewController.swift in Sources */,
-				CE5054002397AF6D00143B03 /* NoPriceScaleViewController.swift in Sources */,
-				CE5053FF2397AF6D00143B03 /* GoToRealtimeButtonViewController.swift in Sources */,
-				CE5053F02397AF6D00143B03 /* CustomPriceFormatterViewController.swift in Sources */,
-				CE5053F22397AF6D00143B03 /* TrackingTooltipViewController.swift in Sources */,
+				8C8C292524D1643400EC537E /* CustomWatermarkViewController.swift in Sources */,
+				8C8C292424D1642B00EC537E /* IntradayDataViewController.swift in Sources */,
+				8C8C292324D1641000EC537E /* FitContentViewController.swift in Sources */,
+				8C8C293324D1666F00EC537E /* TableViewController.swift in Sources */,
+				8C8C291924D1620800EC537E /* PriceLineViewController.swift in Sources */,
+				8C8C292A24D1653300EC537E /* CustomPriceFormatterViewController.swift in Sources */,
+				8C8C291A24D1621500EC537E /* MarkersViewController.swift in Sources */,
+				8C8C292624D1646100EC537E /* CustomThemesViewController.swift in Sources */,
+				8C8C292124D163F700EC537E /* InvertedPriceScaleViewController.swift in Sources */,
+				8C8C293024D1661D00EC537E /* VolumeStudyViewController.swift in Sources */,
 				CE5054042397AF9400143B03 /* TooltipView.swift in Sources */,
+				8C8C292E24D165A200EC537E /* CustomLocaleViewController.swift in Sources */,
+				8C8C291C24D162BE00EC537E /* NoPriceScaleViewController.swift in Sources */,
+				8C8C293124D1663500EC537E /* CustomFontFamilyViewController.swift in Sources */,
+				8C8C292724D1648900EC537E /* RangeSwitcherViewController.swift in Sources */,
+				8C8C292F24D1660400EC537E /* RealtimeEmulationViewController.swift in Sources */,
+				8C8C292924D164FA00EC537E /* NoTimeScaleViewController.swift in Sources */,
+				8C8C292224D163FF00EC537E /* PercentagePriceScaleViewController.swift in Sources */,
+				8C8C291F24D163AB00EC537E /* BarChartViewController.swift in Sources */,
+				8C8C293224D1666600EC537E /* ThreeLineLegendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,7 +620,7 @@
 				INFOPLIST_FILE = LightweightCharts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.1.5;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "tradingview.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -639,7 +638,7 @@
 				INFOPLIST_FILE = LightweightCharts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.1.5;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "tradingview.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

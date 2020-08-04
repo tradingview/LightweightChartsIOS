@@ -64,7 +64,7 @@ class RangeSwitcherViewController: UIViewController {
         
         let options = ChartOptions(
             layout: LayoutOptions(backgroundColor: "#000000", textColor: "#d1d4dc"),
-            priceScale: PriceScaleOptions(borderVisible: false),
+            rightPriceScale: VisiblePriceScaleOptions(borderVisible: false),
             timeScale: TimeScaleOptions(borderVisible: false),
             crosshair: CrosshairOptions(horzLine: CrosshairLineOptions(visible: false)),
             grid: GridOptions(

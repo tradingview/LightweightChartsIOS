@@ -1,8 +1,8 @@
 import Foundation
 
-public enum JavaScriptMethod<T: Decodable> {
+public enum JavaScriptMethod<Input: Decodable, Output: Encodable> {
     case javaScript(String)
-    case closure((T) -> String)
+    case closure((Input) -> Output)
 }
 
 // MARK: - JavaScriptSyncMethod
@@ -15,8 +15,9 @@ extension JavaScriptMethod: JavaScriptSyncMethod {
     func evaluate(payloadData: Data, with decoder: JSONDecoder) -> String {
         var result = ""
         if case let .closure(closure) = self,
-            let payload = try? decoder.decode(Payload<T>.self, from: payloadData) {
-            result = closure(payload.params)
+            let payload = try? decoder.decode(Payload<Input>.self, from: payloadData) {
+            let output = closure(payload.params)
+            result = (output as? String) ?? output.jsonString
         }
         return result
     }
@@ -24,46 +25,52 @@ extension JavaScriptMethod: JavaScriptSyncMethod {
 }
 
 // MARK: - JSFunction
-struct JSFunction<T: Decodable> {
+struct JSFunction<Input: Decodable, Output: Encodable> {
+    
+    enum PromptFunction {
+        
+        case simpleFormatter
+        case tickMarkFormatter
+        case autoscaleInfoProvider
+        
+        var name: String {
+            switch self {
+            case .simpleFormatter:
+                return "promptFunction"
+            case .tickMarkFormatter:
+                return "promptTickMarkFormatterFunction"
+            case .autoscaleInfoProvider:
+                return "promptAutoscaleInfoProviderFunction"
+            }
+        }
+        
+    }
     
     let name = "function" + .uniqueString
-    let function: JavaScriptMethod<T>
+    let function: JavaScriptMethod<Input, Output>
     
-    init(function: JavaScriptMethod<T>) {
+    private let promptFunctionName: String
+    
+    init(prompt: PromptFunction = .simpleFormatter, function: JavaScriptMethod<Input, Output>) {
         self.function = function
+        self.promptFunctionName = prompt.name
     }
     
-    init(closure: @escaping (T) -> String) {
-        self.init(function: .closure(closure))
+    init(prompt: PromptFunction = .simpleFormatter, closure: @escaping (Input) -> Output) {
+        self.init(prompt: prompt, function: .closure(closure))
     }
     
-    init(javaScript: String) {
-        self.init(function: .javaScript(javaScript))
+    init(prompt: PromptFunction = .simpleFormatter, javaScript: String) {
+        self.init(prompt: prompt, function: .javaScript(javaScript))
     }
     
-    func declarationScript() -> String {
+    func script() -> String {
         switch function {
+        case let .javaScript(javaScript):
+            return javaScript
         case .closure:
-            return functionScript()
-        case .javaScript:
-            return ""
+            return "\(promptFunctionName)('\(name)');"
         }
-    }
-    
-    func argumentString(withFlag flag: String) -> String {
-        let name: String = {
-            switch function {
-            case let .javaScript(javaScript):
-                return javaScript
-            case .closure:
-                return self.name
-            }
-        }()
-        return flag + name + flag
-    }
-    
-    private func functionScript() -> String {
-        return "var \(name) = promptFunction('\(name)');"
     }
     
 }

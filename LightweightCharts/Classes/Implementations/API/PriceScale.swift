@@ -25,4 +25,11 @@ extension PriceScale: PriceScaleApi {
         context?.decodedResult(forScript: script, completion: completion)
     }
     
+    func width(completion: @escaping (Double?) -> Void) {
+        let script = "\(jsName).width();"
+        context?.evaluateScript(script) { result, _ in
+            completion(result as? Double)
+        }
+    }
+    
 }

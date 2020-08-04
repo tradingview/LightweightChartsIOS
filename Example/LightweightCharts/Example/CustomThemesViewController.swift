@@ -99,7 +99,7 @@ class CustomThemesViewController: UIViewController {
         }
         
         let options = ChartOptions(
-            priceScale: PriceScaleOptions(borderVisible: false),
+            rightPriceScale: VisiblePriceScaleOptions(borderVisible: false),
             timeScale: TimeScaleOptions(borderVisible: false)
         )
         let chart = LightweightCharts(options: options)

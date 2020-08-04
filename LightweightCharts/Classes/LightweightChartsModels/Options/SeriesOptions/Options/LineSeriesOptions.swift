@@ -4,6 +4,7 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
     
     public var lastValueVisible: Bool?
     public var title: String?
+    public var priceScaleId: String?
     public var priceLineVisible: Bool?
     public var priceLineSource: PriceLineSource?
     public var priceLineWidth: LineWidth?
@@ -14,6 +15,7 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
     public var baseLineColor: ChartColor?
     public var baseLineWidth: LineWidth?
     public var baseLineStyle: LineStyle?
+    public var autoscaleInfoProvider: AutoscaleInfoProvider?
     
     public var color: ChartColor?
     public var lineStyle: LineStyle?
@@ -22,11 +24,9 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
     public var crosshairMarkerVisible: Bool?
     public var crosshairMarkerRadius: Double?
     
-    public var overlay: Bool?
-    public var scaleMargins: PriceScaleMargins?
-    
     public init(lastValueVisible: Bool? = nil,
                 title: String? = nil,
+                priceScaleId: String? = nil,
                 priceLineVisible: Bool? = nil,
                 priceLineSource: PriceLineSource? = nil,
                 priceLineWidth: LineWidth? = nil,
@@ -37,16 +37,16 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
                 baseLineColor: ChartColor? = nil,
                 baseLineWidth: LineWidth? = nil,
                 baseLineStyle: LineStyle? = nil,
+                autoscaleInfoProvider: AutoscaleInfoProvider? = nil,
                 color: ChartColor? = nil,
                 lineStyle: LineStyle? = nil,
                 lineWidth: LineWidth? = nil,
                 lineType: LineType? = nil,
                 crosshairMarkerVisible: Bool? = nil,
-                crosshairMarkerRadius: Double? = nil,
-                overlay: Bool? = nil,
-                scaleMargins: PriceScaleMargins? = nil) {
+                crosshairMarkerRadius: Double? = nil) {
         self.lastValueVisible = lastValueVisible
         self.title = title
+        self.priceScaleId = priceScaleId
         self.priceLineVisible = priceLineVisible
         self.priceLineSource = priceLineSource
         self.priceLineWidth = priceLineWidth
@@ -57,14 +57,13 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
         self.baseLineColor = baseLineColor
         self.baseLineWidth = baseLineWidth
         self.baseLineStyle = baseLineStyle
+        self.autoscaleInfoProvider = autoscaleInfoProvider
         self.color = color
         self.lineStyle = lineStyle
         self.lineWidth = lineWidth
         self.lineType = lineType
         self.crosshairMarkerVisible = crosshairMarkerVisible
         self.crosshairMarkerRadius = crosshairMarkerRadius
-        self.overlay = overlay
-        self.scaleMargins = scaleMargins
     }
     
 }

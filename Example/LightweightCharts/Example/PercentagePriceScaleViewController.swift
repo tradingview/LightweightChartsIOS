@@ -22,7 +22,7 @@ class PercentagePriceScaleViewController: UIViewController {
     private func setupUI() {
         let options = ChartOptions(
             layout: LayoutOptions(backgroundColor: "#100841", textColor: "#ffffff"),
-            priceScale: PriceScaleOptions(mode: .percentage),
+            rightPriceScale: VisiblePriceScaleOptions(mode: .percentage),
             timeScale: TimeScaleOptions(borderColor: "rgba(197, 203, 206, 0.4)"),
             grid: GridOptions(
                 verticalLines: GridLineOptions(color: "rgba(197, 203, 206, 0.7)", style: .dotted),
