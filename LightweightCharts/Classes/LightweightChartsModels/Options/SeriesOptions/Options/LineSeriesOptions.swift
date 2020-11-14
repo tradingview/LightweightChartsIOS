@@ -5,6 +5,7 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
     public var lastValueVisible: Bool?
     public var title: String?
     public var priceScaleId: String?
+    public var visible: Bool?
     public var priceLineVisible: Bool?
     public var priceLineSource: PriceLineSource?
     public var priceLineWidth: LineWidth?
@@ -27,6 +28,7 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
     public init(lastValueVisible: Bool? = nil,
                 title: String? = nil,
                 priceScaleId: String? = nil,
+                visible: Bool? = nil,
                 priceLineVisible: Bool? = nil,
                 priceLineSource: PriceLineSource? = nil,
                 priceLineWidth: LineWidth? = nil,
@@ -47,6 +49,7 @@ public struct LineSeriesOptions: SeriesOptionsCommon {
         self.lastValueVisible = lastValueVisible
         self.title = title
         self.priceScaleId = priceScaleId
+        self.visible = visible
         self.priceLineVisible = priceLineVisible
         self.priceLineSource = priceLineSource
         self.priceLineWidth = priceLineWidth

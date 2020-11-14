@@ -59,12 +59,27 @@ public protocol TimeScaleApi: class {
     func fitContent()
 
     /**
+     * Converts a logical index to local x coordinate.
+     *
+     * - Parameter logical: logical index needs to be converted
+     * - Parameter completion: x coordinate of that time or `null` if the chart doesn't have data
+     */
+    func logicalToCoordinate(logical: Logical, completion: @escaping (Coordinate?) -> Void)
+    
+    /**
+     * Converts a coordinate to logical index.
+     *
+     * - Parameter x: coordinate needs to be converted
+     * - Parameter completion: logical index that is located on that coordinate or `null` if the chart doesn't have data
+     */
+    func coordinateToLogical(x: Double, completion: @escaping (Logical?) -> Void)
+    
+    /**
      * Converts a time to local x coordinate.
      *
      * @param time - time needs to be converted
      * @returns x coordinate of that time or `null` if no time found on time scale
      */
-    
     func timeToCoordinate(time: Time, completion: @escaping (Coordinate?) -> Void)
     /**
      * Converts a coordinate to time.

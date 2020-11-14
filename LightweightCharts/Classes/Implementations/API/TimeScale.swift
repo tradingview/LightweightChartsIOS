@@ -106,8 +106,22 @@ extension TimeScale: TimeScaleApi {
         context?.evaluateScript(script, completion: nil)
     }
     
+    func logicalToCoordinate(logical: Logical, completion: @escaping (Coordinate?) -> Void) {
+        let script = "\(jsName).logicalToCoordinate(\(logical));"
+        context?.evaluateScript(script) { (result, _) in
+            completion(result as? Coordinate)
+        }
+    }
+    
+    func coordinateToLogical(x: Double, completion: @escaping (Logical?) -> Void) {
+        let script = "\(jsName).coordinateToLogical(\(x));"
+        context?.evaluateScript(script) { (result, _) in
+            completion(result as? Logical)
+        }
+    }
+    
     func timeToCoordinate(time: Time, completion: @escaping (Coordinate?) -> Void) {
-        let script = "\(jsName).timeToCoordinate(\(time.jsonString);"
+        let script = "\(jsName).timeToCoordinate(\(time.jsonString));"
         context?.evaluateScript(script) { (result, _) in
             completion(result as? Coordinate)
         }
