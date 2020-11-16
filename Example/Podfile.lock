@@ -1,5 +1,5 @@
 PODS:
-  - LightweightCharts (3.1.5)
+  - LightweightCharts (3.2.0)
 
 DEPENDENCIES:
   - LightweightCharts (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LightweightCharts: 89edd9005561a7a88ba73341a7c7d9a5b850b4f9
+  LightweightCharts: 04cf1c18f24019889976b0de40bef2329916e020
 
 PODFILE CHECKSUM: 10aa45b030d82b96cfc0e4e3b143c5488576107b
 

@@ -21,6 +21,11 @@ public protocol SeriesOptionsCommon: Codable {
     var priceScaleId: String? { get }
     
     /**
+     Visibility of series.
+     */
+    var visible: Bool? { get }
+    
+    /**
      Visibility of the price line. Price line is a horizontal line indicating the last price of the series
      */
     var priceLineVisible: Bool? { get }
