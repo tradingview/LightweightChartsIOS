@@ -143,7 +143,9 @@ class CustomPriceFormatterViewController: UIViewController {
             topColor: "rgba(21, 101, 192, 0.5)",
             bottomColor: "rgba(21, 101, 192, 0.5)",
             lineColor: "rgba(255, 255, 255, 0.8)",
-            lineWidth: .two
+            lineWidth: .two,
+            crosshairMarkerBorderColor: "rgba(255, 255, 255, 1)",
+            crosshairMarkerBackgroundColor: "rgba(100, 50, 20, 1)"
         )
         let series = chart.addAreaSeries(options: options)
         let data = [
