@@ -121,4 +121,5 @@ public protocol SeriesApi: class {
      */
     func removePriceLine(line: PriceLine)
     
+    func seriesType(completion: @escaping (SeriesType?) -> Void)
 }
