@@ -47,7 +47,7 @@ class BarChartViewController: UIViewController {
     }
     
     private func setupData() {
-        let options = BarSeriesOptions(upColor: .color(.systemGreen), downColor: .color(.systemRed), thinBars: true)
+        let options = BarSeriesOptions(upColor: ChartColor(.black), downColor: ChartColor(.black), thinBars: true)
         let series = chart.addBarSeries(options: options)
         let data = [
             BarData(time: .string("2018-10-19"), open: 180.34, high: 180.99, low: 178.57, close: 179.85),
