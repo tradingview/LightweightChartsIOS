@@ -166,10 +166,10 @@ extension ColorComponents {
     /// #RGBA hex
     static func from(hex4: UInt64) -> ColorComponents {
         return ColorComponents(
-            red: CGFloat((hex4 & 0xf00) >> 12) / 15,
-            green: CGFloat((hex4 & 0x0f0) >> 8) / 15,
-            blue: CGFloat((hex4 & 0x00f) >> 4) / 15,
-            alpha: CGFloat(hex4 & 0x00f) / 15
+            red: CGFloat((hex4 & 0xf000) >> 12) / 15,
+            green: CGFloat((hex4 & 0x0f00) >> 8) / 15,
+            blue: CGFloat((hex4 & 0x00f0) >> 4) / 15,
+            alpha: CGFloat(hex4 & 0x000f) / 15
         )
     }
     
