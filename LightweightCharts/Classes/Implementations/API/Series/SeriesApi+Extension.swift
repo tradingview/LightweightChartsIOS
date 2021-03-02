@@ -93,6 +93,11 @@ public extension SeriesApi where Self: SeriesObject {
         context.evaluateScript(script, completion: nil)
     }
     
+    func seriesType(completion: @escaping (SeriesType?) -> Void) {
+        let script = "\(jsName).seriesType();"
+        context.decodedResult(forScript: script, completion: completion)
+    }
+    
     private func setSeriesData<T: SeriesData>(_ data: [T]) {
         let script = "\(jsName).setData(\(data.jsonString));"
         context.evaluateScript(script, completion: nil)
@@ -102,5 +107,6 @@ public extension SeriesApi where Self: SeriesObject {
         let script = "\(jsName).update(\(bar.jsonString));"
         context.evaluateScript(script, completion: nil)
     }
+    
     
 }
