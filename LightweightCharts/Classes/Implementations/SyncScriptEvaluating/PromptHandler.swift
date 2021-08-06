@@ -1,7 +1,7 @@
 import Foundation
 import WebKit
 
-protocol ClosuresStore: class {
+protocol ClosuresStore: AnyObject {
         
     func addMethod<Input, Output>(_ method: JavaScriptMethod<Input, Output>, forName name: String)
     

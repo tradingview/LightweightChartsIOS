@@ -1,7 +1,7 @@
 import Foundation
 import WebKit
 
-protocol JavaScriptEvaluator: class {
+protocol JavaScriptEvaluator: AnyObject {
     
     func evaluateScript(_ script: String, completion: ((Any?, Error?) -> Void)?)
     func decodedResult<T: Decodable>(forScript script: String, completion: @escaping (T?) -> Void)

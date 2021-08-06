@@ -1,7 +1,7 @@
 import Foundation
 import WebKit
 
-public protocol ChartDelegate: class {
+public protocol ChartDelegate: AnyObject {
     
     func didClick(onChart chart: ChartApi, parameters: MouseEventParams)
     func didCrosshairMove(onChart chart: ChartApi, parameters: MouseEventParams)

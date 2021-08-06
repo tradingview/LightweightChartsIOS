@@ -1,7 +1,7 @@
 import Foundation
 import WebKit
 
-public protocol LightweightChartsDelegate: class {
+public protocol LightweightChartsDelegate: AnyObject {
     
     func lightweightChartsDidLoad(_ lightweightCharts: LightweightCharts)
     func lightweightCharts(_ lightweightCharts: LightweightCharts, didFailLoadWithError error: Error)

@@ -1,7 +1,7 @@
 import Foundation
 import WebKit
 
-protocol MessageHandlerDelegate: class {
+protocol MessageHandlerDelegate: AnyObject {
     
     func messageHandler(_ messageHandler: MessageHandler,
                         didReceiveClickWithParameters parameters: MouseEventParams)
