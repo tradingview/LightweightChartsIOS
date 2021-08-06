@@ -4,7 +4,9 @@ public struct TimeScaleOptions {
     
     public var rightOffset: Double?
     public var barSpacing: Double?
+    public var minBarSpacing: Double?
     public var fixLeftEdge: Bool?
+    public var fixRightEdge: Bool?
     public var lockVisibleTimeRangeOnResize: Bool?
     public var rightBarStaysOnScroll: Bool?
     public var borderVisible: Bool?
@@ -26,7 +28,9 @@ public struct TimeScaleOptions {
     
     public init(rightOffset: Double? = nil,
                 barSpacing: Double? = nil,
+                minBarSpacing: Double? = nil,
                 fixLeftEdge: Bool? = nil,
+                fixRightEdge: Bool? = nil,
                 lockVisibleTimeRangeOnResize: Bool? = nil,
                 rightBarStaysOnScroll: Bool? = nil,
                 borderVisible: Bool? = nil,
@@ -38,7 +42,9 @@ public struct TimeScaleOptions {
                 tickMarkFormatter: JavaScriptMethod<TickMarkFormatterParameters, String>? = nil) {
         self.rightOffset = rightOffset
         self.barSpacing = barSpacing
+        self.minBarSpacing = minBarSpacing
         self.fixLeftEdge = fixLeftEdge
+        self.fixRightEdge = fixLeftEdge
         self.lockVisibleTimeRangeOnResize = lockVisibleTimeRangeOnResize
         self.rightBarStaysOnScroll = rightBarStaysOnScroll
         self.borderVisible = borderVisible
