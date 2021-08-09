@@ -1,7 +1,7 @@
 import CoreGraphics
 
 /** Interface to chart time scale */
-public protocol TimeScaleApi: class {
+public protocol TimeScaleApi: AnyObject {
     
     var delegate: TimeScaleDelegate? { get set }
     

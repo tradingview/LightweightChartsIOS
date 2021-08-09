@@ -3,7 +3,7 @@ import UIKit
  /**
  The main interface of a single chart
  */
-public protocol ChartApi: class {
+public protocol ChartApi: AnyObject {
     
     /**
      * Subsription delegate for chart events. Weak reference.

@@ -1,7 +1,7 @@
 import Foundation
 
 /** Interface to control chart's price scale */
-public protocol PriceScaleApi: class {
+public protocol PriceScaleApi: AnyObject {
     
     /**
      * Applies new options to the price scale

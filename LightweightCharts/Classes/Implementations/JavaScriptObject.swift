@@ -1,4 +1,4 @@
-protocol JavaScriptObject: class {
+protocol JavaScriptObject: AnyObject {
     
     var jsName: String { get }
     

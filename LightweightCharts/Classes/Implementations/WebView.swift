@@ -1,6 +1,6 @@
 import WebKit
 
-public protocol JavaScriptErrorDelegate: class {
+public protocol JavaScriptErrorDelegate: AnyObject {
     
     func didFailEvaluateScript(_ script: String, withError error: Error)
     

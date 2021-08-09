@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol SeriesApi: class {
+public protocol SeriesApi: AnyObject {
        
     associatedtype Options: SeriesOptionsCommon
     associatedtype TickValue: SeriesData
