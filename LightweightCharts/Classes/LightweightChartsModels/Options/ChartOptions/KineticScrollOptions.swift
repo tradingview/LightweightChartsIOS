@@ -1,8 +1,22 @@
-//
-//  KineticScrollOptions.swift
-//  LightweightCharts
-//
-//  Created by Alex Nevyantsev on 9/13/21.
-//
-
 import Foundation
+
+/**
+ You can disable or enable kinetic scroll via mouse or via touch gestures separately
+ */
+public struct KineticScrollOptions: Codable {
+    
+    /**
+     If true, kinetic scroll is enabled via mouse
+     */
+    var touch: Bool?
+    
+    /**
+     If true, kinetic scroll is enabled via touch gestures
+     */
+    var mouse: Bool?
+    
+    public init(touch: Bool? = nil, mouse: Bool? = nil) {
+        self.touch = touch
+        self.mouse = mouse
+    }
+}

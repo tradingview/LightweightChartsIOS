@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     
   s.name                    = 'LightweightCharts'
-  s.version                 = '3.5.0'
+  s.version                 = '3.6.0'
   s.summary                 = 'LightweightCharts for iOS.'
   s.description             = 'LightweightCharts pod. Swift wrapper above JavaScript library.'
   s.homepage                = 'https://tradingview.com'
@@ -19,9 +19,9 @@ Pod::Spec.new do |s|
       :script => 'LIBRARY=${TEMP_DIR}/lightweight-charts.js
       
 if [ "${CONFIGURATION}" = "Release" ]; then
-    curl -o $LIBRARY https://unpkg.com/lightweight-charts@3.5.0/dist/lightweight-charts.standalone.production.js
+    curl -o $LIBRARY https://unpkg.com/lightweight-charts@3.6.0/dist/lightweight-charts.standalone.production.js
 else
-    curl -o $LIBRARY https://unpkg.com/lightweight-charts@3.5.0/dist/lightweight-charts.standalone.development.js
+    curl -o $LIBRARY https://unpkg.com/lightweight-charts@3.6.0/dist/lightweight-charts.standalone.development.js
 fi
 
 cp -f $LIBRARY ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lightweight-charts.js'
