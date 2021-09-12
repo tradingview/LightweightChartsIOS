@@ -39,6 +39,9 @@ class FloatingTooltipViewController: UIViewController {
             grid: GridOptions(
                 verticalLines: GridLineOptions(color: "#ffffff"),
                 horizontalLines: GridLineOptions(color: "#eee")
+            ),
+            kineticScroll: KineticScrollOptions(
+                touch: false, mouse: false
             )
         )
         let chart = LightweightCharts(options: options)
