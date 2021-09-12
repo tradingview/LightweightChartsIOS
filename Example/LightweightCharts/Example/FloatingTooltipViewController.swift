@@ -82,7 +82,8 @@ class FloatingTooltipViewController: UIViewController {
             topColor: "rgba(0, 150, 136, 0.56)",
             bottomColor: "rgba(0, 150, 136, 0.04)",
             lineColor: "rgba(0, 150, 136, 1.0)",
-            lineWidth: .two
+            lineWidth: .two,
+            lastPriceAnimation: LastPriceAnimationMode.continuous
         )
         let series = chart.addAreaSeries(options: options)
         let data = [
