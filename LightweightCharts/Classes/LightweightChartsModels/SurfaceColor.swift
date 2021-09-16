@@ -22,7 +22,7 @@ extension SurfaceColor {
     }
 }
 
-// MARK: - CondingKeys
+// MARK: - CodingKeys
 extension SurfaceColor {
     enum CodingKeys: String, CodingKey {
         case type
