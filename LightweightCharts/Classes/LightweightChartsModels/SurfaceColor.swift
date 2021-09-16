@@ -14,14 +14,6 @@ public enum SurfaceColor {
     }
 }
 
-// MARK: - ColorType
-extension SurfaceColor {
-    public enum ColorType: String, Decodable {
-        case solid = "solid"
-        case verticalGradient = "gradient"
-    }
-}
-
 // MARK: - CodingKeys
 extension SurfaceColor {
     enum CodingKeys: String, CodingKey {
