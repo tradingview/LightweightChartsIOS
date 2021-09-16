@@ -6,12 +6,12 @@ import Foundation
 public struct KineticScrollOptions: Codable {
     
     /**
-     If true, kinetic scroll is enabled via mouse
+     If true, kinetic scroll is enabled via touch gestures
      */
     var touch: Bool?
     
     /**
-     If true, kinetic scroll is enabled via touch gestures
+     If true, kinetic scroll is enabled via mouse
      */
     var mouse: Bool?
     
