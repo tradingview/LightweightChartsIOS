@@ -8,7 +8,10 @@ public struct LayoutOptions: Codable {
     /**
      Background color of the chart area and the scales
      */
+    @available(*, deprecated, message: "Use background instead")
     public var backgroundColor: ChartColor?
+    
+    public var background: SurfaceColor?
     
     /**
      Color of a text on the scales
@@ -26,13 +29,14 @@ public struct LayoutOptions: Codable {
     public var fontFamily: String?
     
     public init(backgroundColor: ChartColor? = nil,
+                background: SurfaceColor? = nil,
                 textColor: ChartColor? = nil,
                 fontSize: Double? = nil,
                 fontFamily: String? = nil) {
         self.backgroundColor = backgroundColor
+        self.background = background
         self.textColor = textColor
         self.fontSize = fontSize
         self.fontFamily = fontFamily
     }
-    
 }
