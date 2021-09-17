@@ -27,6 +27,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
     public var crosshairMarkerRadius: Double?
     public var crosshairMarkerBorderColor: ChartColor?
     public var crosshairMarkerBackgroundColor: ChartColor?
+    public var lastPriceAnimation: LastPriceAnimationMode?
     
     public init(lastValueVisible: Bool? = nil,
                 title: String? = nil,
@@ -51,7 +52,8 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
                 crosshairMarkerVisible: Bool? = nil,
                 crosshairMarkerRadius: Double? = nil,
                 crosshairMarkerBorderColor: ChartColor? = nil,
-                crosshairMarkerBackgroundColor: ChartColor? = nil) {
+                crosshairMarkerBackgroundColor: ChartColor? = nil,
+                lastPriceAnimation: LastPriceAnimationMode? = nil) {
         self.lastValueVisible = lastValueVisible
         self.title = title
         self.priceScaleId = priceScaleId
@@ -76,6 +78,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
         self.crosshairMarkerRadius = crosshairMarkerRadius
         self.crosshairMarkerBorderColor = crosshairMarkerBorderColor
         self.crosshairMarkerBackgroundColor = crosshairMarkerBackgroundColor
+        self.lastPriceAnimation = lastPriceAnimation
     }
     
 }

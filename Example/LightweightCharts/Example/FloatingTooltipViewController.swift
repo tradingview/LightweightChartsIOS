@@ -26,7 +26,10 @@ class FloatingTooltipViewController: UIViewController {
     
     private func setupUI() {
         let options = ChartOptions(
-            layout: LayoutOptions(backgroundColor: "#ffffff", textColor: "#333"),
+            layout: LayoutOptions(
+                background: .solid(color: "#ffffff"),
+                textColor: "#333"
+            ),
             rightPriceScale: VisiblePriceScaleOptions(
                 scaleMargins: PriceScaleMargins(
                     top: 0.2,
@@ -39,6 +42,9 @@ class FloatingTooltipViewController: UIViewController {
             grid: GridOptions(
                 verticalLines: GridLineOptions(color: "#ffffff"),
                 horizontalLines: GridLineOptions(color: "#eee")
+            ),
+            kineticScroll: KineticScrollOptions(
+                touch: false, mouse: false
             )
         )
         let chart = LightweightCharts(options: options)
@@ -79,7 +85,8 @@ class FloatingTooltipViewController: UIViewController {
             topColor: "rgba(0, 150, 136, 0.56)",
             bottomColor: "rgba(0, 150, 136, 0.04)",
             lineColor: "rgba(0, 150, 136, 1.0)",
-            lineWidth: .two
+            lineWidth: .two,
+            lastPriceAnimation: .continuous
         )
         let series = chart.addAreaSeries(options: options)
         let data = [

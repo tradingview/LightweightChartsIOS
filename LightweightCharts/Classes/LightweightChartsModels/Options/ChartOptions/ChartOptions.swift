@@ -69,6 +69,11 @@ public struct ChartOptions: Codable {
      Structure that describes scaling behavior or boolean flag that disables/enables all kinds of scales
      */
     public var handleScale: TogglableOptions<HandleScaleOptions>?
+    
+    /**
+     Structure that describes kinetic scroll behavior
+     */
+    public var kineticScroll: KineticScrollOptions?
         
     public init(width: Double? = nil,
                 height: Double? = nil,
@@ -82,7 +87,8 @@ public struct ChartOptions: Codable {
                 grid: GridOptions? = nil,
                 localization: LocalizationOptions? = nil,
                 handleScroll: HandleScrollOptions? = nil,
-                handleScale: TogglableOptions<HandleScaleOptions>? = nil) {
+                handleScale: TogglableOptions<HandleScaleOptions>? = nil,
+                kineticScroll: KineticScrollOptions? = nil) {
         self.width = width
         self.height = height
         self.watermark = watermark
@@ -96,6 +102,7 @@ public struct ChartOptions: Codable {
         self.localization = localization
         self.handleScroll = handleScroll
         self.handleScale = handleScale
+        self.kineticScroll = kineticScroll
     }
     
 }
