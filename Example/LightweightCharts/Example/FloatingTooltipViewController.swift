@@ -27,7 +27,7 @@ class FloatingTooltipViewController: UIViewController {
     private func setupUI() {
         let options = ChartOptions(
             layout: LayoutOptions(
-                background: SurfaceColor.solid(color: "#ffffff"),
+                background: .solid(color: "#ffffff"),
                 textColor: "#333"
             ),
             rightPriceScale: VisiblePriceScaleOptions(
@@ -86,7 +86,7 @@ class FloatingTooltipViewController: UIViewController {
             bottomColor: "rgba(0, 150, 136, 0.04)",
             lineColor: "rgba(0, 150, 136, 1.0)",
             lineWidth: .two,
-            lastPriceAnimation: LastPriceAnimationMode.continuous
+            lastPriceAnimation: .continuous
         )
         let series = chart.addAreaSeries(options: options)
         let data = [

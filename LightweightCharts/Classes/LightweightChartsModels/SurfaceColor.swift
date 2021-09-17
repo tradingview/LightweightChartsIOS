@@ -7,9 +7,9 @@ public enum SurfaceColor {
     public var type: ColorType {
         switch self {
         case .solid:
-            return ColorType.solid
+            return .solid
         case .verticalGradient:
-            return ColorType.verticalGradient
+            return .verticalGradient
         }
     }
 }
@@ -32,10 +32,10 @@ extension SurfaceColor: Codable {
         let colorType = try container.decode(ColorType.self, forKey: .type)
         
         switch colorType {
-        case ColorType.solid:
+        case .solid:
             let color = try container.decode(ChartColor.self, forKey: .color)
             self = .solid(color: color)
-        case ColorType.verticalGradient:
+        case .verticalGradient:
             let topColor = try container.decode(ChartColor.self, forKey: .topColor)
             let bottomColor = try container.decode(ChartColor.self, forKey: .bottomColor)
             self = .verticalGradient(topColor: topColor, bottomColor: bottomColor)
