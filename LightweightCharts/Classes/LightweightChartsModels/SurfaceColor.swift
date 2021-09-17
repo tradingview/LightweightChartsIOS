@@ -1,8 +1,8 @@
 import Foundation
 
 public enum SurfaceColor {
-    case solid(color: ChartColor?)
-    case verticalGradient(topColor: ChartColor?, bottomColor: ChartColor?)
+    case solid(color: ChartColor)
+    case verticalGradient(topColor: ChartColor, bottomColor: ChartColor)
     
     public var type: ColorType {
         switch self {
