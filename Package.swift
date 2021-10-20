@@ -24,11 +24,10 @@ let package = Package(
         .target(
             name: "LightweightCharts",
             dependencies: [],
-            path: "./LightweightCharts/Sources",
             resources: [
-                .copy("../Assets/content-setup.js"),
-                .copy("../Assets/lightweight-charts.js"),
-                .copy("../Assets/wrapper_functions.js"),
+                .copy("Assets/content-setup.js"),
+                .copy("Assets/lightweight-charts.js"),
+                .copy("Assets/wrapper_functions.js"),
             ])
     ]
 )

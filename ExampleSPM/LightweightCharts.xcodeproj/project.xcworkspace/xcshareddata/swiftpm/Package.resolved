@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LightweightCharts",
+        "repositoryURL": "git@github.com:tradingview/LightweightChartsIOS.git",
+        "state": {
+          "branch": "feature/spm",
+          "revision": "7e5db8be46f3fb92c237df2e5188aee98be613bd",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
