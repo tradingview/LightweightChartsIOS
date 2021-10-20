@@ -40,8 +40,8 @@
 		8C8C293224D1666600EC537E /* ThreeLineLegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053CE2397AF6D00143B03 /* ThreeLineLegendViewController.swift */; };
 		8C8C293324D1666F00EC537E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DD2397AF6D00143B03 /* TableViewController.swift */; };
 		CE5054042397AF9400143B03 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5054032397AF9400143B03 /* TooltipView.swift */; };
-		FA621D6C27208E84000F40B0 /* LightweightCharts in Frameworks */ = {isa = PBXBuildFile; productRef = FA621D6B27208E84000F40B0 /* LightweightCharts */; };
 		FA621D6F27208EAD000F40B0 /* Gallery in Frameworks */ = {isa = PBXBuildFile; productRef = FA621D6E27208EAD000F40B0 /* Gallery */; };
+		FA621D73272092D4000F40B0 /* LightweightCharts in Frameworks */ = {isa = PBXBuildFile; productRef = FA621D72272092D4000F40B0 /* LightweightCharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA621D6C27208E84000F40B0 /* LightweightCharts in Frameworks */,
+				FA621D73272092D4000F40B0 /* LightweightCharts in Frameworks */,
 				FA621D6F27208EAD000F40B0 /* Gallery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,8 +248,8 @@
 			);
 			name = LightweightCharts_Example;
 			packageProductDependencies = (
-				FA621D6B27208E84000F40B0 /* LightweightCharts */,
 				FA621D6E27208EAD000F40B0 /* Gallery */,
+				FA621D72272092D4000F40B0 /* LightweightCharts */,
 			);
 			productName = LightweightCharts;
 			productReference = 607FACD01AFB9204008FA782 /* LightweightCharts_Example.app */;
@@ -304,8 +304,8 @@
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
-				FA621D6A27208E84000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */,
 				FA621D6D27208EAD000F40B0 /* XCRemoteSwiftPackageReference "Gallery" */,
+				FA621D71272092D4000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */,
 			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
@@ -653,14 +653,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA621D6A27208E84000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:tradingview/LightweightChartsIOS.git";
-			requirement = {
-				branch = feature/spm;
-				kind = branch;
-			};
-		};
 		FA621D6D27208EAD000F40B0 /* XCRemoteSwiftPackageReference "Gallery" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:hyperoslo/Gallery.git";
@@ -669,18 +661,26 @@
 				kind = branch;
 			};
 		};
+		FA621D71272092D4000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:tradingview/LightweightChartsIOS.git";
+			requirement = {
+				branch = feature/spm;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA621D6B27208E84000F40B0 /* LightweightCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA621D6A27208E84000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */;
-			productName = LightweightCharts;
-		};
 		FA621D6E27208EAD000F40B0 /* Gallery */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA621D6D27208EAD000F40B0 /* XCRemoteSwiftPackageReference "Gallery" */;
 			productName = Gallery;
+		};
+		FA621D72272092D4000F40B0 /* LightweightCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA621D71272092D4000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */;
+			productName = LightweightCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
