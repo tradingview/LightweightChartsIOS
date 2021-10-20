@@ -108,7 +108,7 @@ public class LightweightCharts: UIView {
         let bundle = Bundle.module
         let pathForJSRuntime = bundle.path(forResource: fileName, ofType: "js")
         guard let path = pathForJSRuntime else {
-            print(fileName + "Not Found. Path: " + pathForJSRuntime)
+            print(fileName + "Not Found")
             return ""
         }
         return try String(contentsOfFile: path, encoding: .utf8)
