@@ -111,7 +111,7 @@ public class LightweightCharts: UIView {
             print(fileName + "Not Found")
             return ""
         }
-        print("Found script: " + pathForJSRuntime)
+        print("Found script: " + path)
         return try String(contentsOfFile: path, encoding: .utf8)
     }
     
