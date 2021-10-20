@@ -40,8 +40,8 @@
 		8C8C293224D1666600EC537E /* ThreeLineLegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053CE2397AF6D00143B03 /* ThreeLineLegendViewController.swift */; };
 		8C8C293324D1666F00EC537E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DD2397AF6D00143B03 /* TableViewController.swift */; };
 		CE5054042397AF9400143B03 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5054032397AF9400143B03 /* TooltipView.swift */; };
-		FA621D5627208483000F40B0 /* lightweight-charts.js in Resources */ = {isa = PBXBuildFile; fileRef = FA621D5527208483000F40B0 /* lightweight-charts.js */; };
-		FA621D6027208C33000F40B0 /* LightweightCharts in Frameworks */ = {isa = PBXBuildFile; productRef = FA621D5F27208C33000F40B0 /* LightweightCharts */; };
+		FA621D6C27208E84000F40B0 /* LightweightCharts in Frameworks */ = {isa = PBXBuildFile; productRef = FA621D6B27208E84000F40B0 /* LightweightCharts */; };
+		FA621D6F27208EAD000F40B0 /* Gallery in Frameworks */ = {isa = PBXBuildFile; productRef = FA621D6E27208EAD000F40B0 /* Gallery */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +92,6 @@
 		CE5053E62397AF6D00143B03 /* NoPriceScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoPriceScaleViewController.swift; sourceTree = "<group>"; };
 		CE5053E72397AF6D00143B03 /* FloatingTooltipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingTooltipViewController.swift; sourceTree = "<group>"; };
 		CE5054032397AF9400143B03 /* TooltipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
-		FA621D5527208483000F40B0 /* lightweight-charts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "lightweight-charts.js"; path = "../../LightweightCharts/Assets/lightweight-charts.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA621D6027208C33000F40B0 /* LightweightCharts in Frameworks */,
+				FA621D6C27208E84000F40B0 /* LightweightCharts in Frameworks */,
+				FA621D6F27208EAD000F40B0 /* Gallery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +137,6 @@
 		607FACD21AFB9204008FA782 /* Example for LightweightCharts */ = {
 			isa = PBXGroup;
 			children = (
-				FA621D5527208483000F40B0 /* lightweight-charts.js */,
 				CE5054022397AF9400143B03 /* Views */,
 				CE5053CD2397AF6D00143B03 /* Example */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -249,7 +248,8 @@
 			);
 			name = LightweightCharts_Example;
 			packageProductDependencies = (
-				FA621D5F27208C33000F40B0 /* LightweightCharts */,
+				FA621D6B27208E84000F40B0 /* LightweightCharts */,
+				FA621D6E27208EAD000F40B0 /* Gallery */,
 			);
 			productName = LightweightCharts;
 			productReference = 607FACD01AFB9204008FA782 /* LightweightCharts_Example.app */;
@@ -304,7 +304,8 @@
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
-				FA621D5E27208C33000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */,
+				FA621D6A27208E84000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */,
+				FA621D6D27208EAD000F40B0 /* XCRemoteSwiftPackageReference "Gallery" */,
 			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
@@ -322,7 +323,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				FA621D5627208483000F40B0 /* lightweight-charts.js in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,7 +536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_ASSET_PATHS = ../LightweightCharts;
+				DEVELOPMENT_ASSET_PATHS = "";
 				INFOPLIST_FILE = LightweightCharts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -557,7 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_ASSET_PATHS = ../LightweightCharts;
+				DEVELOPMENT_ASSET_PATHS = "";
 				INFOPLIST_FILE = LightweightCharts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -653,7 +653,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA621D5E27208C33000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */ = {
+		FA621D6A27208E84000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:tradingview/LightweightChartsIOS.git";
 			requirement = {
@@ -661,13 +661,26 @@
 				kind = branch;
 			};
 		};
+		FA621D6D27208EAD000F40B0 /* XCRemoteSwiftPackageReference "Gallery" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:hyperoslo/Gallery.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA621D5F27208C33000F40B0 /* LightweightCharts */ = {
+		FA621D6B27208E84000F40B0 /* LightweightCharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA621D5E27208C33000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */;
+			package = FA621D6A27208E84000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */;
 			productName = LightweightCharts;
+		};
+		FA621D6E27208EAD000F40B0 /* Gallery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA621D6D27208EAD000F40B0 /* XCRemoteSwiftPackageReference "Gallery" */;
+			productName = Gallery;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

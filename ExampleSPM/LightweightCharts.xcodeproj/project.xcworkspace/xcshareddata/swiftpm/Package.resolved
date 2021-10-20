@@ -2,11 +2,20 @@
   "object": {
     "pins": [
       {
+        "package": "Gallery",
+        "repositoryURL": "git@github.com:hyperoslo/Gallery.git",
+        "state": {
+          "branch": "master",
+          "revision": "ac4ab785951c82d9a4ab5a9f96c4649c4fc02e0b",
+          "version": null
+        }
+      },
+      {
         "package": "LightweightCharts",
         "repositoryURL": "git@github.com:tradingview/LightweightChartsIOS.git",
         "state": {
           "branch": "feature/spm",
-          "revision": "7e5db8be46f3fb92c237df2e5188aee98be613bd",
+          "revision": "481def163a26853b0df5e3fbd8ee29587385b7a1",
           "version": null
         }
       }

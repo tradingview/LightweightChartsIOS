@@ -1,5 +1,6 @@
 import UIKit
 import LightweightCharts
+import Gallery
 
 class BarChartViewController: UIViewController {
 
@@ -18,8 +19,8 @@ class BarChartViewController: UIViewController {
 //        setupData()
         
         let gallery = GalleryController()
-        gallery.delegate = self
-        present(gallery, animated: true, completion: nil)
+//        gallery.delegate = self
+//        present(gallery, animated: true, completion: nil)
     }
     
     private func setupChart() {
