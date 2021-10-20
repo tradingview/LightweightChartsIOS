@@ -9,15 +9,6 @@
           "revision": "ac4ab785951c82d9a4ab5a9f96c4649c4fc02e0b",
           "version": null
         }
-      },
-      {
-        "package": "LightweightCharts",
-        "repositoryURL": "git@github.com:tradingview/LightweightChartsIOS.git",
-        "state": {
-          "branch": "feature/spm",
-          "revision": "702703333210609585b7026e005bccc2ac31fd6d",
-          "version": null
-        }
       }
     ]
   },

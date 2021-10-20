@@ -41,7 +41,6 @@
 		8C8C293324D1666F00EC537E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5053DD2397AF6D00143B03 /* TableViewController.swift */; };
 		CE5054042397AF9400143B03 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5054032397AF9400143B03 /* TooltipView.swift */; };
 		FA621D6F27208EAD000F40B0 /* Gallery in Frameworks */ = {isa = PBXBuildFile; productRef = FA621D6E27208EAD000F40B0 /* Gallery */; };
-		FA621D73272092D4000F40B0 /* LightweightCharts in Frameworks */ = {isa = PBXBuildFile; productRef = FA621D72272092D4000F40B0 /* LightweightCharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA621D73272092D4000F40B0 /* LightweightCharts in Frameworks */,
 				FA621D6F27208EAD000F40B0 /* Gallery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,7 +247,6 @@
 			name = LightweightCharts_Example;
 			packageProductDependencies = (
 				FA621D6E27208EAD000F40B0 /* Gallery */,
-				FA621D72272092D4000F40B0 /* LightweightCharts */,
 			);
 			productName = LightweightCharts;
 			productReference = 607FACD01AFB9204008FA782 /* LightweightCharts_Example.app */;
@@ -305,7 +302,6 @@
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
 				FA621D6D27208EAD000F40B0 /* XCRemoteSwiftPackageReference "Gallery" */,
-				FA621D71272092D4000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */,
 			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
@@ -630,7 +626,7 @@
 				607FACEE1AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LightweightCharts_Example" */ = {
 			isa = XCConfigurationList;
@@ -639,7 +635,7 @@
 				607FACF11AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LightweightCharts_Tests" */ = {
 			isa = XCConfigurationList;
@@ -648,7 +644,7 @@
 				607FACF41AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
@@ -661,14 +657,6 @@
 				kind = branch;
 			};
 		};
-		FA621D71272092D4000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:tradingview/LightweightChartsIOS.git";
-			requirement = {
-				branch = feature/spm;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -676,11 +664,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA621D6D27208EAD000F40B0 /* XCRemoteSwiftPackageReference "Gallery" */;
 			productName = Gallery;
-		};
-		FA621D72272092D4000F40B0 /* LightweightCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA621D71272092D4000F40B0 /* XCRemoteSwiftPackageReference "LightweightChartsIOS" */;
-			productName = LightweightCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

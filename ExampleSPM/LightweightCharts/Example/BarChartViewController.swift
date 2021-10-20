@@ -15,8 +15,8 @@ class BarChartViewController: UIViewController {
             view.backgroundColor = .white
         }
         
-//        setupChart()
-//        setupData()
+        setupChart()
+        setupData()
         
         let gallery = GalleryController()
 //        gallery.delegate = self

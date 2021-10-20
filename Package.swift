@@ -25,7 +25,9 @@ let package = Package(
             name: "LightweightCharts",
             dependencies: [],
             resources: [
-                .copy("Assets")
+                .process("Assets/content-setup.js"),
+                .process("Assets/lightweight-charts.js"),
+                .process("Assets/wrapper_functions.js")
             ])
     ]
 )
