@@ -417,7 +417,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, install it using brew install swiftlint\"\n  exit 1\nfi\n";
+			shellScript = "#if which swiftlint >/dev/null; then\n # swiftlint\n#else\n # echo \"error: SwiftLint does not exist, install it using brew #install swiftlint\"\n  #exit 1\n#fi\n";
 		};
 		DA29DE437F7165F7E6B7BF21 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

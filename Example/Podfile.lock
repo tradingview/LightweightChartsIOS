@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LightweightCharts: f4f71d444412003d793ba5dee4c38dc7aea66097
+  LightweightCharts: 1a6c10a3eccb065f3a270dd0c26515ca714f786a
 
 PODFILE CHECKSUM: 10aa45b030d82b96cfc0e4e3b143c5488576107b
 

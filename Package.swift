@@ -24,6 +24,7 @@ let package = Package(
         .target(
             name: "LightweightCharts",
             dependencies: [],
+            exclude: ["Extensions/Bundle+Resources.swift"],
             resources: [
                 .process("Assets/content-setup.js"),
                 .process("Assets/lightweight-charts.js"),
