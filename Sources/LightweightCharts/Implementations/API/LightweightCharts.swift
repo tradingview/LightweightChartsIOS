@@ -104,9 +104,11 @@ public class LightweightCharts: UIView {
     }
     
     private func loadScript(withName fileName: String) throws -> String {
-        let bundle = Bundle(for: LightweightCharts.self)
+        let bundle = Bundle.module
         let pathForJSRuntime = bundle.path(forResource: fileName, ofType: "js")
-        guard let path = pathForJSRuntime else { return "" }
+        guard let path = pathForJSRuntime else {
+            return ""
+        }
         return try String(contentsOfFile: path, encoding: .utf8)
     }
     

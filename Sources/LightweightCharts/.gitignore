@@ -1,9 +1,3 @@
-*.ipa
-*.xcarchive
-**/xcuserdata/**
-
-Pods/
-
 .DS_Store
 /.build
 /Packages
