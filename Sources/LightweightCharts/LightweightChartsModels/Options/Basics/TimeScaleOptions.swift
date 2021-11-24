@@ -44,7 +44,7 @@ public struct TimeScaleOptions {
         self.barSpacing = barSpacing
         self.minBarSpacing = minBarSpacing
         self.fixLeftEdge = fixLeftEdge
-        self.fixRightEdge = fixLeftEdge
+        self.fixRightEdge = fixRightEdge
         self.lockVisibleTimeRangeOnResize = lockVisibleTimeRangeOnResize
         self.rightBarStaysOnScroll = rightBarStaysOnScroll
         self.borderVisible = borderVisible
@@ -65,6 +65,7 @@ extension TimeScaleOptions: Codable {
         case rightOffset
         case barSpacing
         case fixLeftEdge
+        case fixRightEdge
         case lockVisibleTimeRangeOnResize
         case rightBarStaysOnScroll
         case borderVisible
