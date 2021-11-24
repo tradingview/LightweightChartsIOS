@@ -64,6 +64,7 @@ extension TimeScaleOptions: Codable {
     enum CodingKeys: String, CodingKey {
         case rightOffset
         case barSpacing
+        case minBarSpacing
         case fixLeftEdge
         case fixRightEdge
         case lockVisibleTimeRangeOnResize
