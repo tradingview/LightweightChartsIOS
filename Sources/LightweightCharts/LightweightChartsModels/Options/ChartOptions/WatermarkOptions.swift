@@ -86,6 +86,8 @@ extension WatermarkOptions: Codable {
         case visible
         case text
         case fontSize
+        case fontFamily
+        case fontStyle
         case horizontalAlignment = "horzAlign"
         case verticalAlignment = "vertAlign"
     }
