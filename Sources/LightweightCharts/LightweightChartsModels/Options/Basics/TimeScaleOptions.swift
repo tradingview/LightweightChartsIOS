@@ -65,6 +65,7 @@ extension TimeScaleOptions: Codable {
         case rightOffset
         case barSpacing
         case fixLeftEdge
+        case fixRightEdge
         case lockVisibleTimeRangeOnResize
         case rightBarStaysOnScroll
         case borderVisible
