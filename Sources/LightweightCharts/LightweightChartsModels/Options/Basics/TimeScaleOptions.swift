@@ -44,7 +44,7 @@ public struct TimeScaleOptions {
         self.barSpacing = barSpacing
         self.minBarSpacing = minBarSpacing
         self.fixLeftEdge = fixLeftEdge
-        self.fixRightEdge = fixLeftEdge
+        self.fixRightEdge = fixRightEdge
         self.lockVisibleTimeRangeOnResize = lockVisibleTimeRangeOnResize
         self.rightBarStaysOnScroll = rightBarStaysOnScroll
         self.borderVisible = borderVisible
