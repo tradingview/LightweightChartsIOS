@@ -28,32 +28,32 @@ public struct BaselineSeriesOptions: SeriesOptionsCommon {
     /**
      * The first color of the top area.
      */
-    public var topFillColor1: String?
+    public var topFillColor1: ChartColor?
     
     /**
      * The second color of the top area.
      */
-    public var topFillColor2: String?
+    public var topFillColor2: ChartColor?
     
     /**
      * The line color of the top area.
      */
-    public var topLineColor: String?
+    public var topLineColor: ChartColor?
     
     /**
      * The first color of the bottom area.
      */
-    public var bottomFillColor1: String?
+    public var bottomFillColor1: ChartColor?
     
     /**
      * The second color of the bottom area.
      */
-    public var bottomFillColor2: String?
+    public var bottomFillColor2: ChartColor?
     
     /**
      * The line color of the bottom area.
      */
-    public var bottomLineColor: String?
+    public var bottomLineColor: ChartColor?
     
     /**
      * Line width.
@@ -107,12 +107,12 @@ public struct BaselineSeriesOptions: SeriesOptionsCommon {
                 baseLineStyle: LineStyle? = nil,
                 autoscaleInfoProvider: AutoscaleInfoProvider? = nil,
                 baseValue: BaseValueType? = nil,
-                topFillColor1: String? = nil,
-                topFillColor2: String? = nil,
-                topLineColor: String? = nil,
-                bottomFillColor1: String? = nil,
-                bottomFillColor2: String? = nil,
-                bottomLineColor: String? = nil,
+                topFillColor1: ChartColor? = nil,
+                topFillColor2: ChartColor? = nil,
+                topLineColor: ChartColor? = nil,
+                bottomFillColor1: ChartColor? = nil,
+                bottomFillColor2: ChartColor? = nil,
+                bottomLineColor: ChartColor? = nil,
                 lineWidth: LineWidth? = nil,
                 lineStyle: LineStyle? = nil,
                 crosshairMarkerVisible: Bool? = nil,

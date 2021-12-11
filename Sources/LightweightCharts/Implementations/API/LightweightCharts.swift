@@ -168,6 +168,10 @@ extension LightweightCharts: ChartApi {
         chart.addLineSeries(options: options)
     }
     
+    public func addBaselineSeries(options: BaselineSeries.Options?) -> BaselineSeries {
+        chart.addBaselineSeries(options: options)
+    }
+    
     public func removeSeries<T: SeriesObject & SeriesApi>(seriesApi: T) {
         chart.removeSeries(seriesApi: seriesApi)
     }

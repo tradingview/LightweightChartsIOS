@@ -28,38 +28,45 @@ public protocol ChartApi: AnyObject {
     // MARK: - Series methods
     /**
      * Creates an area series with specified parameters
-     * - Parameter areaOptions: customization parameters of the series being created
+     * - Parameter options: customization parameters of the series being created
      * - Returns: an interface of the created series
      */
     func addAreaSeries(options: AreaSeries.Options?) -> AreaSeries
     
     /**
      * Creates a bar series with specified parameters
-     * - Parameter barOptions: customization parameters of the series being created
+     * - Parameter options: customization parameters of the series being created
      * - Returns: an interface of the created series
      */
     func addBarSeries(options: BarSeries.Options?) -> BarSeries
     
     /**
      * Creates a candlestick series with specified parameters
-     * - Parameter candlestickOptions: customization parameters of the series being created
+     * - Parameter options: customization parameters of the series being created
      * - Returns: an interface of the created series
      */
     func addCandlestickSeries(options: CandlestickSeries.Options?) -> CandlestickSeries
     
     /**
      * Creates a histogram series with specified parameters
-     * - Parameter histogramOptions: customization parameters of the series being created
+     * - Parameter options: customization parameters of the series being created
      * - Returns: an interface of the created series
      */
     func addHistogramSeries(options: HistogramSeries.Options?) -> HistogramSeries
 
     /**
      * Creates a line series with specified parameters
-     * - Parameter lineOptions: customization parameters of the series being created
+     * - Parameter options: customization parameters of the series being created
      * - Returns: an interface of the created series
      */
     func addLineSeries(options: LineSeries.Options?) -> LineSeries
+    
+    /**
+     * Creates a baseline series with specified parameters.
+     * - Parameter options: customization parameters of the series being created
+     * - Returns: an interface of the created series
+     */
+    func addBaselineSeries(options: BaselineSeries.Options?) -> BaselineSeries
 
     /**
      * Removes a series of any type.

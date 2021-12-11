@@ -114,6 +114,10 @@ extension Chart: ChartApi {
         addSeries(options: options ?? LineSeries.Options())
     }
     
+    func addBaselineSeries(options: BaselineSeries.Options?) -> BaselineSeries {
+        addSeries(options: options ?? BaselineSeries.Options())
+    }
+    
     func removeSeries<T: SeriesApi & SeriesObject>(seriesApi: T) {
         let script = "\(jsName).removeSeries(\(seriesApi.jsName));"
         context.evaluateScript(script, completion: nil)

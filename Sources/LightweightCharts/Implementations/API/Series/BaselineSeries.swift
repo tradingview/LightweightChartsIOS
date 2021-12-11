@@ -1,8 +1,8 @@
-//
-//  BaselineSeries.swift
-//  LightweightCharts
-//
-//  Created by Alex Nevyantsev on 12/10/21.
-//
-
 import Foundation
+
+public class BaselineSeries: SeriesObject, SeriesApi {
+    
+    public typealias Options = BaselineSeriesOptions
+    public typealias TickValue = LineData
+    
+}
