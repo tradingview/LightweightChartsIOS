@@ -117,6 +117,10 @@ public protocol TimeScaleApi: AnyObject {
      */
     func unsubscribeVisibleLogicalRangeChange()
     
+    func subscribeSizeChange()
+    
+    func unsubscribeSizeChange()
+    
     /**
      * Applies new options to the time scale.
      * - Parameter options: any subset of options

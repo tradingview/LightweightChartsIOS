@@ -224,4 +224,8 @@ extension Chart: MessageHandlerDelegate {
                         didReceiveVisibleLogicalRangeChangeWithParameters parameters: LogicalRange?) {
     }
     
+    
+    func messageHandler(_ messageHandler: MessageHandler,
+                        didReceiveTimeScaleSizeChangeWithParameters parameters: Rectangle?){
+    }
 }

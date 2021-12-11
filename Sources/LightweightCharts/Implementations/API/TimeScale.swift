@@ -4,6 +4,7 @@ public protocol TimeScaleDelegate: AnyObject {
     
     func didVisibleTimeRangeChange(onTimeScale timeScale: TimeScaleApi, parameters: TimeRange?)
     func didVisibleLogicalRangeChange(onTimeScale timeScale: TimeScaleApi, parameters: LogicalRange?)
+    func didReceiveTimeScaleSizeChangeWithParameters(onTimeScale timeScale: TimeScaleApi, parameters: Rectangle?)
     
 }
 
@@ -162,6 +163,23 @@ extension TimeScale: TimeScaleApi {
         context?.decodedResult(forScript: script, completion: completion)
     }
     
+    func width(completion: @escaping (Double?) -> Void) {
+        let script = "\(jsName).width();"
+        context?.decodedResult(forScript: script, completion: completion)
+    }
+    
+    func height(completion: @escaping (Double?) -> Void) {
+        let script = "\(jsName).height();"
+        context?.decodedResult(forScript: script, completion: completion)
+    }
+    
+    func subscribeSizeChange() {
+        subscribe(subscription: .timeScaleSizeChange)
+    }
+    
+    func unsubscribeSizeChange() {
+        unsubscribe(subsription: .timeScaleSizeChange)
+    }
 }
 
 // MARK: - MessageHandlerDelegate
@@ -183,6 +201,12 @@ extension TimeScale: MessageHandlerDelegate {
     func messageHandler(_ messageHandler: MessageHandler,
                         didReceiveVisibleLogicalRangeChangeWithParameters parameters: LogicalRange?) {
         delegate?.didVisibleLogicalRangeChange(onTimeScale: self, parameters: parameters)
+    }
+    
+    
+    func messageHandler(_ messageHandler: MessageHandler,
+                        didReceiveTimeScaleSizeChangeWithParameters parameters: Rectangle?) {
+        delegate?.didReceiveTimeScaleSizeChangeWithParameters(onTimeScale: self, parameters: parameters)
     }
     
 }
