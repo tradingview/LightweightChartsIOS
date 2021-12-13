@@ -11,6 +11,8 @@ protocol MessageHandlerDelegate: AnyObject {
                         didReceiveVisibleTimeRangeChangeWithParameters parameters: TimeRange?)
     func messageHandler(_ messageHandler: MessageHandler,
                         didReceiveVisibleLogicalRangeChangeWithParameters parameters: LogicalRange?)
+    func messageHandler(_ messageHandler: MessageHandler,
+                        didReceiveTimeScaleSizeChangeWithParameters parameters: Rectangle?)
 }
 
 // MARK: -
@@ -53,6 +55,9 @@ extension MessageHandler: WKScriptMessageHandler {
             case .visibleLogicalRangeChange:
                 let parameters: LogicalRange? = try? decode(messageBodyJSONString)
                 delegate?.messageHandler(self, didReceiveVisibleLogicalRangeChangeWithParameters: parameters)
+            case .timeScaleSizeChange:
+                let parameters: Rectangle? = try? decode(messageBodyJSONString)
+                delegate?.messageHandler(self, didReceiveTimeScaleSizeChangeWithParameters: parameters)
             }
         }
     }

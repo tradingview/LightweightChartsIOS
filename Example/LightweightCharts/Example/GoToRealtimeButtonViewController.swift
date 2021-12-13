@@ -244,6 +244,11 @@ class GoToRealtimeButtonViewController: UIViewController {
 
 // MARK: - TimeScaleDelegate
 extension GoToRealtimeButtonViewController: TimeScaleDelegate {
+    
+    func didReceiveTimeScaleSizeChangeWithParameters(onTimeScale timeScale: TimeScaleApi, parameters: Rectangle?) {
+        
+    }
+    
     func didVisibleTimeRangeChange(onTimeScale timeScale: TimeScaleApi, parameters: TimeRange?) {
         timeScale.scrollPosition { [weak self] position in
             let isHidden = (position ?? 0) >= 0

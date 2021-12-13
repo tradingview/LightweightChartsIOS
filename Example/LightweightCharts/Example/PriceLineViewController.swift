@@ -4,7 +4,7 @@ import LightweightCharts
 class PriceLineViewController: UIViewController {
 
     private var chart: LightweightCharts!
-    private var series: LineSeries!
+    private var series: BaselineSeries!
     private var priceLine: PriceLine!
     
     override func viewDidLoad() {
@@ -21,7 +21,6 @@ class PriceLineViewController: UIViewController {
         
         let options = PriceLineOptions(
             price: 20,
-            color: "#00FF00",
             lineWidth: .two,
             lineStyle: .dotted
         )
@@ -52,7 +51,10 @@ class PriceLineViewController: UIViewController {
     }
     
     private func setupData() {
-        let series = chart.addLineSeries(options: nil)
+        let series = chart.addBaselineSeries(options: BaselineSeriesOptions(
+            topFillColor1: "#fff",
+            topFillColor2: "#0f0"
+        ))
         let data = generateData()
         series.setData(data: data)
         self.series = series
@@ -61,7 +63,7 @@ class PriceLineViewController: UIViewController {
     private func setupPriceLine() {
         let options = PriceLineOptions(
             price: 10,
-            color: "red",
+            color: "#f00",
             lineWidth: .one,
             lineStyle: .solid
         )
