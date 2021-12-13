@@ -51,7 +51,7 @@ class PriceLineViewController: UIViewController {
     }
     
     private func setupData() {
-        let series = chart.addBaselineSeries(options: .init(
+        let series = chart.addBaselineSeries(options: BaselineSeriesOptions(
             topFillColor1: "#fff",
             topFillColor2: "#0f0"
         ))

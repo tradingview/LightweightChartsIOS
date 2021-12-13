@@ -226,6 +226,6 @@ extension Chart: MessageHandlerDelegate {
     
     
     func messageHandler(_ messageHandler: MessageHandler,
-                        didReceiveTimeScaleSizeChangeWithParameters parameters: Rectangle?){
+                        didReceiveTimeScaleSizeChangeWithParameters parameters: Rectangle?) {
     }
 }

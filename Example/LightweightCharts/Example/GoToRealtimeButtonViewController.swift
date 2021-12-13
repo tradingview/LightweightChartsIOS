@@ -244,6 +244,7 @@ class GoToRealtimeButtonViewController: UIViewController {
 
 // MARK: - TimeScaleDelegate
 extension GoToRealtimeButtonViewController: TimeScaleDelegate {
+    
     func didReceiveTimeScaleSizeChangeWithParameters(onTimeScale timeScale: TimeScaleApi, parameters: Rectangle?) {
         
     }

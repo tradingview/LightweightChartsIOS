@@ -4,7 +4,7 @@ import Foundation
  * Represents a type of a base value of baseline series type.
  */
 public enum BaseValueType {
-    case baseValuePrice(valuePrice: BaseValuePrice)
+    case baseValuePrice(BaseValuePrice)
 }
 
 
@@ -22,7 +22,7 @@ extension BaseValueType: Codable {
         let price = try container.decode(Double.self, forKey: .price)
         let type = try container.decode(BaseValuePriceType.self, forKey: .type)
         
-        self = .baseValuePrice(valuePrice: .init(price: price, type: type))
+        self = .baseValuePrice(BaseValuePrice(price: price, type: type))
     }
     
     public func encode(to encoder: Encoder) throws {
