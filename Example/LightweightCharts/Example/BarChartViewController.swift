@@ -8,11 +8,7 @@ class BarChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
-            view.backgroundColor = .systemBackground
-        } else {
-            view.backgroundColor = .white
-        }
+        view.backgroundColor = .black
         
         setupChart()
         setupData()
@@ -20,12 +16,13 @@ class BarChartViewController: UIViewController {
     
     private func setupChart() {
         let options = ChartOptions(
-            layout: LayoutOptions(backgroundColor: "#ffffff", textColor: "rgba(33, 56, 77, 1)"),
-            rightPriceScale: VisiblePriceScaleOptions(borderColor: "rgba(197, 203, 206, 1)"),
-            timeScale: TimeScaleOptions(borderColor: "rgba(197, 203, 206, 1)"),
+            layout: LayoutOptions(backgroundColor: ChartColor(.black), textColor: ChartColor(.white)),
+            rightPriceScale: VisiblePriceScaleOptions(borderColor: ChartColor(.gray)),
+            timeScale: TimeScaleOptions(borderColor: ChartColor(.gray)),
             crosshair: CrosshairOptions(mode: .normal)
         )
         let chart = LightweightCharts(options: options)
+        chart.clearWebViewBackground()
         view.addSubview(chart)
         chart.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 11.0, *) {
@@ -47,7 +44,7 @@ class BarChartViewController: UIViewController {
     }
     
     private func setupData() {
-        let options = BarSeriesOptions(upColor: ChartColor(.black), downColor: ChartColor(.black), thinBars: true)
+        let options = BarSeriesOptions(upColor: ChartColor(.white), downColor: ChartColor(.white), thinBars: true)
         let series = chart.addBarSeries(options: options)
         let data = [
             BarData(time: .string("2018-10-19"), open: 180.34, high: 180.99, low: 178.57, close: 179.85),

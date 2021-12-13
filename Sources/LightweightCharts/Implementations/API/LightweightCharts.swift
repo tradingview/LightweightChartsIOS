@@ -19,6 +19,13 @@ public class LightweightCharts: UIView {
         get { webView.errorDelegate }
         set { webView.errorDelegate = newValue }
     }
+    public var isTransparent: Bool {
+        get { webView.isOpaque }
+        set {
+            webView.isOpaque = !newValue
+            webView.backgroundColor = UIColor.clear
+        }
+    }
     
     private let webView: WebView = WebView()
     private let promptHandler: PromptHandler = PromptHandler()
@@ -63,6 +70,11 @@ public class LightweightCharts: UIView {
         }
         self.chart = chart
         return chart
+    }
+    
+    public func clearWebViewBackground() {
+        webView.isOpaque = false
+        webView.backgroundColor = UIColor.clear
     }
     
     public override func layoutSubviews() {
