@@ -20,7 +20,7 @@ LightweightCharts is available through [CocoaPods](https://cocoapods.org). To in
 it, just simply add the following line to your Podfile:
 
 ```ruby
-pod 'LightweightCharts', '~> 3.6.1'
+pod 'LightweightCharts', '~> 3.7.0'
 ```
 ## Usage
 
