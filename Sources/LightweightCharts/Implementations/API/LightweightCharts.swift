@@ -65,6 +65,11 @@ public class LightweightCharts: UIView {
         return chart
     }
     
+    public func clearWebViewBackground() {
+        webView.isOpaque = false
+        webView.backgroundColor = UIColor.clear
+    }
+    
     public override func layoutSubviews() {
         super.layoutSubviews()
         
