@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     
   s.name                    = 'LightweightCharts'
-  s.version                 = '3.7.0'
+  s.version                 = '3.7.1'
   s.summary                 = 'LightweightCharts for iOS.'
   s.description             = 'LightweightCharts pod. Swift wrapper above JavaScript library.'
   s.homepage                = 'https://tradingview.com'
