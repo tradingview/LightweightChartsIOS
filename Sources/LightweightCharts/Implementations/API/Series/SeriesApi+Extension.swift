@@ -25,7 +25,7 @@ public extension SeriesApi where Self: SeriesObject {
     }
     
     func barsInLogicalRange(range: FromToRange<Double>, completion: @escaping (BarsInfo?) -> Void) {
-        let script = "\(jsName).setData(\(range.jsonString));"
+        let script = "\(jsName).barsInLogicalRange(\(range.jsonString));"
         context.decodedResult(forScript: script, completion: completion)
     }
     
