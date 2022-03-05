@@ -74,6 +74,11 @@ public struct ChartOptions: Codable {
      Structure that describes kinetic scroll behavior
      */
     public var kineticScroll: KineticScrollOptions?
+    
+    /**
+     Represent options for the tracking mode's behavior.
+     */
+    public var trackingMode: TrackingModeOptions?
         
     public init(width: Double? = nil,
                 height: Double? = nil,
@@ -88,7 +93,8 @@ public struct ChartOptions: Codable {
                 localization: LocalizationOptions? = nil,
                 handleScroll: HandleScrollOptions? = nil,
                 handleScale: TogglableOptions<HandleScaleOptions>? = nil,
-                kineticScroll: KineticScrollOptions? = nil) {
+                kineticScroll: KineticScrollOptions? = nil,
+                trackingMode: TrackingModeOptions? = nil) {
         self.width = width
         self.height = height
         self.watermark = watermark
@@ -103,6 +109,7 @@ public struct ChartOptions: Codable {
         self.handleScroll = handleScroll
         self.handleScale = handleScale
         self.kineticScroll = kineticScroll
+        self.trackingMode = trackingMode
     }
     
 }

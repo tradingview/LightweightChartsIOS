@@ -19,7 +19,8 @@ class BarChartViewController: UIViewController {
             layout: LayoutOptions(backgroundColor: ChartColor(.black), textColor: ChartColor(.white)),
             rightPriceScale: VisiblePriceScaleOptions(borderColor: ChartColor(.gray)),
             timeScale: TimeScaleOptions(borderColor: ChartColor(.gray)),
-            crosshair: CrosshairOptions(mode: .normal)
+            crosshair: CrosshairOptions(mode: .normal),
+            trackingMode: TrackingModeOptions(exitMode: .onTouchEnd)
         )
         let chart = LightweightCharts(options: options)
         chart.clearWebViewBackground()
