@@ -22,10 +22,7 @@ class PriceLineViewController: UIViewController {
         let options = PriceLineOptions(
             price: 20,
             lineWidth: .two,
-            lineStyle: .dotted,
-            lineVisible: false,
-            axisLabelVisible: false,
-            title: "asdasd"
+            lineStyle: .dotted
         )
         priceLine.applyOptions(options: options)
     }
@@ -68,10 +65,7 @@ class PriceLineViewController: UIViewController {
             price: 10,
             color: "#f00",
             lineWidth: .one,
-            lineStyle: .solid,
-            lineVisible: true,
-            axisLabelVisible: true,
-            title: "asdasd"
+            lineStyle: .solid
         )
         let priceLine = series.createPriceLine(options: options)
         self.priceLine = priceLine
