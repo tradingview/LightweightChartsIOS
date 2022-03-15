@@ -25,4 +25,9 @@ public struct HistogramData: HistogramSeriesData {
         self.value = value
     }
     
+    public init(time: Time, value: Double?, color: ChartColor? = nil) {
+        self.time = time
+        self.value = value
+        self.color = color
+    }
 }
