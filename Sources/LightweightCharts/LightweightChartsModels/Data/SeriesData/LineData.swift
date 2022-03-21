@@ -1,6 +1,6 @@
 import Foundation
 
-protocol LineSeriesData: SingleValueData {
+protocol LineSeriesData: SingleValueSeriesData {
     
     /**
      Optional color value for certain data item. If missed, color from options is used
@@ -21,6 +21,7 @@ public struct LineData: LineSeriesData {
     public init(time: Time, value: Double?, color: ChartColor? = nil) {
         self.time = time
         self.value = value
+        self.color = color
     }
     
 }
