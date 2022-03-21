@@ -3,7 +3,7 @@ import Foundation
 /**
 Structure describing a single item of data for histogram series
 */
-protocol HistogramSeriesData: LineSeriesData {
+protocol HistogramSeriesData: SingleValueSeriesData {
     
     /**
      * Optional color value for certain data item. If missed, color from HistogramSeriesOptions is used
