@@ -1,12 +1,11 @@
 import Foundation
 
-protocol LineSeriesData: SeriesData {
-
-    /**
-     * Price value of data item
-     */
-    var value: Double? { get }
+protocol LineSeriesData: SingleValueSeriesData {
     
+    /**
+     Optional color value for certain data item. If missed, color from options is used
+     */
+    var color: ChartColor? { get }
 }
 
 // MARK: -
@@ -17,10 +16,12 @@ public struct LineData: LineSeriesData {
     
     public var time: Time
     public var value: Double?
+    public var color: ChartColor?
     
-    public init(time: Time, value: Double?) {
+    public init(time: Time, value: Double?, color: ChartColor? = nil) {
         self.time = time
         self.value = value
+        self.color = color
     }
     
 }
