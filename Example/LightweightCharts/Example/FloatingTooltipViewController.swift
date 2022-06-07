@@ -398,6 +398,7 @@ class FloatingTooltipViewController: UIViewController {
     private func setupSubscription() {
         chart.delegate = self
         chart.subscribeCrosshairMove()
+        chart.subscribeClick()
     }
     
 }
@@ -406,7 +407,8 @@ class FloatingTooltipViewController: UIViewController {
 extension FloatingTooltipViewController: ChartDelegate {
     
     func didClick(onChart chart: ChartApi, parameters: MouseEventParams) {
-        
+        let a = 1
+        let b = a + 1
     }
     
     func didCrosshairMove(onChart chart: ChartApi, parameters: MouseEventParams) {
