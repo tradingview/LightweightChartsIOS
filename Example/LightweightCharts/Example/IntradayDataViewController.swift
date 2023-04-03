@@ -20,7 +20,7 @@ class IntradayDataViewController: UIViewController {
     
     private func setupUI() {
         let options = ChartOptions(
-            layout: LayoutOptions(backgroundColor: "#ffffff", textColor: "rgba(33, 56, 77, 1)"),
+            layout: LayoutOptions(background: .solid(color: "#ffffff"), textColor: "rgba(33, 56, 77, 1)"),
             timeScale: TimeScaleOptions(timeVisible: true, secondsVisible: false),
             grid: GridOptions(
                 verticalLines: GridLineOptions(color: "rgba(197, 203, 206, 0.7)"),

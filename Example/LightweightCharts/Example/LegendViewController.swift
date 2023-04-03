@@ -42,7 +42,7 @@ class LegendViewController: UIViewController {
         }
         
         let options = ChartOptions(
-            layout: LayoutOptions(backgroundColor: "#000000", textColor: "#d1d4dc"),
+            layout: LayoutOptions(background: .solid(color: "#000000"), textColor: "#d1d4dc"),
             rightPriceScale: VisiblePriceScaleOptions(scaleMargins: PriceScaleMargins(top: 0.3, bottom: 0.25)),
             crosshair: CrosshairOptions(
                 vertLine: CrosshairLineOptions(color: "rgba(224, 227, 235, 0.1)", width: .four, style: .solid),

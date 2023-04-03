@@ -30,7 +30,7 @@ class NoTimeScaleViewController: UIViewController {
     
     private func setupUI() {
         let options = ChartOptions(
-            layout: LayoutOptions(backgroundColor: "#fafafa"),
+            layout: LayoutOptions(background: .solid(color: "#fafafa")),
             leftPriceScale: VisiblePriceScaleOptions(visible: false),
             rightPriceScale: VisiblePriceScaleOptions(visible: false),
             timeScale: TimeScaleOptions(visible: false),

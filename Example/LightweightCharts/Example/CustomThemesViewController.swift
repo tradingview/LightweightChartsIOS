@@ -20,7 +20,7 @@ class CustomThemesViewController: UIViewController {
                 return ChartOptions(
                     watermark: WatermarkOptions(color: "rgba(0, 0, 0, 0)"),
                     // TODO: need lineColor
-                    layout: LayoutOptions(backgroundColor: "#2B2B43", textColor: "#D9D9D9"),
+                    layout: LayoutOptions(background: .solid(color: "#2B2B43"), textColor: "#D9D9D9"),
                     crosshair: CrosshairOptions(
                         vertLine: CrosshairLineOptions(color: "#758696"),
                         horzLine: CrosshairLineOptions(color: "#758696")
@@ -34,7 +34,7 @@ class CustomThemesViewController: UIViewController {
                 return ChartOptions(
                     watermark: WatermarkOptions(color: "rgba(0, 0, 0, 0)"),
                     // TODO: need lineColor
-                    layout: LayoutOptions(backgroundColor: "#FFFFFF", textColor: "#191919"),
+                    layout: LayoutOptions(background: .solid(color: "#FFFFFF"), textColor: "#191919"),
                     crosshair: CrosshairOptions(
                         vertLine: CrosshairLineOptions(color: "#758696"),
                         horzLine: CrosshairLineOptions(color: "#758696")

@@ -16,7 +16,7 @@ class BarChartViewController: UIViewController {
     
     private func setupChart() {
         let options = ChartOptions(
-            layout: LayoutOptions(backgroundColor: ChartColor(.black), textColor: ChartColor(.white)),
+            layout: LayoutOptions(background: .solid(color: ChartColor(.black)), textColor: ChartColor(.white)),
             rightPriceScale: VisiblePriceScaleOptions(borderColor: ChartColor(.gray)),
             timeScale: TimeScaleOptions(borderColor: ChartColor(.gray)),
             crosshair: CrosshairOptions(mode: .normal),

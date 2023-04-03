@@ -5,12 +5,6 @@ import Foundation
  */
 public struct LayoutOptions: Codable {
     
-    /**
-     Background color of the chart area and the scales
-     */
-    @available(*, deprecated, message: "Use background instead")
-    public var backgroundColor: ChartColor?
-    
     public var background: SurfaceColor?
     
     /**
@@ -28,12 +22,10 @@ public struct LayoutOptions: Codable {
      */
     public var fontFamily: String?
     
-    public init(backgroundColor: ChartColor? = nil,
-                background: SurfaceColor? = nil,
+    public init(background: SurfaceColor? = nil,
                 textColor: ChartColor? = nil,
                 fontSize: Double? = nil,
                 fontFamily: String? = nil) {
-        self.backgroundColor = backgroundColor
         self.background = background
         self.textColor = textColor
         self.fontSize = fontSize

@@ -2,7 +2,7 @@ import UIKit
 import LightweightCharts
 
 class VolumeStudyViewController: UIViewController {
-
+    
     private var chart: LightweightCharts!
     private var areaSeries: AreaSeries!
     private var volumeSeries: HistogramSeries!
@@ -23,7 +23,7 @@ class VolumeStudyViewController: UIViewController {
     
     private func setupUI() {
         let options = ChartOptions(
-            layout: LayoutOptions(backgroundColor: "#131722", textColor: "#d1d4dc"),
+            layout: LayoutOptions(background: .solid(color:  "#131722"), textColor: "#d1d4dc"),
             rightPriceScale: VisiblePriceScaleOptions(
                 scaleMargins: PriceScaleMargins(top: 0.3, bottom: 0.25),
                 borderVisible: false

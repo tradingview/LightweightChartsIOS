@@ -2,7 +2,7 @@ import UIKit
 import LightweightCharts
 
 class RangeSwitcherViewController: UIViewController {
-
+    
     enum Interval: CaseIterable {
         case day
         case week
@@ -63,7 +63,7 @@ class RangeSwitcherViewController: UIViewController {
         }
         
         let options = ChartOptions(
-            layout: LayoutOptions(backgroundColor: "#000000", textColor: "#d1d4dc"),
+            layout: LayoutOptions(background: .solid(color: "#000000"), textColor: "#d1d4dc"),
             rightPriceScale: VisiblePriceScaleOptions(borderVisible: false),
             timeScale: TimeScaleOptions(borderVisible: false),
             crosshair: CrosshairOptions(horzLine: CrosshairLineOptions(visible: false)),
@@ -94,7 +94,7 @@ class RangeSwitcherViewController: UIViewController {
         
         segmentedControl.selectedSegmentIndex = 0
     }
-
+    
     private func syncToInterval(_ interval: Interval) {
         if let series = series {
             chart.removeSeries(seriesApi: series)

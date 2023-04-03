@@ -21,7 +21,7 @@ class PercentagePriceScaleViewController: UIViewController {
     
     private func setupUI() {
         let options = ChartOptions(
-            layout: LayoutOptions(backgroundColor: "#100841", textColor: "#ffffff"),
+            layout: LayoutOptions(background: .solid(color: "#100841"), textColor: "#ffffff"),
             rightPriceScale: VisiblePriceScaleOptions(mode: .percentage),
             timeScale: TimeScaleOptions(borderColor: "rgba(197, 203, 206, 0.4)"),
             grid: GridOptions(

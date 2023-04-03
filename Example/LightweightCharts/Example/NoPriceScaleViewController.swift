@@ -20,7 +20,7 @@ class NoPriceScaleViewController: UIViewController {
     
     private func setupUI() {
         let options = ChartOptions(
-            layout: LayoutOptions(backgroundColor: "#fff"),
+            layout: LayoutOptions(background: .solid(color: "#fff")),
             rightPriceScale: VisiblePriceScaleOptions(visible: false),
             grid: GridOptions(
                 verticalLines: GridLineOptions(visible: false),
