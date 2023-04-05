@@ -34,13 +34,15 @@ public struct BarPrices: Codable {
 public struct MouseEventParams: Codable {
     
     public let time: EventTime?
+    public let logical: Int?
     public let point: Point?
     public let hoveredMarkerId: Int?
     
     private let seriesPrices: [String: EventPrices?]
     
-    public init(time: EventTime?, point: Point?, hoveredMarkerId: Int?) {
+    public init(time: EventTime?,logical: Int?, point: Point?, hoveredMarkerId: Int?) {
         self.time = time
+        self.logical = logical
         self.point = point
         self.hoveredMarkerId = hoveredMarkerId
         self.seriesPrices = [:]
@@ -70,7 +72,7 @@ extension EventTime: Codable {
     }
     
     // MARK: Encodable
-
+    
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
