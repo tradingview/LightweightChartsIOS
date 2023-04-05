@@ -20,6 +20,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
     
     public var topColor: ChartColor?
     public var bottomColor: ChartColor?
+    public var invertFilledArea: Bool?
     public var lineColor: ChartColor?
     public var lineStyle: LineStyle?
     public var lineWidth: LineWidth?
@@ -27,6 +28,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
     public var crosshairMarkerRadius: Double?
     public var crosshairMarkerBorderColor: ChartColor?
     public var crosshairMarkerBackgroundColor: ChartColor?
+    public var crosshairMarkerBorderWidth: Double?
     public var lastPriceAnimation: LastPriceAnimationMode?
     
     public init(lastValueVisible: Bool? = nil,
@@ -46,6 +48,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
                 autoscaleInfoProvider: AutoscaleInfoProvider? = nil,
                 topColor: ChartColor? = nil,
                 bottomColor: ChartColor? = nil,
+                invertFilledArea: Bool? = nil,
                 lineColor: ChartColor? = nil,
                 lineStyle: LineStyle? = nil,
                 lineWidth: LineWidth? = nil,
@@ -53,6 +56,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
                 crosshairMarkerRadius: Double? = nil,
                 crosshairMarkerBorderColor: ChartColor? = nil,
                 crosshairMarkerBackgroundColor: ChartColor? = nil,
+                crosshairMarkerBorderWidth: Double? = nil,
                 lastPriceAnimation: LastPriceAnimationMode? = nil) {
         self.lastValueVisible = lastValueVisible
         self.title = title
@@ -71,6 +75,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
         self.autoscaleInfoProvider = autoscaleInfoProvider
         self.topColor = topColor
         self.bottomColor = bottomColor
+        self.invertFilledArea = invertFilledArea
         self.lineColor = lineColor
         self.lineStyle = lineStyle
         self.lineWidth = lineWidth
@@ -78,6 +83,7 @@ public struct AreaSeriesOptions: SeriesOptionsCommon {
         self.crosshairMarkerRadius = crosshairMarkerRadius
         self.crosshairMarkerBorderColor = crosshairMarkerBorderColor
         self.crosshairMarkerBackgroundColor = crosshairMarkerBackgroundColor
+        self.crosshairMarkerBorderWidth = crosshairMarkerBorderWidth
         self.lastPriceAnimation = lastPriceAnimation
     }
     

@@ -72,7 +72,7 @@ protocol OverlayPriceScaleOptionsProtocol {
     /**
      True value add a small horizontal ticks on price axis labels
      */
-    var drawTicks: Bool? { get }
+    var ticksVisible: Bool? { get }
     
 }
 
@@ -106,7 +106,7 @@ public struct PriceScaleOptions: Codable, VisiblePriceScaleOptionsProtocol {
     public var borderColor: ChartColor?
     public var entireTextOnly: Bool?
     public var visible: Bool?
-    public var drawTicks: Bool?
+    public var ticksVisible: Bool?
     
     public init(autoScale: Bool? = nil,
                 mode: PriceScaleMode? = nil,
@@ -127,7 +127,7 @@ public struct PriceScaleOptions: Codable, VisiblePriceScaleOptionsProtocol {
         self.borderColor = borderColor
         self.entireTextOnly = entireTextOnly
         self.visible = visible
-        self.drawTicks = drawTicks
+        self.ticksVisible = drawTicks
     }
     
 }
@@ -148,7 +148,7 @@ public struct OverlayPriceScaleOptions: Codable, OverlayPriceScaleOptionsProtoco
     public var borderVisible: Bool?
     public var borderColor: ChartColor?
     public var entireTextOnly: Bool?
-    public var drawTicks: Bool?
+    public var ticksVisible: Bool?
     
     public init(autoScale: Bool? = nil,
                 mode: PriceScaleMode? = nil,
@@ -167,7 +167,7 @@ public struct OverlayPriceScaleOptions: Codable, OverlayPriceScaleOptionsProtoco
         self.borderVisible = borderVisible
         self.borderColor = borderColor
         self.entireTextOnly = entireTextOnly
-        self.drawTicks = drawTicks
+        self.ticksVisible = drawTicks
     }
     
 }

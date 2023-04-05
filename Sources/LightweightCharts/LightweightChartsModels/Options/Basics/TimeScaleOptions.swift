@@ -15,6 +15,7 @@ public struct TimeScaleOptions {
     public var timeVisible: Bool?
     public var secondsVisible: Bool?
     public var shiftVisibleRangeOnNewBar: Bool?
+    public var ticksVisible: Bool?
     
     public var tickMarkFormatter: JavaScriptMethod<TickMarkFormatterParameters, String>? {
         get {
@@ -39,6 +40,7 @@ public struct TimeScaleOptions {
                 timeVisible: Bool? = nil,
                 secondsVisible: Bool? = nil,
                 shiftVisibleRangeOnNewBar: Bool? = nil,
+                ticksVisible: Bool? = nil,
                 tickMarkFormatter: JavaScriptMethod<TickMarkFormatterParameters, String>? = nil) {
         self.rightOffset = rightOffset
         self.barSpacing = barSpacing
@@ -53,6 +55,7 @@ public struct TimeScaleOptions {
         self.timeVisible = timeVisible
         self.secondsVisible = secondsVisible
         self.shiftVisibleRangeOnNewBar = shiftVisibleRangeOnNewBar
+        self.ticksVisible = ticksVisible
         self.tickMarkFormatter = tickMarkFormatter
     }
 
