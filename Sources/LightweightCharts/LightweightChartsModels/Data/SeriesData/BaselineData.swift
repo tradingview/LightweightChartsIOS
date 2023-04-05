@@ -1,6 +1,16 @@
 import Foundation
 
-public struct BaselineData: SingleValueData {
+public struct BaselineData: SingleValueSeriesData {
+    
+    /**
+     * The time of the data.
+     */
+    public var time: Time
+    
+    /**
+     * Price value of the data.
+     */
+    public var value: Double?
     
     /**
      * Optional top area top fill color value for certain data item. If missed, color from options is used
@@ -27,20 +37,27 @@ public struct BaselineData: SingleValueData {
      */
     public var bottomFillColor2: ChartColor?
     
-    /**
+    /** 
      * Optional bottom area line color value for certain data item. If missed, color from options is used
      */
     public var bottomLineColor: ChartColor?
     
-    
-    /**
-     * The time of the data.
-     */
-    public var time: Time
-    
-    /**
-     * Price value of the data.
-     */
-    public var value: Double?
+    public init(time: Time,
+         value: Double? = nil,
+         topFillColor1: ChartColor? = nil,
+         topFillColor2: ChartColor? = nil,
+         topLineColor: ChartColor? = nil,
+         bottomFillColor1: ChartColor? = nil,
+         bottomFillColor2: ChartColor? = nil,
+         bottomLineColor: ChartColor? = nil) {
+        self.time = time
+        self.value = value
+        self.topFillColor1 = topFillColor1
+        self.topFillColor2 = topFillColor2
+        self.topLineColor = topLineColor
+        self.bottomFillColor1 = bottomFillColor1
+        self.bottomFillColor2 = bottomFillColor2
+        self.bottomLineColor = bottomLineColor
+    }
     
 }
