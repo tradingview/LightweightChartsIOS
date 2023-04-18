@@ -432,10 +432,10 @@ extension ThreeLineLegendViewController: ChartDelegate {
     
     func didCrosshairMove(onChart chart: ChartApi, parameters: MouseEventParams) {
         if case let .businessDay(date) = parameters.time,
-            case let .barPrice(price) = parameters.price(forSeries: series) {
+            case let .lineData(price) = parameters.price(forSeries: series) {
             
             let dateString = "\(date.year) - \(date.month) - \(date.day)"
-            self.legendLabel.text = "\(self.legend)\n\((price * 100).rounded() / 100)\n\(dateString)"
+            self.legendLabel.text = "\(self.legend)\n\((price.value! * 100).rounded() / 100)\n\(dateString)"
         } else {
             setLastBarText()
         }

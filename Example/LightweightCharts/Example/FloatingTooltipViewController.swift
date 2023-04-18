@@ -410,14 +410,14 @@ extension FloatingTooltipViewController: ChartDelegate {
     }
     
     func didCrosshairMove(onChart chart: ChartApi, parameters: MouseEventParams) {
-        if case let .businessDay(date) = parameters.time,
+        if case let .businessDayString(date) = parameters.time,
             let point = parameters.point,
-            case let .barPrice(price) = parameters.price(forSeries: series) {
-            self.series.priceToCoordinate(price: price) { [weak self] in
+            case let .lineData(price) = parameters.price(forSeries: series) {
+            self.series.priceToCoordinate(price: price.value!) { [weak self] in
                 guard let self = self else { return }
                 if let coordinate = $0 {
-                    let dateString = "\(date.year) - \(date.month) - \(date.day)"
-                    self.tooltipView.update(title: self.legend, price: price, date: dateString)
+                    let dateString = date
+                    self.tooltipView.update(title: self.legend, price: price.value!, date: dateString)
                     self.tooltipView.isHidden = false
                     self.centerXConstraint.constant = CGFloat(point.x)
                     self.bottomConstraint.constant = CGFloat(coordinate) - 16

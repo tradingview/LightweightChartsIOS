@@ -254,8 +254,8 @@ extension LegendViewController: ChartDelegate {
     }
     
     func didCrosshairMove(onChart chart: ChartApi, parameters: MouseEventParams) {
-        if case let .barPrice(price) = parameters.price(forSeries: series) {
-            self.legendLabel.text = self.legend + " \((price * 100).rounded() / 100)"
+        if case let .lineData(price) = parameters.price(forSeries: series) {
+            self.legendLabel.text = self.legend + " \((price.value! * 100).rounded() / 100)"
         } else {
             self.legendLabel.text = self.legend
         }

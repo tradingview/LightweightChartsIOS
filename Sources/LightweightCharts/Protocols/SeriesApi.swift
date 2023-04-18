@@ -102,12 +102,23 @@ public protocol SeriesApi: AnyObject {
     func update(bar: SeriesDataType<TickValue>)
     
     /**
+     * Returns a bar data by provided logical index.
+     */
+    func dataByIndex(logic:Int, mismatchDirection: MismatchDirection?, completion: @escaping (TickValue?) -> Void)
+    
+    /**
      * Sets markers for the series
      * - Parameter data: array of series markers.
      * This array should be sorted by time.
      * Several markers with same time are allowed.
      */
     func setMarkers(data: [SeriesMarker])
+    
+    /**
+     * Returns an list of series markers.
+     * - Parameter completion: list of series markers
+     */
+    func markers(completion: @escaping (SeriesMarker?) -> Void)
 
     /**
      * Creates a new price line
