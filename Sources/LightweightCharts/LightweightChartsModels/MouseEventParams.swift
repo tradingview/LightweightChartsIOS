@@ -39,7 +39,6 @@ public struct TouchMouseEventData: Codable {
     
     /**
      * The X coordinate of the mouse pointer in global (screen) coordinates.
-     * The X coordinate of the mouse pointer in global (screen) coordinates.
      */
     public let  screenX: Double?
     
@@ -80,7 +79,18 @@ public struct TouchMouseEventData: Codable {
      */
     public let  metaKey: Bool?
     
-    public init(clientX: Double?, clientY: Double?, pageX: Double?, pageY: Double?, screenX: Double?, screenY: Double?, localX: Double?, localY: Double?, ctrlKey: Bool?, altKey: Bool?, shiftKey: Bool?, metaKey: Bool?) {
+    public init(clientX: Double?,
+                clientY: Double?,
+                pageX: Double?,
+                pageY: Double?,
+                screenX: Double?,
+                screenY: Double?,
+                localX: Double?,
+                localY: Double?,
+                ctrlKey: Bool?,
+                altKey: Bool?,
+                shiftKey: Bool?,
+                metaKey: Bool?) {
         self.clientX = clientX
         self.clientY = clientY
         self.pageX = pageX
@@ -138,7 +148,7 @@ extension EventTime: Codable {
             self = .utc(timestamp: utcTimestamp)
         } else if let businessDay = try? container.decode(BusinessDay.self) {
             self = .businessDay(businessDay)
-        } else if let businessDayString = try? container.decode(String.self){
+        } else if let businessDayString = try? container.decode(String.self) {
             self = .businessDayString(businessDayString)
         } else {
             throw DecodingError.dataCorruptedError(in: container,
@@ -169,14 +179,11 @@ extension EventPrices: Codable {
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        let barData = try? container.decode(BarData.self)
-        let lineData = try? container.decode(LineData.self)
-        
-        if (lineData?.value != nil){
-            self = .lineData(lineData!)
-        }else if (barData != nil) {
-            self = .barData(barData!)
-        }else {
+        if let lineData = try? container.decode(LineData.self), lineData.value != nil {
+            self = .lineData(lineData)
+        } else if let barData = try? container.decode(BarData.self) {
+            self = .barData(barData)
+        } else {
             self = .none
         }
     }

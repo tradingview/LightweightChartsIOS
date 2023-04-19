@@ -75,7 +75,7 @@ public extension SeriesApi where Self: SeriesObject {
         updateSeriesBar(bar)
     }
     
-    func dataByIndex(logic:Int, mismatchDirection: MismatchDirection? = nil, completion: @escaping (TickValue?) -> Void){
+    func dataByIndex(logic: Int, mismatchDirection: MismatchDirection? = nil, completion: @escaping (TickValue?) -> Void) {
         let direction = mismatchDirection?.rawValue ?? 0
         let script = "\(jsName).dataByIndex(\(logic), \(direction));"
         context.decodedResult(forScript: script, completion: completion)
@@ -86,7 +86,7 @@ public extension SeriesApi where Self: SeriesObject {
         context.evaluateScript(script, completion: nil)
     }
     
-    func markers(completion: @escaping (SeriesMarker?) -> Void){
+    func markers(completion: @escaping (SeriesMarker?) -> Void) {
         let script = "\(jsName).markers();"
         context.decodedResult(forScript: script, completion: completion)
     }

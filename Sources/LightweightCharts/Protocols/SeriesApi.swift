@@ -104,7 +104,7 @@ public protocol SeriesApi: AnyObject {
     /**
      * Returns a bar data by provided logical index.
      */
-    func dataByIndex(logic:Int, mismatchDirection: MismatchDirection?, completion: @escaping (TickValue?) -> Void)
+    func dataByIndex(logic: Int, mismatchDirection: MismatchDirection?, completion: @escaping (TickValue?) -> Void)
     
     /**
      * Sets markers for the series
