@@ -20,6 +20,7 @@ class Chart: JavaScriptObject {
     private unowned var context: Context
     private let messageHandler: MessageHandler
     private weak var closureStore: ClosuresStore?
+    private var activeSubscriptions: Set<Subscription> = []
     
     init(context: Context, closureStore: ClosuresStore?) {
         self.context = context
@@ -54,17 +55,25 @@ class Chart: JavaScriptObject {
     }
     
     private func subscribe(subscription: Subscription) {
+        if (activeSubscriptions.contains(subscription)){
+            return
+        }
         let name = subscriberName(for: subscription)
         let subscriberScript = subsriberScript(forName: name, subscription: subscription)
         let script = subscriberScript + "\n\(jsName).subscribe\(subscription.jsRepresentation)(\(name));"
         context.addMessageHandler(messageHandler, name: name)
         context.evaluateScript(script, completion: nil)
+        activeSubscriptions.insert(subscription)
     }
     
     private func unsubscribe(subsription: Subscription) {
+        if (!activeSubscriptions.contains(subsription)){
+            return
+        }
         let name = subscriberName(for: subsription)
         let script = "\(jsName).unsubscribe\(subsription.jsRepresentation)(\(name));"
         context.evaluateScript(script, completion: nil)
+        activeSubscriptions.remove(subsription)
     }
     
     private func unsubscribeAll() {
