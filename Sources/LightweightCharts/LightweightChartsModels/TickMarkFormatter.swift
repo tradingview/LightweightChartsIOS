@@ -14,4 +14,10 @@ public struct TickMarkFormatterParameters: Codable {
     public let tickMarkType: TickMarkType
     public let locale: String
     
+    public init(time: EventTime, tickMarkType: TickMarkType, locale: String) {
+        self.time = time
+        self.tickMarkType = tickMarkType
+        self.locale = locale
+    }
+    
 }
