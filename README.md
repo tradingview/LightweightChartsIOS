@@ -12,7 +12,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-- iOS 10.0+
+- iOS 12.0+
 
 ## Installation
 
@@ -20,7 +20,7 @@ LightweightCharts is available through [CocoaPods](https://cocoapods.org). To in
 it, just simply add the following line to your Podfile:
 
 ```ruby
-pod 'LightweightCharts', '~> 3.8.0'
+pod 'LightweightCharts', '~> 4.0.0'
 ```
 ## Usage
 
