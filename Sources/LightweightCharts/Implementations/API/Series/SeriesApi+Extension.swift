@@ -75,9 +75,9 @@ public extension SeriesApi where Self: SeriesObject {
         updateSeriesBar(bar)
     }
     
-    func dataByIndex(logic: Int, mismatchDirection: MismatchDirection? = nil, completion: @escaping (TickValue?) -> Void) {
+    func dataByIndex(logicalIndex: Int, mismatchDirection: MismatchDirection? = nil, completion: @escaping (TickValue?) -> Void) {
         let direction = mismatchDirection?.rawValue ?? 0
-        let script = "\(jsName).dataByIndex(\(logic), \(direction));"
+        let script = "\(jsName).dataByIndex(\(logicalIndex), \(direction));"
         context.decodedResult(forScript: script, completion: completion)
     }
     

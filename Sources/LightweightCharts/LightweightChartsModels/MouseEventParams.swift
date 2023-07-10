@@ -1,3 +1,4 @@
+
 import Foundation
 
 // MARK: -
@@ -114,18 +115,18 @@ public struct MouseEventParams: Codable {
     public let time: EventTime?
     public let logical: Int?
     public let point: Point?
-    public let hoveredMarkerId: Int?
+    public let hoveredObjectId: Int?
     public let sourceEvent: TouchMouseEventData?
     
     public let hoveredSeries: String?
     
     private let seriesData: [String: EventPrices?]
     
-    public init(time: EventTime?, logical: Int?, point: Point?, hoveredMarkerId: Int?, sourceEvent: TouchMouseEventData?, hoveredSeries: String?) {
+    public init(time: EventTime?, logical: Int?, point: Point?, hoveredObjectId: Int?, sourceEvent: TouchMouseEventData?, hoveredSeries: String?) {
         self.time = time
         self.logical = logical
         self.point = point
-        self.hoveredMarkerId = hoveredMarkerId
+        self.hoveredObjectId = hoveredObjectId
         self.sourceEvent = sourceEvent
         self.seriesData = [:]
         self.hoveredSeries = hoveredSeries

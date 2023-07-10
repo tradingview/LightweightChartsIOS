@@ -117,7 +117,7 @@ public struct PriceScaleOptions: Codable, VisiblePriceScaleOptionsProtocol {
                 borderColor: ChartColor? = nil,
                 entireTextOnly: Bool? = nil,
                 visible: Bool? = nil,
-                drawTicks: Bool? = nil) {
+                ticksVisible: Bool? = nil) {
         self.autoScale = autoScale
         self.mode = mode
         self.invertScale = invertScale
@@ -127,7 +127,7 @@ public struct PriceScaleOptions: Codable, VisiblePriceScaleOptionsProtocol {
         self.borderColor = borderColor
         self.entireTextOnly = entireTextOnly
         self.visible = visible
-        self.ticksVisible = drawTicks
+        self.ticksVisible = ticksVisible
     }
     
 }
@@ -159,7 +159,7 @@ public struct OverlayPriceScaleOptions: Codable, OverlayPriceScaleOptionsProtoco
                 borderColor: ChartColor? = nil,
                 entireTextOnly: Bool? = nil,
                 visible: Bool? = nil,
-                drawTicks: Bool? = nil) {
+                ticksVisible: Bool? = nil) {
         self.mode = mode
         self.invertScale = invertScale
         self.alignLabels = alignLabels
@@ -167,7 +167,7 @@ public struct OverlayPriceScaleOptions: Codable, OverlayPriceScaleOptionsProtoco
         self.borderVisible = borderVisible
         self.borderColor = borderColor
         self.entireTextOnly = entireTextOnly
-        self.ticksVisible = drawTicks
+        self.ticksVisible = ticksVisible
     }
     
 }
