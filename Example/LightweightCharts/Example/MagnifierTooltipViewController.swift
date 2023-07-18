@@ -416,11 +416,11 @@ extension MagnifierTooltipViewController: ChartDelegate {
     }
     
     func didCrosshairMove(onChart chart: ChartApi, parameters: MouseEventParams) {
-        if case let .businessDay(date) = parameters.time,
+        if case let .businessDayString(data) = parameters.time,
             let point = parameters.point,
             case let .lineData(price) = parameters.price(forSeries: series) {
             
-            let dateString = "\(date.year) - \(date.month) - \(date.day)"
+            let dateString = data
             tooltipView.update(title: legend, price: price.value!, date: dateString)
             tooltipView.isHidden = false
             
