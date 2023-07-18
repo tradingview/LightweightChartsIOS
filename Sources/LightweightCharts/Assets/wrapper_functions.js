@@ -62,9 +62,11 @@ function subscriberCrosshairMoveAndClickFunction(name) {
             }
         });
         parameters.seriesData = dict;
-        parameters.sourceEvent = selectProps("clientX", "clientY", "pageX", "pageY", "screenX", "screenY",
-                                             "localX", "localY", "ctrlKey", "altKey", "shiftKey", "metaKey"
-                                             )(param.sourceEvent)
+        if (parameters.sourceEvent != undefined){
+            parameters.sourceEvent = selectProps("clientX", "clientY", "pageX", "pageY", "screenX", "screenY",
+                                                 "localX", "localY", "ctrlKey", "altKey", "shiftKey", "metaKey"
+                                                 )(param.sourceEvent)
+        }
         
         window.webkit.messageHandlers[name].postMessage(JSON.stringify(parameters));
     }
