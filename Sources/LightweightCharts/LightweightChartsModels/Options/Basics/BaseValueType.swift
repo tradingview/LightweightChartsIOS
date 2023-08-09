@@ -52,6 +52,11 @@ public struct BaseValuePrice {
      * Distinguished type value.
      */
     public var type: BaseValuePriceType
+    
+    public init(price: Double, type: BaseValuePriceType) {
+        self.price = price
+        self.type = type
+    }
 }
 
 // MARK: - BaseValuePriceType
