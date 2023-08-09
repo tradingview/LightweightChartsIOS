@@ -6,6 +6,11 @@ import Foundation
 public struct PriceLineOptions: Codable {
     
     /**
+     * The optional ID of this price line.
+     */
+    public var id: String?
+    
+    /**
      Price line's value
      */
     public var price: Double?
@@ -40,13 +45,15 @@ public struct PriceLineOptions: Codable {
      */
     public var title: String?
     
-    public init(price: Double? = nil,
+    public init(id:String? = nil,
+                price: Double? = nil,
                 color: ChartColor? = nil,
                 lineWidth: LineWidth? = nil,
                 lineStyle: LineStyle? = nil,
                 lineVisible: Bool? = nil,
                 axisLabelVisible: Bool? = nil,
                 title: String? = nil) {
+        self.id = id
         self.price = price
         self.color = color
         self.lineWidth = lineWidth

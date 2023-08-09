@@ -40,17 +40,34 @@ function postMessageFunction(name) {
     }
 }
 
+function selectProps(...props) {
+    return function (obj) {
+        const newObj = {};
+        props.forEach(name => {
+            newObj[name] = obj[name];
+        });
+        
+        return newObj;
+    }
+}
+
 function subscriberCrosshairMoveAndClickFunction(name) {
     return function(param) {
         var parameters = param;
         var dict = {};
         seriesArray.forEach(function(stored) {
-            var price = param.seriesPrices.get(stored.series);
+            var price = param.seriesData.get(stored.series);
             if (price != null) {
                 dict[stored.name] = price;
             }
         });
-        parameters.seriesPrices = dict;
+        parameters.seriesData = dict;
+        if (parameters.sourceEvent != undefined){
+            parameters.sourceEvent = selectProps("clientX", "clientY", "pageX", "pageY", "screenX", "screenY",
+                                                 "localX", "localY", "ctrlKey", "altKey", "shiftKey", "metaKey"
+                                                 )(param.sourceEvent)
+        }
+        
         window.webkit.messageHandlers[name].postMessage(JSON.stringify(parameters));
     }
 }

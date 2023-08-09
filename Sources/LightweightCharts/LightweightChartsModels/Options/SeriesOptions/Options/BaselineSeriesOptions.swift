@@ -66,6 +66,11 @@ public struct BaselineSeriesOptions: SeriesOptionsCommon {
     public var lineStyle: LineStyle?
     
     /**
+     * Line type.
+     */
+    public var lineType: LineType?
+    
+    /**
      * Show the crosshair marker.
      */
     public var crosshairMarkerVisible: Bool?
@@ -84,6 +89,11 @@ public struct BaselineSeriesOptions: SeriesOptionsCommon {
      * The crosshair marker background color. An empty string falls back to the the color of the series under the crosshair.
      */
     public var crosshairMarkerBackgroundColor: String?
+    
+    /**
+     * Crosshair marker border width in pixels.
+     */
+    public var crosshairMarkerBorderWidth: Double?
     
     /**
      * Last price animation mode.
@@ -115,10 +125,12 @@ public struct BaselineSeriesOptions: SeriesOptionsCommon {
                 bottomLineColor: ChartColor? = nil,
                 lineWidth: LineWidth? = nil,
                 lineStyle: LineStyle? = nil,
+                lineType: LineType? = nil,
                 crosshairMarkerVisible: Bool? = nil,
                 crosshairMarkerRadius: Double? = nil,
                 crosshairMarkerBorderColor: String? = nil,
                 crosshairMarkerBackgroundColor: String? = nil,
+                crosshairMarkerBorderWidth: Double? = nil,
                 lastPriceAnimation: LastPriceAnimationMode? = nil) {
         self.lastValueVisible = lastValueVisible
         self.title = title
@@ -144,10 +156,12 @@ public struct BaselineSeriesOptions: SeriesOptionsCommon {
         self.bottomLineColor = bottomLineColor
         self.lineWidth = lineWidth
         self.lineStyle = lineStyle
+        self.lineType = lineType
         self.crosshairMarkerVisible = crosshairMarkerVisible
         self.crosshairMarkerRadius = crosshairMarkerRadius
         self.crosshairMarkerBorderColor = crosshairMarkerBorderColor
         self.crosshairMarkerBackgroundColor = crosshairMarkerBackgroundColor
+        self.crosshairMarkerBorderWidth = crosshairMarkerBorderWidth
         self.lastPriceAnimation = lastPriceAnimation
     }
 }

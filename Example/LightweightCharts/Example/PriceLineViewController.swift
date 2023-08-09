@@ -71,12 +71,12 @@ class PriceLineViewController: UIViewController {
         self.priceLine = priceLine
     }
     
-    private func generateData() -> [SingleValueData] {
+    private func generateData() -> [BaselineData] {
         var time = DateComponents(calendar: .current, year: 2018, day: 0).date!
-        var result: [SingleValueData] = []
+        var result: [BaselineData] = []
         for i in 0..<60 {
             time = Date(timeInterval: 60 * 60 * 24, since: time)
-            let lineData = SingleValueData(time: .utc(timestamp: time.timeIntervalSince1970), value: Double(i))
+            let lineData = BaselineData(time: .utc(timestamp: time.timeIntervalSince1970), value: Double(i))
             result.append(lineData)
         }
         return result
