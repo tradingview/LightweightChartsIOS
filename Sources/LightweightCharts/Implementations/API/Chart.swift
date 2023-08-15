@@ -11,6 +11,11 @@ public protocol ChartDelegate: AnyObject {
 // MARK: -
 class Chart: JavaScriptObject {
     
+    enum SubscribeState: CaseIterable {
+        case declared
+        case active
+    }
+    
     typealias Context = JavaScriptEvaluator & JavaScriptMessageProducer
     
     let jsName = "chart" + .uniqueString
@@ -20,7 +25,7 @@ class Chart: JavaScriptObject {
     private unowned var context: Context
     private let messageHandler: MessageHandler
     private weak var closureStore: ClosuresStore?
-    private var activeSubscriptions: Set<Subscription> = []
+    private var activeSubscriptions: Dictionary<Subscription,SubscribeState> = [:]
     
     init(context: Context, closureStore: ClosuresStore?) {
         self.context = context
@@ -55,25 +60,28 @@ class Chart: JavaScriptObject {
     }
     
     private func subscribe(subscription: Subscription) {
-        if (activeSubscriptions.contains(subscription)){
+        if (activeSubscriptions[subscription] == .active){
             return
         }
         let name = subscriberName(for: subscription)
-        let subscriberScript = subsriberScript(forName: name, subscription: subscription)
+        var subscriberScript = ""
+        if (activeSubscriptions[subscription] != .declared) {
+            subscriberScript = subsriberScript(forName: name, subscription: subscription)
+            context.addMessageHandler(messageHandler, name: name)
+        }
         let script = subscriberScript + "\n\(jsName).subscribe\(subscription.jsRepresentation)(\(name));"
-        context.addMessageHandler(messageHandler, name: name)
         context.evaluateScript(script, completion: nil)
-        activeSubscriptions.insert(subscription)
+        activeSubscriptions[subscription] = .active
     }
     
     private func unsubscribe(subsription: Subscription) {
-        if (!activeSubscriptions.contains(subsription)){
+        if (activeSubscriptions[subsription] != .active ){
             return
         }
         let name = subscriberName(for: subsription)
         let script = "\(jsName).unsubscribe\(subsription.jsRepresentation)(\(name));"
         context.evaluateScript(script, completion: nil)
-        activeSubscriptions.remove(subsription)
+        activeSubscriptions[subsription] = .declared
     }
     
     private func unsubscribeAll() {
