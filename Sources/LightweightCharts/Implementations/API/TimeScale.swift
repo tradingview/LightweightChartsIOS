@@ -11,6 +11,11 @@ public protocol TimeScaleDelegate: AnyObject {
 // MARK: -
 class TimeScale: JavaScriptObject {
     
+    enum SubscribeState: CaseIterable {
+        case declared
+        case active
+    }
+    
     typealias Context = JavaScriptEvaluator & JavaScriptMessageProducer
     
     let jsName = "timeScale" + .uniqueString
@@ -20,7 +25,8 @@ class TimeScale: JavaScriptObject {
     private weak var context: Context?
     weak var closureStore: ClosuresStore?
     private let messageHandler: MessageHandler
-        
+    private var activeSubscriptions: Dictionary<Subscription,SubscribeState> = [:]
+    
     init(context: Context, closureStore: ClosuresStore?) {
         self.context = context
         self.closureStore = closureStore
@@ -42,17 +48,27 @@ class TimeScale: JavaScriptObject {
     }
     
     private func subscribe(subscription: Subscription) {
+        if (activeSubscriptions[subscription] == .active) {
+            NSLog("LWChart: double subscribe detected \(subscription)")
+            return
+        }
         let name = subscriberName(for: subscription)
         let subscriberScript = subsriberScript(forName: name, subscription: subscription)
         let script = subscriberScript + "\n\(jsName).subscribe\(subscription.jsRepresentation)(\(name));"
         context?.addMessageHandler(messageHandler, name: name)
         context?.evaluateScript(script, completion: nil)
+        activeSubscriptions[subscription] = .active
     }
     
     private func unsubscribe(subsription: Subscription) {
+        if (activeSubscriptions[subsription] != .active) {
+            NSLog("LWChart: double unsubscribe detected \(subsription)")
+            return
+        }
         let name = subscriberName(for: subsription)
         let script = "\(jsName).unsubscribe\(subsription.jsRepresentation)(\(name));"
         context?.evaluateScript(script, completion: nil)
+        activeSubscriptions[subsription] = .declared
     }
     
 }

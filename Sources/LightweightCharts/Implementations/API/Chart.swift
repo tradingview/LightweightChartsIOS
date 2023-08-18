@@ -61,7 +61,7 @@ class Chart: JavaScriptObject {
     
     private func subscribe(subscription: Subscription) {
         if (activeSubscriptions[subscription] == .active) {
-            NSLog("LWChart: double subscribe detected")
+            NSLog("LWChart: double subscribe detected \(subscription)")
             return
         }
         let name = subscriberName(for: subscription)
@@ -77,7 +77,7 @@ class Chart: JavaScriptObject {
     
     private func unsubscribe(subsription: Subscription) {
         if (activeSubscriptions[subsription] != .active) {
-            NSLog("LWChart: double unsubscribe detected")
+            NSLog("LWChart: double unsubscribe detected \(subsription)")
             return
         }
         let name = subscriberName(for: subsription)
