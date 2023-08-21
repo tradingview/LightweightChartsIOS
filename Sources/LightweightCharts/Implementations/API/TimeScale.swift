@@ -53,9 +53,12 @@ class TimeScale: JavaScriptObject {
             return
         }
         let name = subscriberName(for: subscription)
-        let subscriberScript = subsriberScript(forName: name, subscription: subscription)
+        var subscriberScript = ""
+        if (activeSubscriptions[subscription] != .declared) {
+            subscriberScript = subsriberScript(forName: name, subscription: subscription)
+            context?.addMessageHandler(messageHandler, name: name)
+        }
         let script = subscriberScript + "\n\(jsName).subscribe\(subscription.jsRepresentation)(\(name));"
-        context?.addMessageHandler(messageHandler, name: name)
         context?.evaluateScript(script, completion: nil)
         activeSubscriptions[subscription] = .active
     }
