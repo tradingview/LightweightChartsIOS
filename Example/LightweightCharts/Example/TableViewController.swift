@@ -34,6 +34,7 @@ class TableViewController: UITableViewController {
             Row(title: "Custom watermark", viewController: { CustomWatermarkViewController() }),
             Row(title: "Legend", viewController: { LegendViewController() }),
             Row(title: "3-line legend", viewController: { ThreeLineLegendViewController() }),
+            Row(title: "3-line legend With SingleValueData", viewController: { ThreeLineLegendSerialValueViewController() }),
             Row(title: "Fit content", viewController: { FitContentViewController() }),
             Row(title: "Floating tooltip", viewController: { FloatingTooltipViewController() }),
             Row(title: "Tracking tooltip", viewController: { TrackingTooltipViewController() }),

@@ -13,6 +13,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		74BE5DF4B5014DE3A3202F1B /* Pods_LightweightCharts_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044E7F3DC28BDE6625CA93A6 /* Pods_LightweightCharts_Example.framework */; };
+		77E322B52BCFDE1000F0A8CA /* ThreeLineLegendSerialValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E322B42BCFDE1000F0A8CA /* ThreeLineLegendSerialValueViewController.swift */; };
 		8C8C291824D161F900EC537E /* AddAndRemovePriceLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48520A23A3B3FB0033EE94 /* AddAndRemovePriceLineViewController.swift */; };
 		8C8C291924D1620800EC537E /* PriceLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48520823A3B00E0033EE94 /* PriceLineViewController.swift */; };
 		8C8C291A24D1621500EC537E /* MarkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48520623A39FE50033EE94 /* MarkersViewController.swift */; };
@@ -68,6 +69,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		759758E6F2D1AE08DF45B233 /* Pods-LightweightCharts_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightweightCharts_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LightweightCharts_Tests/Pods-LightweightCharts_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		77E322B42BCFDE1000F0A8CA /* ThreeLineLegendSerialValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeLineLegendSerialValueViewController.swift; sourceTree = "<group>"; };
 		A0572B03C8BB267225BCF044 /* LightweightCharts.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LightweightCharts.podspec; path = ../LightweightCharts.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CDE0E0A068DA7739866C0DAE /* Pods-LightweightCharts_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightweightCharts_Tests.release.xcconfig"; path = "Target Support Files/Pods-LightweightCharts_Tests/Pods-LightweightCharts_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CE48520623A39FE50033EE94 /* MarkersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkersViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			children = (
 				CE5053DD2397AF6D00143B03 /* TableViewController.swift */,
 				CE5053CE2397AF6D00143B03 /* ThreeLineLegendViewController.swift */,
+				77E322B42BCFDE1000F0A8CA /* ThreeLineLegendSerialValueViewController.swift */,
 				CE5053CF2397AF6D00143B03 /* CustomFontFamilyViewController.swift */,
 				CE5053D02397AF6D00143B03 /* VolumeStudyViewController.swift */,
 				CE5053D12397AF6D00143B03 /* RealtimeEmulationViewController.swift */,
@@ -467,6 +470,7 @@
 				CE5054042397AF9400143B03 /* TooltipView.swift in Sources */,
 				8C8C292E24D165A200EC537E /* CustomLocaleViewController.swift in Sources */,
 				8C8C291C24D162BE00EC537E /* NoPriceScaleViewController.swift in Sources */,
+				77E322B52BCFDE1000F0A8CA /* ThreeLineLegendSerialValueViewController.swift in Sources */,
 				8C8C293124D1663500EC537E /* CustomFontFamilyViewController.swift in Sources */,
 				8C8C292724D1648900EC537E /* RangeSwitcherViewController.swift in Sources */,
 				8C8C292F24D1660400EC537E /* RealtimeEmulationViewController.swift in Sources */,

@@ -34,6 +34,13 @@ public protocol ChartApi: AnyObject {
     func addAreaSeries(options: AreaSeries.Options?) -> AreaSeries
     
     /**
+     * Creates an area series with specified parameters
+     * - Parameter options: customization parameters of the series being created
+     * - Returns: an interface of the created series
+     */
+    func addAreaSeries(options: SingleValueSeries.Options?) -> SingleValueSeries
+    
+    /**
      * Creates a bar series with specified parameters
      * - Parameter options: customization parameters of the series being created
      * - Returns: an interface of the created series

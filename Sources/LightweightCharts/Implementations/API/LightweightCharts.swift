@@ -157,6 +157,10 @@ extension LightweightCharts: ChartApi {
         chart.addAreaSeries(options: options)
     }
     
+    public func addAreaSeries(options: SingleValueSeries.Options?) -> SingleValueSeries {
+        chart.addAreaSeries(options: options)
+    }
+    
     public func addBarSeries(options: BarSeries.Options?) -> BarSeries {
         chart.addBarSeries(options: options)
     }

@@ -117,6 +117,10 @@ extension Chart: ChartApi {
         addSeries(options: options ?? AreaSeries.Options())
     }
     
+    func addAreaSeries(options: SingleValueSeries.Options?) -> SingleValueSeries {
+        addSeries(options: options ?? SingleValueSeries.Options())
+    }
+    
     func addBarSeries(options: BarSeries.Options?) -> BarSeries {
         addSeries(options: options ?? BarSeries.Options())
     }
