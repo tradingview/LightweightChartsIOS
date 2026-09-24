@@ -14,6 +14,15 @@ class WebView: WKWebView {
     
 }
 
+/// Carries an `evaluateJavaScript` result across the continuation boundary.
+/// Both the completion handler and the caller are `@MainActor`-isolated, so the value
+/// never actually leaves its isolation domain.
+private struct JavaScriptResultBox: @unchecked Sendable {
+
+    let value: Any?
+
+}
+
 // MARK: - JavaScriptEvaluator
 extension WebView: JavaScriptEvaluator {
 
@@ -63,7 +72,20 @@ extension WebView: JavaScriptEvaluator {
     public func evaluateScript(_ script: String) async throws(JavaScriptBridgeError) -> Any? {
         try JavaScriptBridgeError.checkCancellation()
         do {
-            let result = try await evaluateJavaScript(script, contentWorld: .page)
+            // NB: the async overlay of `evaluateJavaScript(_:in:contentWorld:)` traps on
+            // iOS 16/17 when the script evaluates to `undefined`: WebKit calls the completion
+            // handler with (nil, nil) and the overlay force-unwraps the result. Bridging the
+            // completion handler by hand keeps a missing value as `nil`.
+            let box: JavaScriptResultBox = try await withCheckedThrowingContinuation { continuation in
+                evaluateJavaScript(script) { value, error in
+                    if let error {
+                        continuation.resume(throwing: error)
+                    } else {
+                        continuation.resume(returning: JavaScriptResultBox(value: value))
+                    }
+                }
+            }
+            let result = box.value
             try JavaScriptBridgeError.checkCancellation()
             return result
         } catch {
